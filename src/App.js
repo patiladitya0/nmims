@@ -16,11 +16,10 @@ const App = () => {
       <Route path="/second" element={<Option />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/main" element={<MainPage />}>
-        <Route path="home" element={<Home />} />
-        <Route path="search" element={<Search />} />
-        <Route path="menu" element={<Menu />} /> {/* Correctly nested route */}
-      </Route>
+      <Route path="/main" element={<MainPage />}/>
+        <Route path="/home" element={<Home />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/menu" element={<Menu />} /> {/* Correctly nested route */}
     </Routes>
   );
 };
