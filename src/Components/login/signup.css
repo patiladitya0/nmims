@@ -1,80 +1,87 @@
 * {
     box-sizing: border-box;
-  }
-  
-  body, html {
+}
+
+body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-  }
-  
-  .signup-container {
+    height: 100%; /* Ensure body and html take full height */
+}
+
+.signup-container {
+    position: fixed; /* Fix position to the viewport */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset by half of its width and height */
+    background-color: #f7f7f7; /* Background color */
+    width: 100%; /* Full width for responsive design */
+    height: 100%; /* Full height for responsive design */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f7f7f7;
     padding: 20px;
-  }
-  
-  .signup-form {
+    overflow: auto; /* Enable scrolling if content overflows */
+}
+
+.signup-form {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-  }
-  
-  h2 {
+    max-width: 400px; /* Max width for the form */
+    width: 100%; /* Responsive width */
+}
+
+h2 {
     margin-bottom: 20px;
     text-align: center;
     color: #333;
-  }
-  
-  .input-group {
+}
+
+.input-group {
     margin-bottom: 15px;
-  }
-  
-  .input-group label {
+}
+
+.input-group label {
     display: block;
     font-size: 14px;
     margin-bottom: 5px;
     color: #555;
-  }
-  
-  .input-group input, .dob-select select {
+}
+
+.input-group input, .dob-select select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 16px;
-  }
-  
-  .input-group input:focus, .dob-select select:focus {
+}
+
+.input-group input:focus, .dob-select select:focus {
     border-color: #333;
-  }
-  
-  .dob-select {
+}
+
+.dob-select {
     display: flex;
     justify-content: space-between;
-  }
-  
-  .dob-select select {
+}
+
+.dob-select select {
     flex: 1;
     margin-right: 5px;
-  }
-  
-  .dob-select select:last-child {
+}
+
+.dob-select select:last-child {
     margin-right: 0;
-  }
-  
-  .gender-options {
+}
+
+.gender-options {
     display: flex;
     justify-content: space-between;
-  }
-  
-  .signup-button {
+}
+
+.signup-button {
     width: 100%;
     padding: 10px;
     background-color: #28a745;
@@ -83,20 +90,19 @@
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-  }
-  
-  .signup-button:hover {
+}
+
+.signup-button:hover {
     background-color: #218838;
-  }
-  
-  @media (max-width: 600px) {
+}
+
+@media (max-width: 600px) {
     .signup-form {
-      padding: 15px;
-      max-width: 100%;
+        padding: 15px;
+        max-width: 100%;
     }
-  
+
     h2 {
-      font-size: 20px;
+        font-size: 20px;
     }
-  }
-  
+}

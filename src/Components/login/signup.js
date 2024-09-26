@@ -22,16 +22,17 @@ const Signup = () => {
   return (
     <div className="signup-container">
       <form className="signup-form" onSubmit={handleSubmit}>
-        <h2>Sign Up</h2>
+        <h2>Creating your account ...</h2>
 
         {/* Full Name */}
         <div className="input-group">
-          <label htmlFor="fullName">Full Name</label>
+          <label htmlFor="fullName">Name</label>
           <input
             type="text"
             id="fullName"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
+            placeholder="Full Name"
             required
           />
         </div>
