@@ -12,14 +12,15 @@ import Menu from './page/menu/menu';
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<GetStart />}  />
-        <Route path="/second" element={<Option />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/main" element={<MainPage />}/>
-        <Route path="/home" element={<Home />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/menu" element={<Menu />} /> 
+      <Route path="/" element={<GetStart />} />
+      <Route path="/second" element={<Option />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/main" element={<MainPage />}>
+        <Route path="home" element={<Home />} />
+        <Route path="search" element={<Search />} />
+        <Route path="menu" element={<Menu />} /> {/* Correctly nested route */}
+      </Route>
     </Routes>
   );
 };
