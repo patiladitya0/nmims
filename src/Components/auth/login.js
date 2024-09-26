@@ -22,7 +22,7 @@ const Login = () => {
     return (
         <div className="login-container">
             <form className="login-form" onSubmit={handleSubmit}>
-                <h2>Login</h2>
+                <h2>AnduPandu</h2>
 
                 {/* Links to toggle between login methods */}
                 <div className="toggle-method">
