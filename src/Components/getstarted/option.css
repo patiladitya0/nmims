@@ -33,20 +33,23 @@ h2 {
     margin-bottom: 20px;
 }
 
+/* Modified button styles */
 .login-button, .signup-button {
     padding: 10px 20px;
     font-size: 18px;
     background-color: #28a745;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 50px; /* More curved corners */
     cursor: pointer;
     margin: 10px;
-    
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Smoother and slower transition */
 }
 
 .login-button:hover, .signup-button:hover {
     background-color: #218838;
+    transform: scale(1.1); /* Increase scale for a more pronounced pop effect */
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3); /* Add a stronger shadow to enhance the pop-up effect */
 }
 
 /* Mobile Styles */
