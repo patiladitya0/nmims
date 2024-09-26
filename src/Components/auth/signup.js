@@ -13,10 +13,39 @@ const Signup = () => {
   const months = Array.from({ length: 12 }, (_, i) => i + 1);
   const years = Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle signup logic here
     console.log({ fullName, dob, gender, mobileNumber, email, pin });
+    const userData = {
+      fullName,
+      dob,
+      gender,
+      mobileNumber,
+      email,
+      pin,
+    };
+  
+    try {
+      const response = await fetch('http://localhost:5000/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+  
+      const data = await response.json();
+      if (response.status === 201) {
+        console.log('Signup successful:', data);
+        // Optionally store the JWT token
+      } else {
+        console.error('Signup failed:', data.message);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  
   };
 
   return (
