@@ -20,7 +20,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/search" element={<Search />} />
         <Route path="/menu" element={<Menu />} /> {/* Correctly nested route */}
-      </Route>
+     
     </Routes>
   );
 };
