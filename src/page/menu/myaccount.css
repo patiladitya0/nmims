@@ -1,0 +1,41 @@
+.account-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f0f0; /* Off-white background */
+    height: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.username {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px; /* Space below the name */
+}
+
+.detail-container {
+    display: flex;
+    flex-direction: column; /* Stack details vertically */
+    align-items: center;
+    margin: 10px 0; /* Space between details */
+}
+
+.edit-button {
+    background-color: white; /* Button background */
+    color: #28a745; /* Button text color */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px 20px; /* Button padding */
+    font-size: 16px;
+    margin-top: 10px; /* Space above the button */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect on button */
+    transition: transform 0.2s, box-shadow 0.2s; /* Transition effects */
+    display: flex; /* Flex for aligning icon and text */
+    align-items: center; /* Center align icon and text */
+}
+
+.edit-button:hover {
+    transform: translateY(-2px); /* Slight upward movement on hover */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}

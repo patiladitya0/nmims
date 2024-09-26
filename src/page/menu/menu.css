@@ -1,50 +1,45 @@
 .menu-container {
     display: flex;
-    flex-direction: column; /* Keep this for stacking elements vertically */
+    flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 70px 20px 20px; /* Add padding to the top for navbar */
     background-color: #f0f0f0; /* Off-white background */
     height: 100%;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .username {
     font-size: 24px;
     color: #333;
-    margin-bottom: 20px; /* Space below the name */
+    margin-bottom: 20px;
 }
 
-/* Make button containers stack vertically */
 .button-container {
     display: flex;
-    flex-direction: column; /* Change this to column */
-    align-items: center; /* Center align buttons */
-    margin: 10px 0; /* Space between button containers */
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
 }
 
 .menu-button {
-    background-color: white; /* Button background */
-    color: #28a745; /* Button text color */
+    background-color: white;
+    color: #28a745;
     border: none;
-    border-radius: 8px; /* Rounded corners */
-    padding: 10px 20px; /* Button padding */
+    border-radius: 8px;
+    padding: 10px 20px;
     font-size: 16px;
-    margin: 10px 0; /* Space between buttons, changed to vertical margin */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect on buttons */
-    transition: transform 0.2s, box-shadow 0.2s; /* Transition effects */
+    margin: 10px 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
 }
 
 .menu-button:hover {
-    transform: translateY(-2px); /* Slight upward movement on hover */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.menu-container {
-    display: flex;
-    flex-direction: column; /* Keep this for stacking elements vertically */
-    align-items: center;
-    padding: 70px 20px 20px; /* Add padding to the top for navbar */
-    background-color: #f0f0f0; /* Off-white background */
-    height: 100%;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+.menu-button svg {
+    margin-right: 8px; /* Space between icon and text */
 }

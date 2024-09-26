@@ -7,7 +7,8 @@ import Signup from './Components/auth/signup';
 import MainPage from './page/mainpage';
 import Home from './page/home/home';         
 import Search from './page/search/search';     
-import Menu from './page/menu/menu';         
+import Menu from './page/menu/menu';       
+import MyAccount from './page/menu/myaccount';  
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="home" element={<Home />} />
         <Route path="search" element={<Search />} />
         <Route path="menu" element={<Menu />} /> {/* Menu component renders here */}
+        <Route path="menu/my-account" element={<MyAccount />} /> {/* My Account page */}
       </Route>
     </Routes>
   );
