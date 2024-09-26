@@ -1,11 +1,10 @@
 .menu-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Keep this for stacking elements vertically */
     align-items: center;
     padding: 20px;
     background-color: #f0f0f0; /* Off-white background */
     height: 100%;
-    
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
 }
 
@@ -15,9 +14,11 @@
     margin-bottom: 20px; /* Space below the name */
 }
 
+/* Make button containers stack vertically */
 .button-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Change this to column */
+    align-items: center; /* Center align buttons */
     margin: 10px 0; /* Space between button containers */
 }
 
@@ -28,7 +29,7 @@
     border-radius: 8px; /* Rounded corners */
     padding: 10px 20px; /* Button padding */
     font-size: 16px;
-    margin: 0 10px; /* Space between buttons */
+    margin: 10px 0; /* Space between buttons, changed to vertical margin */
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect on buttons */
     transition: transform 0.2s, box-shadow 0.2s; /* Transition effects */
 }
@@ -36,4 +37,14 @@
 .menu-button:hover {
     transform: translateY(-2px); /* Slight upward movement on hover */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column; /* Keep this for stacking elements vertically */
+    align-items: center;
+    padding: 70px 20px 20px; /* Add padding to the top for navbar */
+    background-color: #f0f0f0; /* Off-white background */
+    height: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
 }
