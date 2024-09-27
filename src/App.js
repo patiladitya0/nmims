@@ -9,6 +9,7 @@ import Home from './page/home/home';
 import Search from './page/search/search';     
 import Menu from './page/menu/menu';       
 import MyAccount from './page/menu/myaccount';  
+import AboutUs from './page/menu/about';
 
 const App = () => {
   return (
@@ -20,8 +21,9 @@ const App = () => {
       <Route path="/main" element={<MainPage />}>
         <Route path="home" element={<Home />} />
         <Route path="search" element={<Search />} />
-        <Route path="menu" element={<Menu />} /> {/* Menu component renders here */}
-        <Route path="menu/my-account" element={<MyAccount />} /> {/* My Account page */}
+        <Route path="menu" element={<Menu />} /> 
+        <Route path="my-account" element={<MyAccount />} /> {/* My Account page */}
+        <Route path="about" element={<AboutUs />} /> {/* About Us page */}
       </Route>
     </Routes>
   );

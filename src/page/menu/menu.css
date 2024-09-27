@@ -33,6 +33,7 @@
     transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     align-items: center;
+    text-decoration: none; /* Ensure no underline on links */
 }
 
 .menu-button:hover {
@@ -42,4 +43,10 @@
 
 .menu-button svg {
     margin-right: 8px; /* Space between icon and text */
+}
+
+/* If the button is a link (using Link from react-router), remove default text styling */
+.menu-button a {
+    text-decoration: none;
+    color: inherit; /* Ensure it inherits the button color */
 }
