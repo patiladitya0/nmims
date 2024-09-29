@@ -15,15 +15,17 @@ const Login = () => {
         try {
             let response;
             if (loginMethod === 'email') {
+                console.log(email,pin)
                 response = await axios.post('http://localhost:5000/login', { email, pin });
             } else {
+                console.log(phoneNumber,otp)
                 response = await axios.post('http://localhost:5000/login', { phoneNumber, otp });
             }
 
             console.log(response.data.message);
             // Store token in local storage and redirect to home if login successful
             localStorage.setItem('token', response.data.token);
-            window.location.href = '/home';  // Redirect to home page
+            window.location.href = '/main';  // Redirect to home page
 
         } catch (error) {
             console.error('Login failed:', error.response ? error.response.data.message : error.message);

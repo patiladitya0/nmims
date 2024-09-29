@@ -26,73 +26,80 @@ app.use(express.json());
 mongoose.connect(process.env.MONGO)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
-
-
-const userSchema = new mongoose.Schema({
-  fullName: String,
-  dob: {
-    day: String,
-    month: String,
-    year: String
-  },
-  gender: String,
-  mobileNumber: String,
-  email: { type: String, unique: true },
-  pin: String,
-});
-
-// Pre-save hook for password hashing
-userSchema.pre('save', async function (next) {
-  try {
-    if (!this.isModified('password')) return next();
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
-    next();
-  } catch (error) {
-    next(error);
-  }
-});
-
-const User = mongoose.model('User', userSchema);
-
-// Signup Route
-app.post('/signup', async (req, res) => {
-  try {
-    const { fullName, dob, gender, mobileNumber, email, pin} = req.body;
-
-    // Check if the user already exists
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: 'Email already in use' });
-    }
-
-    // Create new user instance
-    const newUser = new User({ fullName, dob, gender, mobileNumber, email, pin});
-    await newUser.save();
-
-    // Generate JWT token
-    const token = jwt.sign({ userId: newUser._id }, 'your-secret-key', { expiresIn: '9h' });
-
-    res.status(201).json({ message: 'User created successfully', token });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
-  }
-});
-
-// Login Route
-app.post('/login', async (req, res) => {
+  
+  // Define User Schema
+  const userSchema = new mongoose.Schema({
+    fullName: String,
+    dob: {
+      day: String,
+      month: String,
+      year: String
+    },
+    gender: String,
+    mobileNumber: String,
+    email: { type: String, unique: true },
+    pin: String,
+  });
+  
+  // Pre-save hook for password hashing
+  userSchema.pre('save', async function (next) {
     try {
-      const { email, phoneNumber, pin, otp } = req.body;
+      if (!this.isModified('pin')) return next(); // Use 'pin' for password hashing
+      const salt = await bcrypt.genSalt(10);
+      this.pin = await bcrypt.hash(this.pin, salt); // Hash the pin
+      next();
+    } catch (error) {
+      next(error);
+    }
+  });
+  
+  // Method to compare the pin
+  userSchema.methods.comparePin = async function (inputPin) {
+    return await bcrypt.compare(inputPin, this.pin); // Compare hashed pin
+  };
+  
+  const User = mongoose.model('User', userSchema);
+  
+  // Signup Route
+  app.post('/signup', async (req, res) => {
+    try {
+      const { fullName, dob, gender, mobileNumber, email, pin } = req.body;
+  
+      // Check if the user already exists
+      const existingUser = await User.findOne({ email });
+      if (existingUser) {
+        return res.status(400).json({ message: 'Email already in use' });
+      }
+  
+      // Create new user instance
+      const newUser = new User({ fullName, dob, gender, mobileNumber, email, pin });
+      await newUser.save();
+  
+      // Generate JWT token
+      const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET, { expiresIn: '9h' });
+  
+      res.status(201).json({ message: 'User created successfully', token });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
+  
+  // Login Route
+  app.post('/login', async (req, res) => {
+    try {
+      const { email, mobileNumber, pin, otp } = req.body;
+      console.log(email, mobileNumber, pin, otp )
   
       // Handle login via email and pin
       if (email) {
         const user = await User.findOne({ email });
+        console.log("user found");
         if (!user) {
           return res.status(404).json({ message: 'User not found' });
         }
   
-        const isValidPin = await user.comparePassword(pin); // Assuming comparePassword checks the pin
+        const isValidPin = await user.comparePin(pin); // Compare the pin using the comparePin method
         if (!isValidPin) {
           return res.status(401).json({ message: 'Invalid credentials' });
         }
@@ -102,9 +109,9 @@ app.post('/login', async (req, res) => {
         return res.status(200).json({ message: 'Login successful', token });
       }
   
-      // Handle login via phone number and OTP
-      if (phoneNumber) {
-        const user = await User.findOne({ phoneNumber });
+      // Handle login via mobile number and OTP
+      if (mobileNumber) {
+        const user = await User.findOne({ mobileNumber });
         if (!user) {
           return res.status(404).json({ message: 'User not found' });
         }
@@ -120,7 +127,7 @@ app.post('/login', async (req, res) => {
         return res.status(200).json({ message: 'Login successful', token });
       }
   
-      // If neither email nor phoneNumber is provided
+      // If neither email nor mobileNumber is provided
       return res.status(400).json({ message: 'Invalid login method' });
     } catch (error) {
       console.error(error);
@@ -128,9 +135,8 @@ app.post('/login', async (req, res) => {
     }
   });
   
-
-// Middleware to verify JWT token
-const verifyToken = (req, res, next) => {
+  // Middleware to verify JWT token
+  const verifyToken = (req, res, next) => {
     const token = req.headers.authorization;
     if (!token) {
       return res.status(401).json({ message: 'No token provided' });
