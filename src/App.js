@@ -7,7 +7,9 @@ import Signup from './Components/auth/signup';
 import MainPage from './page/mainpage';
 import Home from './page/home/home';         
 import Search from './page/search/search';     
-import Menu from './page/menu/menu';         
+import Menu from './page/menu/menu';       
+import MyAccount from './page/menu/myaccount';  
+import AboutUs from './page/menu/about';
 
 const App = () => {
   return (
@@ -16,11 +18,13 @@ const App = () => {
       <Route path="/second" element={<Option />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/main" element={<MainPage />}/>
-        <Route path="/home" element={<Home />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/menu" element={<Menu />} /> {/* Correctly nested route */}
-     
+      <Route path="/main" element={<MainPage />}>
+        <Route path="home" element={<Home />} />
+        <Route path="search" element={<Search />} />
+        <Route path="menu" element={<Menu />} /> 
+        <Route path="my-account" element={<MyAccount />} /> {/* My Account page */}
+        <Route path="about" element={<AboutUs />} /> {/* About Us page */}
+      </Route>
     </Routes>
   );
 };

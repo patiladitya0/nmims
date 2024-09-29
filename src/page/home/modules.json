@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Real-Time Crisis Alerts",
+        "link": "/real-time-alerts",
+        "icon": "fas fa-bell"
+    },
+    {
+        "name": "Volunteer & Resource Matching",
+        "link": "/volunteer-matching",
+        "icon": "fas fa-handshake"
+    },
+    {
+        "name": "Emergency Communication",
+        "link": "/emergency-communication",
+        "icon": "fas fa-comments"
+    },
+    {
+        "name": "Educational Resources",
+        "link": "/educational-resources",
+        "icon": "fas fa-book"
+    },
+    {
+        "name": "Disaster Prevention",
+        "link": "/disaster-prevention",
+        "icon": "fas fa-shield-alt"
+    },
+    {
+        "name": "Quick Dashboard",
+        "link": "/quick-dashboard",
+        "icon": "fas fa-tachometer-alt"
+    },
+    {
+        "name": "Help Center",
+        "link": "/help-center",
+        "icon": "fas fa-hands-helping"
+    },
+    {
+        "name": "Emergency Services",
+        "link": "/emergency-services",
+        "icon": "fas fa-ambulance"
+    },
+    {
+        "name": "Medical Assistance",
+        "link": "/medical-assistance",
+        "icon": "fas fa-briefcase-medical"
+    },
+    {
+        "name": "Education",
+        "link": "/education",
+        "icon": "fas fa-chalkboard-teacher"
+    }
+]

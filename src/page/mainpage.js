@@ -3,7 +3,6 @@ import { Link, Outlet } from 'react-router-dom';
 import { FaHome, FaSearch, FaBars } from 'react-icons/fa';
 import './mainpage.css';
 
-
 const MainPage = () => {
     const [activeTab, setActiveTab] = useState('home'); // Manage active tab state
 
@@ -20,7 +19,6 @@ const MainPage = () => {
                     onClick={() => setActiveTab('home')}
                 >
                     <FaHome size={20} />
-                    <span>Home</span>
                 </Link>
 
                 <Link 
@@ -29,7 +27,6 @@ const MainPage = () => {
                     onClick={() => setActiveTab('search')}
                 >
                     <FaSearch size={20} />
-                    <span>Search</span>
                 </Link>
 
                 <Link 
@@ -38,7 +35,6 @@ const MainPage = () => {
                     onClick={() => setActiveTab('menu')}
                 >
                     <FaBars size={20} />
-                    <span>Menu</span>
                 </Link>
             </nav>
         </div>

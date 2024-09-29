@@ -1,14 +1,17 @@
-.menu-container {
+
+
+.settings-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 70px 20px 20px; /* Add padding to the top for navbar */
-    background-color: #f0f0f0; /* Off-white background */
+    justify-content: center; /* Center content vertically */
+    padding: 70px 20px;
+    background-color: #f0f0f0;
     height: 100%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.username {
+.settings-title {
     font-size: 24px;
     color: #333;
     margin-bottom: 20px;
@@ -21,7 +24,7 @@
     margin: 10px 0;
 }
 
-.menu-button {
+.settings-button {
     background-color: white;
     color: #28a745;
     border: none;
@@ -33,20 +36,10 @@
     transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     align-items: center;
-    text-decoration: none; /* Ensure no underline on links */
+    justify-content: center; /* Center button content */
 }
 
-.menu-button:hover {
+.settings-button:hover {
     transform: translateY(-2px);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.menu-button svg {
-    margin-right: 8px; /* Space between icon and text */
-}
-
-/* If the button is a link (using Link from react-router), remove default text styling */
-.menu-button a {
-    text-decoration: none;
-    color: inherit; /* Ensure it inherits the button color */
 }
