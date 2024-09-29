@@ -82,44 +82,68 @@ app.post('/signup', async (req, res) => {
 
 // Login Route
 app.post('/login', async (req, res) => {
-  try {
-    const { email, password } = req.body;
-
-    // Find the user by email or username
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+    try {
+      const { email, phoneNumber, pin, otp } = req.body;
+  
+      // Handle login via email and pin
+      if (email) {
+        const user = await User.findOne({ email });
+        if (!user) {
+          return res.status(404).json({ message: 'User not found' });
+        }
+  
+        const isValidPin = await user.comparePassword(pin); // Assuming comparePassword checks the pin
+        if (!isValidPin) {
+          return res.status(401).json({ message: 'Invalid credentials' });
+        }
+  
+        // Generate JWT token
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '9h' });
+        return res.status(200).json({ message: 'Login successful', token });
+      }
+  
+      // Handle login via phone number and OTP
+      if (phoneNumber) {
+        const user = await User.findOne({ phoneNumber });
+        if (!user) {
+          return res.status(404).json({ message: 'User not found' });
+        }
+  
+        // Simulate OTP verification. Replace with actual OTP verification logic.
+        const isValidOtp = otp === '123456'; // Assuming a mock OTP of 123456
+        if (!isValidOtp) {
+          return res.status(401).json({ message: 'Invalid OTP' });
+        }
+  
+        // Generate JWT token
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '9h' });
+        return res.status(200).json({ message: 'Login successful', token });
+      }
+  
+      // If neither email nor phoneNumber is provided
+      return res.status(400).json({ message: 'Invalid login method' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
     }
-
-    // Validate password
-    const isValidPassword = await user.comparePassword(password);
-    if (!isValidPassword) {
-      return res.status(401).json({ message: 'Invalid credentials' });
-    }
-
-    // Generate JWT token
-    const token = jwt.sign({ userId: user._id }, 'your-secret-key', { expiresIn: '9h' });
-    res.status(200).json({ message: 'Login successful', token });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
-  }
-});
+  });
+  
 
 // Middleware to verify JWT token
 const verifyToken = (req, res, next) => {
-  const token = req.headers.authorization;
-  if (!token) {
-    return res.status(401).json({ message: 'No token provided' });
-  }
-  try {
-    const decoded = jwt.verify(token.split(' ')[1], 'your-secret-key');
-    req.userId = decoded.userId;
-    next();
-  } catch (error) {
-    return res.status(403).json({ message: 'Failed to authenticate token' });
-  }
-};
+    const token = req.headers.authorization;
+    if (!token) {
+      return res.status(401).json({ message: 'No token provided' });
+    }
+    try {
+      const decoded = jwt.verify(token.split(' ')[1], process.env.JWT_SECRET);
+      req.userId = decoded.userId;
+      next();
+    } catch (error) {
+      return res.status(403).json({ message: 'Failed to authenticate token' });
+    }
+  };
+  
 
 // User Profile Route
 app.get('/user/profile', verifyToken, async (req, res) => {

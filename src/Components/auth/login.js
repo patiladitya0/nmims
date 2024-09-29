@@ -1,21 +1,32 @@
 import React, { useState } from 'react';
 import './login.css';
+import axios from 'axios';  // Assuming axios is used for API requests
 
 const Login = () => {
-    // Set the initial state to 'phone' so that it is selected by default
-    const [loginMethod, setLoginMethod] = useState('phone'); // Choose between 'email' or 'phone'
+    const [loginMethod, setLoginMethod] = useState('phone');
     const [email, setEmail] = useState('');
     const [pin, setPin] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [otp, setOtp] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (loginMethod === 'email') {
-            console.log('Email:', email, 'Pin:', pin);
-        } else {
-            console.log('Phone Number:', phoneNumber, 'OTP:', otp);
+        try {
+            let response;
+            if (loginMethod === 'email') {
+                response = await axios.post('http://localhost:5000/login', { email, pin });
+            } else {
+                response = await axios.post('http://localhost:5000/login', { phoneNumber, otp });
+            }
+
+            console.log(response.data.message);
+            // Store token in local storage and redirect to home if login successful
+            localStorage.setItem('token', response.data.token);
+            window.location.href = '/home';  // Redirect to home page
+
+        } catch (error) {
+            console.error('Login failed:', error.response ? error.response.data.message : error.message);
         }
     };
 
