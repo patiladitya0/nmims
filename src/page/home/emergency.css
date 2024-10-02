@@ -126,3 +126,21 @@
     color: #28a745;
     text-decoration: none;
 }
+
+.back-button {
+    position: absolute; /* Position it in the top-left corner */
+    top: 10px; /* Adjust top position */
+    left: 10px; /* Adjust left position */
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 15px; /* Some padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 12px; /* Smaller font size */
+}
+
+.back-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+

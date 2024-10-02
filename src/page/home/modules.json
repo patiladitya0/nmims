@@ -36,7 +36,7 @@
     },
     {
         "name": "Emergency Services",
-        "link": "/main/emergency-services",  
+        "link": "/main/emergency-services",
         "icon": "fas fa-ambulance"
     },
     {
@@ -48,5 +48,10 @@
         "name": "Education",
         "link": "/education",
         "icon": "fas fa-chalkboard-teacher"
+    },
+    {
+        "name": "Create an Emergency Kit",
+        "link": "/create-emergency-kit",
+        "icon": "fas fa-box"
     }
 ]

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import emergencyServicesData from './emergency.json'; // Importing JSON data
 import './emergency.css'; // Import the CSS for styling
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 
 const EmergencyServices = () => {
     const [services, setServices] = useState([]);
     const [activeIndex, setActiveIndex] = useState(null); // Track the index of the active section
+    const navigate = useNavigate(); // Initialize useNavigate for navigation
 
     useEffect(() => {
         // Set the emergency services from the imported JSON
@@ -16,8 +18,13 @@ const EmergencyServices = () => {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
+    const handleBack = () => {
+        navigate('/'); // Navigate back to the home page
+    };
+
     return (
         <div className="emergency-services-container">
+            <button className="back-button" onClick={handleBack}>Back</button>
             <h1>Emergency Services</h1>
             {services.map((service, index) => (
                 <div className="service-section" key={index}>

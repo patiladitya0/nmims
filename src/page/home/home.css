@@ -52,6 +52,12 @@
     border-color: #28a745;
 }
 
+.module.dragging {
+    transform: rotate(5deg);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+    border-color: #28a745;
+}
+
 .module-content i {
     font-size: 32px;
     margin-bottom: 8px;
