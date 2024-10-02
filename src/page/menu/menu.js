@@ -1,9 +1,12 @@
-import './menu.css';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUser, FaCog, FaInfoCircle, FaSignOutAlt } from 'react-icons/fa';
+import { FaUser, FaCog, FaInfoCircle, FaSignOutAlt, FaMoon, FaSun } from 'react-icons/fa';
+import './menu.css';
+import { ThemeContext } from '../../context/themeContext';
 
 const Menu = () => {
+    const { theme, toggleTheme } = useContext(ThemeContext);
+
     return (
         <div className="menu-container">
             <h1 className="username">Your Name</h1>
@@ -27,7 +30,16 @@ const Menu = () => {
                     </button>
                 </Link>
             </div>
-            {/* Logout button placed at the bottom */}
+
+            {/* Theme Toggle Button */}
+            <div className="theme-toggle-container">
+                <button className="theme-toggle-button" onClick={toggleTheme}>
+                    {theme === 'light' ? <FaMoon size={20} /> : <FaSun size={20} />}
+                    {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+                </button>
+            </div>
+
+            {/* Logout Button at the Bottom */}
             <div className="logout-container">
                 <button className="Btn">
                     <div className="sign">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import { FaHome, FaSearch, FaBars } from 'react-icons/fa';
+import { FaHome, FaSearch, FaBars, FaMapMarkerAlt } from 'react-icons/fa'; // Import maps icon
 import './mainpage.css';
 
 const MainPage = () => {
@@ -14,7 +14,7 @@ const MainPage = () => {
 
             <nav className="bottom-nav">
                 <Link 
-                    to="home" // Ensure correct path
+                    to="home" 
                     className={`nav-item ${activeTab === 'home' ? 'active' : ''}`}
                     onClick={() => setActiveTab('home')}
                 >
@@ -22,7 +22,7 @@ const MainPage = () => {
                 </Link>
 
                 <Link 
-                    to="search" // Ensure correct path
+                    to="search" 
                     className={`nav-item ${activeTab === 'search' ? 'active' : ''}`} 
                     onClick={() => setActiveTab('search')}
                 >
@@ -30,7 +30,15 @@ const MainPage = () => {
                 </Link>
 
                 <Link 
-                    to="menu" // Ensure correct path
+                    to="maps" // Correct path for maps page
+                    className={`nav-item ${activeTab === 'maps' ? 'active' : ''}`} 
+                    onClick={() => setActiveTab('maps')}
+                >
+                    <FaMapMarkerAlt size={20} />
+                </Link>
+
+                <Link 
+                    to="menu" 
                     className={`nav-item ${activeTab === 'menu' ? 'active' : ''}`} 
                     onClick={() => setActiveTab('menu')}
                 >
