@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './home.css'; // Importing the CSS file
-import modulesData from './modules.json'; // Importing the JSON data
+import modulesData from '../../data/modules.json'; // Updated path
 
 const Home = () => {
     const [modules, setModules] = useState(modulesData);

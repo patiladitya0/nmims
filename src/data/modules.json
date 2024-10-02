@@ -15,6 +15,11 @@
         "icon": "fas fa-comments"
     },
     {
+        "name": "Create an Emergency Kit",
+        "link": "/main/create-emergency-kit",
+        "icon": "fas fa-box"
+    },
+    {
         "name": "Educational Resources",
         "link": "/educational-resources",
         "icon": "fas fa-book"
@@ -48,10 +53,6 @@
         "name": "Education",
         "link": "/education",
         "icon": "fas fa-chalkboard-teacher"
-    },
-    {
-        "name": "Create an Emergency Kit",
-        "link": "/create-emergency-kit",
-        "icon": "fas fa-box"
     }
+    
 ]

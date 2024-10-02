@@ -1,0 +1,128 @@
+.emergency-kit-container {
+    padding: 20px;
+}
+
+.kit-section {
+    margin-bottom: 20px;
+}
+
+.kit-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.kit-item.expanded {
+    background-color: #e0f7fa;
+}
+
+.kit-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.kit-item-info {
+    display: flex;
+    align-items: center;
+}
+
+.kit-item-info input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 15px;
+    width: 15px;
+    border: 2px solid #4f29f0;
+    border-radius: 3px;
+    margin-right: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kit-item-info input[type="checkbox"]:checked {
+    background-color: #4f29f0;
+    box-shadow: 0 0 10px rgba(79, 41, 240, 0.5);
+}
+
+.kit-item-info input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    top: -2px;
+    left: 2px;
+}
+
+.kit-item-info label {
+    color: #414856;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.kit-item-info input[type="checkbox"]:checked + label {
+    color: #c3c8de;
+    animation: move 0.3s ease 0.1s forwards;
+}
+
+.plusButton {
+    --plus_sideLength: 1.5rem;
+    --plus_topRightTriangleSideLength: 0.9rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--plus_sideLength);
+    height: var(--plus_sideLength);
+    background-color: #000;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.plusButton::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-width: 0 var(--plus_topRightTriangleSideLength) var(--plus_topRightTriangleSideLength) 0;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+.plusButton:hover::before,
+.plusButton:focus-visible::before {
+    --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
+}
+
+.plusIcon {
+    fill: white;
+    width: calc(var(--plus_sideLength) * 0.7);
+    height: calc(var(--plus_sideLength) * 0.7);
+    z-index: 1;
+    transition: all 0.2s ease-in-out;
+}
+
+.plusButton:hover .plusIcon,
+.plusButton:focus-visible .plusIcon {
+    fill: black;
+    transform: rotate(180deg);
+}
+
+.item-description {
+    margin-top: 10px;
+    padding-left: 20px;
+    color: #555;
+    transition: max-height 0.3s ease;
+}
