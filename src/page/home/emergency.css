@@ -1,0 +1,128 @@
+.emergency-services-container {
+    padding: 10px; /* Container padding */
+    background-color: #f7f7f7;
+}
+
+.service-section {
+    background-color: white;
+    margin-bottom: 8px; /* Reduced bottom margin */
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent overflow */
+}
+
+.service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px; /* Reduced vertical padding (top and bottom) */
+    cursor: pointer;
+}
+
+.service-header h2 {
+    margin: 0;
+    font-size: 16px; /* Font size */
+    white-space: nowrap; /* Prevent multiline */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Ellipsis for overflow */
+}
+
+/* The design is inspired by mockapi.io */
+.popup {
+    display: inline-block;
+    text-rendering: optimizeLegibility;
+    position: relative;
+}
+
+.popup input {
+    display: none;
+}
+
+.burger {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .15);
+    width: 2.125em; /* Burger diameter */
+    height: 2.125em;
+    border-radius: calc(2.125em / 2);
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all .1s ease-in-out;
+}
+
+.burger span {
+    height: 0.125em; /* Burger line height */
+    width: 1.125em; /* Burger line width */
+    background: #333; /* Burger color */
+    border-radius: 0.1875em; /* Burger line border radius */
+    position: absolute;
+    transition: .3s; /* Transition for the lines */
+}
+
+.burger span:nth-child(1) {
+    top: 0.625em; /* Burger line position */
+}
+
+.burger span:nth-child(2) {
+    top: 1.125em; /* Burger line position */
+}
+
+.burger span:nth-child(3) {
+    top: 1.625em; /* Burger line position */
+}
+
+/* Transformations on checkbox change */
+.popup input:checked + .burger span:nth-child(1) {
+    top: 1.125em;
+    transform: rotate(45deg);
+}
+
+.popup input:checked + .burger span:nth-child(2) {
+    opacity: 0; /* Hide middle line */
+}
+
+.popup input:checked + .burger span:nth-child(3) {
+    top: 1.125em;
+    transform: rotate(-45deg);
+}
+
+.service-details {
+    padding: 5px 10px; /* Reduced vertical padding */
+    border-top: 1px solid #eaeaea;
+}
+
+.phone-number {
+    margin: 3px 0; /* Margin for phone numbers */
+    font-size: 14px; /* Phone number font size */
+}
+
+.phone-number a {
+    color: #28a745;
+    text-decoration: none;
+}
+
+/* Add other styles for the popup window as needed */
+.service-subtitle {
+    font-size: 14px; /* Adjust size as needed */
+    color: #666; /* Gray color for subtitle */
+    margin: 5px 0; /* Add some margin for spacing */
+}
+
+
+.phone-number {
+    margin: 3px 0; /* Margin for phone numbers */
+    font-size: 14px; /* Phone number font size */
+}
+
+.phone-number span {
+    color: #555; /* Slightly lighter for visibility */
+    font-weight: bold; /* Make location label bold */
+}
+
+.phone-number a {
+    color: #28a745;
+    text-decoration: none;
+}

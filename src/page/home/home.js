@@ -6,12 +6,9 @@ import modulesData from './modules.json'; // Importing the JSON data
 const Home = () => {
     return (
         <div className="home-container">
-            {/* Title Section */}
             <div className="title-section">
                 <h1>This is Our Modules</h1>
             </div>
-
-            {/* Scrollable Module Section */}
             <div className="module-section">
                 <div className="module-grid">
                     {modulesData.map((module, index) => (
@@ -24,8 +21,6 @@ const Home = () => {
                     ))}
                 </div>
             </div>
-
-            {/* Additional Content Section */}
             <div className="additional-content">
                 <p>Explore more features and updates.</p>
             </div>

@@ -9,7 +9,8 @@ import Home from './page/home/home';
 import Search from './page/search/search';     
 import Menu from './page/menu/menu';       
 import MyAccount from './page/menu/myaccount';  
-import AboutUs from './page/menu/about';
+import AboutUs from './page/menu/about';  
+import EmergencyServices from './page/home/emergency'; // Import the new component
 
 const App = () => {
   return (
@@ -22,8 +23,9 @@ const App = () => {
         <Route path="home" element={<Home />} />
         <Route path="search" element={<Search />} />
         <Route path="menu" element={<Menu />} /> 
-        <Route path="my-account" element={<MyAccount />} /> {/* My Account page */}
-        <Route path="about" element={<AboutUs />} /> {/* About Us page */}
+        <Route path="my-account" element={<MyAccount />} />
+        <Route path="about" element={<AboutUs />} />
+        <Route path="emergency-communication" element={<EmergencyServices />} /> {/* Add Emergency Services route */}
       </Route>
     </Routes>
   );

@@ -11,7 +11,7 @@
     },
     {
         "name": "Emergency Communication",
-        "link": "/emergency-communication",
+        "link": "/main/emergency-communication",
         "icon": "fas fa-comments"
     },
     {
@@ -36,7 +36,7 @@
     },
     {
         "name": "Emergency Services",
-        "link": "/emergency-services",
+        "link": "/main/emergency-services",  
         "icon": "fas fa-ambulance"
     },
     {
