@@ -6,8 +6,8 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 require('dotenv').config();
-
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT || 5000;
 
 // Cloudinary Configuration
@@ -152,18 +152,49 @@ mongoose.connect(process.env.MONGO)
   
 
 // User Profile Route
-app.get('/user/profile', verifyToken, async (req, res) => {
+app.get('/api/user/account', verifyToken, async (req, res) => {
   try {
-    const user = await User.findById(req.userId);
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-    res.status(200).json(user);
+      const userId = req.userId; // Extracted from the JWT token by verifyToken middleware
+      const user = await User.findById(userId) // Fetch user data except for the pin/password
+      if (!user) {
+          return res.status(404).json({ message: 'User not found' });
+      }
+      res.json(user);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Internal server error' });
+      res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+// Update Password Route (Node.js example)
+app.put('/api/user/update-password', verifyToken, async (req, res) => {
+  const { currentPassword, newPassword } = req.body;
+  const userId = req.userId; // Assuming you have a middleware to extract the user's ID from the token
+
+  try {
+      const user = await User.findById(userId);
+      console.log("userfound")
+      if (!user) {
+          return res.status(404).json({ message: 'User not found' });
+      }
+
+      // Compare current password
+      const isMatch = await bcrypt.compare(currentPassword, user.pin);
+      if (!isMatch) {
+          return res.status(400).json({ message: 'Incorrect current password' });
+      }
+
+      // Hash the new password
+      const salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(newPassword, salt);
+      await user.save();
+
+      res.status(200).json({ message: 'Password updated successfully' });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
 
 // Start the server
 app.listen(PORT, () => {
