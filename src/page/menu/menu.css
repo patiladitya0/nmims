@@ -2,15 +2,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 70px 20px 20px; /* Add padding to the top for navbar */
-    background-color: #f0f0f0; /* Off-white background */
+    padding: 70px 20px 20px;
+    background-color: var(--bg-color);
     height: 100%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background-color 0.3s;
 }
 
 .username {
     font-size: 24px;
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 20px;
 }
 
@@ -22,8 +24,8 @@
 }
 
 .menu-button {
-    background-color: white;
-    color: #28a745;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
     border: none;
     border-radius: 8px;
     padding: 10px 20px;
@@ -33,7 +35,7 @@
     transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     align-items: center;
-    text-decoration: none; /* Ensure no underline on links */
+    text-decoration: none;
 }
 
 .menu-button:hover {
@@ -42,11 +44,95 @@
 }
 
 .menu-button svg {
-    margin-right: 8px; /* Space between icon and text */
+    margin-right: 8px;
 }
 
-/* If the button is a link (using Link from react-router), remove default text styling */
-.menu-button a {
-    text-decoration: none;
-    color: inherit; /* Ensure it inherits the button color */
+/* Theme Toggle Button Styles */
+.theme-toggle-container {
+    margin-top: 20px;
+}
+
+.theme-toggle-button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle-button:hover {
+    transform: scale(1.05);
+}
+
+/* Logout Button Styles */
+.logout-container {
+    margin-top: auto;
+    padding-bottom: 20px;
+}
+
+.Btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: 0.3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(255, 65, 65);
+}
+
+.sign {
+    width: 100%;
+    transition-duration: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign svg {
+    width: 17px;
+    color: white;
+}
+
+.text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition-duration: 0.3s;
+}
+
+.Btn:hover {
+    width: 125px;
+    border-radius: 40px;
+    transition-duration: 0.3s;
+}
+
+.Btn:hover .sign {
+    width: 30%;
+    transition-duration: 0.3s;
+    padding-left: 20px;
+}
+
+.Btn:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: 0.3s;
+    padding-right: 10px;
+}
+
+.Btn:active {
+    transform: translate(2px, 2px);
 }

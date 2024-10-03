@@ -1,0 +1,141 @@
+{
+    "basicKit": [
+        {
+            "name": "Water",
+            "description": "Two litres of water per person per day (include small bottles)",
+            "checked": false
+        },
+        {
+            "name": "Food",
+            "description": "Food that won't spoil, such as canned food, energy bars and dried foods (replace once a year)",
+            "checked": false
+        },
+        {
+            "name": "Manual can opener",
+            "description": "A manual can opener for opening canned food",
+            "checked": false
+        },
+        {
+            "name": "Battery-powered flashlight",
+            "description": "Include extra batteries if possible",
+            "checked": false
+        },
+        {
+            "name": "Battery-powered radio",
+            "description": "Include extra batteries if possible",
+            "checked": false
+        },
+        {
+            "name": "First aid kit",
+            "description": "A complete first aid kit",
+            "checked": false
+        },
+        {
+            "name": "Extra keys",
+            "description": "Extra keys for your car and house",
+            "checked": false
+        },
+        {
+            "name": "Cash",
+            "description": "Cash, travellers' cheques and change",
+            "checked": false
+        },
+        {
+            "name": "Important documents",
+            "description": "Family documents such as identification, insurance, and bank records",
+            "checked": false
+        },
+        {
+            "name": "Emergency plan",
+            "description": "Include a copy of your emergency plan and contact information",
+            "checked": false
+        },
+        {
+            "name": "Candles and matches",
+            "description": "Place in sturdy containers and do not burn unattended",
+            "checked": false
+        }
+    ],
+    "additionalSupplies": [
+        {
+            "name": "Two additional litres of water",
+            "description": "Two additional litres of water per person per day for cooking and cleaning",
+            "checked": false
+        },
+        {
+            "name": "Change of clothing and footwear",
+            "description": "Change of clothing and footwear for each household member",
+            "checked": false
+        },
+        {
+            "name": "Sleeping bag or warm blanket",
+            "description": "Sleeping bag or warm blanket for each household member",
+            "checked": false
+        },
+        {
+            "name": "Toiletries",
+            "description": "Toiletries and personal hygiene items",
+            "checked": false
+        },
+        {
+            "name": "Hand sanitizer",
+            "description": "Hand sanitizer, toilet paper and garbage bags",
+            "checked": false
+        },
+        {
+            "name": "Prepaid phone card",
+            "description": "Prepaid phone card, mobile phone charger",
+            "checked": false
+        },
+        {
+            "name": "Pet food",
+            "description": "Pet food and supplies",
+            "checked": false
+        },
+        {
+            "name": "Infant supplies",
+            "description": "Infant formula, baby food and supplies",
+            "checked": false
+        },
+        {
+            "name": "Activities for children",
+            "description": "Activities for children like books, puzzles or toys",
+            "checked": false
+        },
+        {
+            "name": "Prescription medications",
+            "description": "Prescription medications, medical equipment",
+            "checked": false
+        },
+        {
+            "name": "Utensils",
+            "description": "Utensils, plates and cups",
+            "checked": false
+        },
+        {
+            "name": "Chlorine bleach",
+            "description": "Household chlorine bleach or water purifying tablets",
+            "checked": false
+        },
+        {
+            "name": "Basic tools",
+            "description": "Basic tools (hammer, pliers, wrench, screwdrivers, work gloves, pocket knife)",
+            "checked": false
+        },
+        {
+            "name": "Fuel-operated stove",
+            "description": "Small fuel-operated stove and fuel",
+            "checked": false
+        },
+        {
+            "name": "Whistle",
+            "description": "Whistle (to attract attention)",
+            "checked": false
+        },
+        {
+            "name": "Duct tape",
+            "description": "Duct tape",
+            "checked": false
+        }
+    ]
+}

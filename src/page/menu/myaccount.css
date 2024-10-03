@@ -1,41 +1,101 @@
 .account-container {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: #f0f0f0; /* Off-white background */
+    background-color: #f0f0f0; 
     height: 100%;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .username {
     font-size: 24px;
     color: #333;
-    margin-bottom: 20px; /* Space below the name */
+    margin-bottom: 20px;
 }
 
 .detail-container {
     display: flex;
-    flex-direction: column; /* Stack details vertically */
+    flex-direction: column;
     align-items: center;
-    margin: 10px 0; /* Space between details */
+    margin: 10px 0;
 }
 
-.edit-button {
-    background-color: white; /* Button background */
-    color: #28a745; /* Button text color */
+/* Edit button styling */
+.editBtn {
+    width: 55px;
+    height: 55px;
+    border-radius: 20px;
     border: none;
-    border-radius: 8px; /* Rounded corners */
-    padding: 10px 20px; /* Button padding */
-    font-size: 16px;
-    margin-top: 10px; /* Space above the button */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect on button */
-    transition: transform 0.2s, box-shadow 0.2s; /* Transition effects */
-    display: flex; /* Flex for aligning icon and text */
-    align-items: center; /* Center align icon and text */
+    background-color: #28a745; /* Green color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.123);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
 }
 
-.edit-button:hover {
-    transform: translateY(-2px); /* Slight upward movement on hover */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+.editBtn::before {
+    content: "";
+    width: 200%;
+    height: 200%;
+    background-color: rgba(102, 102, 141, 0.7);
+    position: absolute;
+    z-index: 1;
+    transform: scale(0);
+    transition: all 0.3s;
+    border-radius: 50%;
+    filter: blur(10px);
+}
+
+/* Animation starts on hover */
+.editBtn:hover::before {
+    transform: scale(1);
+}
+
+.editBtn:hover {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.336);
+}
+
+.editBtn svg {
+    height: 17px;
+    fill: white;
+    z-index: 3;
+    transition: all 0.2s;
+    transform-origin: bottom;
+}
+
+/* Rotate icon on hover */
+.editBtn:hover svg {
+    transform: rotate(-15deg) translateX(5px);
+}
+
+.editBtn::after {
+    content: "";
+    width: 25px;
+    height: 1.5px;
+    position: absolute;
+    bottom: 19px;
+    left: -5px;
+    background-color: white;
+    border-radius: 2px;
+    z-index: 2;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-out;
+}
+
+/* Line animation on hover */
+.editBtn:hover::after {
+    transform: scaleX(1);
+    left: 0px;
+    transform-origin: right;
+}
+
+/* Button click effect */
+.editBtn:active {
+    transform: translate(2px, 2px);
 }
