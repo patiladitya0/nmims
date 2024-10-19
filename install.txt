@@ -1,3 +1,13 @@
+npm install
+
+
 //npm install react-beautiful-dnd
 
 //npm install react-router-dom@6
+
+npm install leaflet
+
+
+SERVER
+cd backend
+node server.js

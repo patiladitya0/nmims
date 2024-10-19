@@ -12,6 +12,7 @@ import MyAccount from './page/menu/myaccount';
 import AboutUs from './page/menu/about';  
 import EmergencyServices from './page/home/emergency'; // Import the new component
 import EmergencyKIT from './page/home/emergencyKIT';
+import Maps from './page/map/maps';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="home" element={<Home />} />
         <Route path="search" element={<Search />} />
         <Route path="menu" element={<Menu />} /> 
+        <Route path="maps" element={<Maps />} /> 
         <Route path="my-account" element={<MyAccount />} />
         <Route path="about" element={<AboutUs />} />
         <Route path="emergency-communication" element={<EmergencyServices />} />
