@@ -11,3 +11,15 @@ npm install leaflet
 SERVER
 cd backend
 node server.js
+
+
+git commands:
+
+git status
+
+git add .
+git commit -m "Your title"
+
+git pull
+
+git push origin master

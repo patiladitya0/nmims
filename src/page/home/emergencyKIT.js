@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import emergencyKitData from '../../data/emergencyKitItems.json';
 import './emergencyKIT.css';
 
-const KitItem = ({ item, index, toggleItem, showDescription, toggleDescription }) => (
+const KitItem = ({ item, index, toggleItem, showDescription, toggleDescription, type }) => (
     <div className={`kit-item ${showDescription ? 'expanded' : ''}`}>
         <div className="kit-item-header">
             <div className="kit-item-info">
@@ -10,9 +10,9 @@ const KitItem = ({ item, index, toggleItem, showDescription, toggleDescription }
                     type="checkbox"
                     checked={item.checked}
                     onChange={toggleItem}
-                    id={`item-${index}`}
+                    id={`${type}-${index}`}
                 />
-                <label htmlFor={`item-${index}`}>{item.name}</label>
+                <label htmlFor={`${type}-${index}`}>{item.name}</label>
             </div>
             <div className="plusButton" onClick={toggleDescription} tabIndex="0">
                 <svg className="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -41,9 +41,15 @@ const EmergencyKit = () => {
     }, []);
 
     const toggleItem = (index, type) => {
-        const updated = type === 'basic' ? [...basicKit] : [...additionalSupplies];
-        updated[index].checked = !updated[index].checked;
-        type === 'basic' ? setBasicKit(updated) : setAdditionalSupplies(updated);
+        if (type === 'basic') {
+            const updated = [...basicKit];
+            updated[index].checked = !updated[index].checked;
+            setBasicKit(updated);
+        } else {
+            const updated = [...additionalSupplies];
+            updated[index].checked = !updated[index].checked;
+            setAdditionalSupplies(updated);
+        }
     };
 
     const toggleDescription = (index) => {
@@ -55,8 +61,6 @@ const EmergencyKit = () => {
 
     return (
         <div className="emergency-kit-container">
-            {/* <h1>Emergency Kit Checklist</h1> */}
-            
             <div className="kit-section">
                 <h2>Basic Emergency Kit</h2>
                 {basicKit.length > 0 ? (
@@ -68,6 +72,7 @@ const EmergencyKit = () => {
                             toggleItem={() => toggleItem(index, 'basic')} 
                             showDescription={showDescription[`basic-${index}`]} 
                             toggleDescription={() => toggleDescription(`basic-${index}`)} 
+                            type="basic"
                         />
                     ))
                 ) : (
@@ -86,6 +91,7 @@ const EmergencyKit = () => {
                             toggleItem={() => toggleItem(index, 'additional')} 
                             showDescription={showDescription[`additional-${index}`]} 
                             toggleDescription={() => toggleDescription(`additional-${index}`)} 
+                            type="additional"
                         />
                     ))
                 ) : (

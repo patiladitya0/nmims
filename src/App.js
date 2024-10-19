@@ -13,6 +13,7 @@ import AboutUs from './page/menu/about';
 import EmergencyServices from './page/home/emergency'; // Import the new component
 import EmergencyKIT from './page/home/emergencyKIT';
 import Maps from './page/map/maps';
+import VolunteerMatching from './page/home/VolunteerMatching'; // Import the new Volunteer Matching component
 
 const App = () => {
   return (
@@ -29,7 +30,8 @@ const App = () => {
         <Route path="my-account" element={<MyAccount />} />
         <Route path="about" element={<AboutUs />} />
         <Route path="emergency-communication" element={<EmergencyServices />} />
-        <Route path="create-emergency-kit" element={<EmergencyKIT />} /> {/* Add Emergency Services route */}
+        <Route path="create-emergency-kit" element={<EmergencyKIT />} />
+        <Route path="volunteer-matching" element={<VolunteerMatching />} /> {/* Add Volunteer Matching route */}
       </Route>
     </Routes>
   );
