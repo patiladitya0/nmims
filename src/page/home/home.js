@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { FaUser, FaHistory, FaUserFriends } from 'react-icons/fa'; // Import icons from react-icons
 import './home.css'; // Importing the CSS file
 import modulesData from '../../data/modules.json'; // Updated path
 
@@ -10,10 +11,8 @@ const Home = () => {
     const onDragEnd = (result) => {
         const { source, destination } = result;
 
-        // If the item is dropped outside the list or there's no destination, do nothing.
         if (!destination) return;
 
-        // Reorder the modules array.
         const reorderedModules = Array.from(modules);
         const [movedModule] = reorderedModules.splice(source.index, 1);
         reorderedModules.splice(destination.index, 0, movedModule);
@@ -60,9 +59,31 @@ const Home = () => {
                     </Droppable>
                 </DragDropContext>
             </div>
+
+            <hr className="account-section-divider" />
+
             <div className="additional-content">
                 <p>Explore more features and updates.</p>
             </div>
+
+            <hr className="account-section-divider" />
+            <div className="account-heading">
+                Go to My Account
+            </div>
+
+            <div className="account-section">
+                <Link to="/myaccount" className="account-button">
+                    <FaUser /> My Account
+                </Link>
+                <Link to="/myactivity" className="account-button">
+                    <FaHistory /> My Activity
+                </Link>
+                <Link to="/mynominee" className="account-button">
+                    <FaUserFriends /> Nominee
+                </Link>
+            </div>
+
+           
         </div>
     );
 };
