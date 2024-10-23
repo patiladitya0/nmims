@@ -7,7 +7,7 @@
 
 .module {
     min-width: 200px;
-    background-color: #fff;
+    background-color: #fff; /* Fallback color */
     border-radius: 20px;
     padding: 20px;
     height: 100px;
@@ -20,7 +20,10 @@
     justify-content: center;
     align-items: center;
     border: 2px solid transparent;
+    background-size: cover; /* Cover the entire module */
+    background-position: center; /* Center the image */
 }
+
 
 .module:hover {
     transform: scale(1.05);
@@ -44,10 +47,30 @@
 
     .module-content i {
         font-size: 24px;
+        
     }
 
+    .module-content {
+        display: flex;
+        flex-direction: column; /* Stack icon and text vertically */
+        justify-content: center; /* Center vertically */
+        align-items: center; /* Center horizontally */
+        text-align: center; /* Center text */
+    }
+    
+    .module-content svg { /* Style the SVG icons */
+        font-size: 36px; /* Increase the size of the icons */
+        margin-bottom: 5px; /* Space between icon and text */
+    }
+    
+    .module-content span {
+        font-size: 14px; /* Adjust text size if needed */
+        font-weight: bold; /* Make text bold */
+    }
+    
     .module-content span {
         font-size: 14px;
+        font-weight: bold;
     }
 
     /* Line Divider Styling */
@@ -98,3 +121,4 @@
 
     
 }
+

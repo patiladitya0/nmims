@@ -2,57 +2,56 @@
     {
         "name": "Real-Time Crisis Alerts",
         "link": "/real-time-alerts",
-        "icon": "fas fa-bell"
+        "icon": "FaBell"
     },
     {
         "name": "Volunteer & Resource Matching",
-        "link": "/main  /volunteer-matching",
-        "icon": "fas fa-handshake"
+        "link": "/volunteer-matching",
+        "icon": "FaHandshake"
     },
     {
         "name": "Emergency Communication",
-        "link": "/main/emergency-communication",
-        "icon": "fas fa-comments"
+        "link": "/emergency-communication",
+        "icon": "FaComments"
     },
     {
         "name": "Create an Emergency Kit",
-        "link": "/main/create-emergency-kit",
-        "icon": "fas fa-box"
+        "link": "/create-emergency-kit",
+        "icon": "FaBox"
     },
     {
         "name": "Educational Resources",
         "link": "/educational-resources",
-        "icon": "fas fa-book"
+        "icon": "FaBook"
     },
     {
         "name": "Disaster Prevention",
         "link": "/disaster-prevention",
-        "icon": "fas fa-shield-alt"
+        "icon": "FaShieldAlt"
     },
     {
         "name": "Quick Dashboard",
         "link": "/quick-dashboard",
-        "icon": "fas fa-tachometer-alt"
+        "icon": "FaTachometerAlt"
     },
     {
         "name": "Help Center",
         "link": "/help-center",
-        "icon": "fas fa-hands-helping"
+        "icon": "FaHandsHelping"
     },
     {
         "name": "Emergency Services",
-        "link": "/main/emergency-services",
-        "icon": "fas fa-ambulance"
+        "link": "/emergency-services",
+        "icon": "FaAmbulance"
     },
     {
         "name": "Medical Assistance",
         "link": "/medical-assistance",
-        "icon": "fas fa-briefcase-medical"
+        "icon": "FaBriefcaseMedical"
     },
     {
         "name": "Education",
         "link": "/education",
-        "icon": "fas fa-chalkboard-teacher"
+        "icon": "FaChalkboardTeacher"
     }
-    
 ]

@@ -45,7 +45,7 @@ const MainPage = () => {
                         >
                             {tabs.map((tab, index) => (
                                 <Draggable key={tab.id} draggableId={tab.id} index={index}>
-                                    {(provided) => (
+                                    {( provided) => (
                                         <Link
                                             to={tab.link}
                                             className={`nav-item ${activeTab === tab.id ? 'active' : ''}`}
