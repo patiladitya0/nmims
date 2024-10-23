@@ -203,9 +203,45 @@ const crisisSchema = new mongoose.Schema({
 const Crisis = mongoose.model('Crisis', crisisSchema);
 
 
-app.post("/crisis",async(req,res)=>{
-  
-})
+app.post("/crisis", async (req, res) => {
+  try {
+    const { desc, fullName, time, date, cords } = req.body;
+
+    // Validate if coordinates are provided
+    if (!cords || cords.length !== 2) {
+      return res.status(400).json({ message: "Coordinates must be an array of two numbers [longitude, latitude]" });
+    }
+
+    // Create a new crisis document
+    const newCrisis = new Crisis({
+      desc,
+      fullName,
+      time,
+      date,
+      cords
+    });
+
+    // Save the crisis to the database
+    await newCrisis.save();
+
+    return res.status(201).json({ message: "Crisis saved successfully", crisis: newCrisis });
+  } catch (error) {
+    console.error("Error saving crisis:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// API to fetch all crises
+app.get("/crises", async (req, res) => {
+  try {
+    const crises = await Crisis.find({});
+    res.status(200).json(crises);
+  } catch (error) {
+    console.error("Error fetching crises:", error);
+    res.status(500).json({ message: "Error fetching crises" });
+  }
+});
+
 
 
 // Start the server

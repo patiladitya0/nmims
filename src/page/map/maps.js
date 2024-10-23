@@ -16,32 +16,48 @@ L.Icon.Default.mergeOptions({
 export default function Maps() {
   const [loading, setLoading] = useState(true); // State to show loading state
   const [userData, setUserData] = useState(null); // State to hold user data
-  const [position, setPosition] = useState([19.1910554, 72.9441314]);
+  const [position, setPosition] = useState([19.1910554, 72.9441314]); // Default position
   const [error, setError] = useState(null);
   const [showHelpForm, setShowHelpForm] = useState(false); // For toggling the help form
-  const [helpMessage, setHelpMessage] = useState(''); // For storing the user's input
+  const [desc, setHelpMessage] = useState(''); // For storing the user's input
+  const [crises, setCrises] = useState([]); // State to hold crises data
+
+  // Fetch user data
   const fetchUserData = async () => {
     try {
-        const token = localStorage.getItem('token'); // Assuming you store the JWT token in localStorage
-        const config = {
-            headers: {
-                Authorization: `Bearer ${token}` // Pass the JWT token in the Authorization header
-            }
-        };
+      const token = localStorage.getItem('token'); // Assuming you store the JWT token in localStorage
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}` // Pass the JWT token in the Authorization header
+        }
+      };
 
-        // Make API call to fetch user data
-        const response = await axios.get('http://localhost:5000/api/user/account', config); // Replace with your actual API endpoint
-        setUserData(response.data); // Set the fetched data to the state
-        setLoading(false); // Stop loading once data is fetched
+      // Make API call to fetch user data
+      const response = await axios.get('http://localhost:5000/api/user/account', config); // Replace with your actual API endpoint
+      setUserData(response.data); // Set the fetched data to the state
+      setLoading(false); // Stop loading once data is fetched
     } catch (error) {
-        console.error('Error fetching user data:', error);
-        setError('Failed to fetch user data');
-        setLoading(false); // Stop loading in case of error
+      console.error('Error fetching user data:', error);
+      setError('Failed to fetch user data');
+      setLoading(false); // Stop loading in case of error
     }
-};
-useEffect(() => {
-  fetchUserData();
-}, []);
+  };
+
+  // Fetch crises data
+  const fetchCrises = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/crises'); // Fetch crises from your backend
+      setCrises(response.data); // Set crises data
+    } catch (error) {
+      console.error('Error fetching crises:', error);
+      setError('Failed to fetch crises');
+    }
+  };
+
+  useEffect(() => {
+    fetchUserData();
+    fetchCrises(); // Fetch crises on component mount
+  }, []);
 
   useEffect(() => {
     // Check if browser supports Geolocation API
@@ -65,13 +81,36 @@ useEffect(() => {
     setShowHelpForm(!showHelpForm); // Toggle the help form visibility
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`Help Message: ${helpMessage}` + userData.fullName);
-    setHelpMessage(''); // Clear the input after submission
-    setShowHelpForm(false); // Close the form after submission
+  
+    // Fetch current date and time
+    const currentDate = new Date();
+    const fullName = userData.fullName;
+    const time = currentDate.toTimeString().split(' ')[0]; // Get time in HH:MM:SS format
+    const date = currentDate.toISOString().split('T')[0]; // Get date in YYYY-MM-DD format
+  
+    alert(`Help Message: ${desc} - ${userData.fullName}`);
+  
+    try {
+      // Make the POST request to send data to the server
+      const response = await axios.post("http://localhost:5000/crisis", {
+        desc,
+        fullName,
+        time,
+        date,
+        cords: position // Assuming position contains coordinates in [lat, long] format
+      });
+  
+      console.log(response.data.message); // Handle success message if needed
+      setHelpMessage(''); // Clear help message input
+      setShowHelpForm(false); // Close the form after successful submission
+    } catch (error) {
+      console.error('Error submitting crisis form:', error.response ? error.response.data.message : error.message);
+      alert('There was an issue submitting your request. Please try again.');
+    }
   };
-
+  
   const handleVolunteerWorkClick = () => {
     alert("You clicked 'Volunteer Work'");
   };
@@ -94,7 +133,7 @@ useEffect(() => {
             <input
               type="text"
               placeholder="Enter your help message"
-              value={helpMessage}
+              value={desc}
               onChange={(e) => setHelpMessage(e.target.value)}
               required
             />
@@ -118,6 +157,18 @@ useEffect(() => {
               )}
             </Popup>
           </Marker>
+          
+          {/* Display crisis markers */}
+          {crises.map((crisis, index) => (
+            <Marker key={index} position={[crisis.cords[1], crisis.cords[0]]}>
+              <Popup>
+                <strong>Description:</strong> {crisis.desc}<br />
+                <strong>Name:</strong> {crisis.fullName}<br />
+                <strong>Time:</strong> {crisis.time}<br />
+                <strong>Date:</strong> {crisis.date}
+              </Popup>
+            </Marker>
+          ))}
         </MapContainer>
       </div>
     </div>

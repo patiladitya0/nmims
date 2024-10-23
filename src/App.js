@@ -10,10 +10,10 @@ import Search from './page/search/search';
 import Menu from './page/menu/menu';       
 import MyAccount from './page/menu/myaccount';  
 import AboutUs from './page/menu/about';  
-import EmergencyServices from './page/home/emergency'; // Import the new component
+import EmergencyServices from './page/home/emergency';
 import EmergencyKIT from './page/home/emergencyKIT';
 import Maps from './page/map/maps';
-import VolunteerMatching from './page/home/VolunteerMatching'; // Import the new Volunteer Matching component
+import VolunteerMatching from './page/home/VolunteerMatching';
 
 const App = () => {
   return (
