@@ -27,7 +27,6 @@ mongoose.connect(process.env.MONGO)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
   
-  // Define User Schema
   const userSchema = new mongoose.Schema({
     fullName: String,
     dob: {
@@ -40,6 +39,7 @@ mongoose.connect(process.env.MONGO)
     email: { type: String, unique: true },
     pin: String,
   });
+
   
   // Pre-save hook for password hashing
   userSchema.pre('save', async function (next) {
@@ -85,55 +85,53 @@ mongoose.connect(process.env.MONGO)
     }
   });
   
-  // Login Route
   app.post('/login', async (req, res) => {
     try {
+      console.log("Request Body:", req.body); // Log the full request body
       const { email, mobileNumber, pin, otp } = req.body;
-      console.log(email, mobileNumber, pin, otp )
+      console.log("email:", email, "mobileNumber:", mobileNumber, "pin:", pin, "otp:", otp);
   
       // Handle login via email and pin
       if (email) {
+        console.log("Handling login via email");
         const user = await User.findOne({ email });
-        console.log("user found");
         if (!user) {
           return res.status(404).json({ message: 'User not found' });
         }
   
-        const isValidPin = await user.comparePin(pin); // Compare the pin using the comparePin method
+        const isValidPin = await user.comparePin(pin);
         if (!isValidPin) {
           return res.status(401).json({ message: 'Invalid credentials' });
         }
   
-        // Generate JWT token
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '9h' });
         return res.status(200).json({ message: 'Login successful', token });
       }
   
       // Handle login via mobile number and OTP
       if (mobileNumber) {
+        console.log("Handling login via mobile number");
         const user = await User.findOne({ mobileNumber });
         if (!user) {
           return res.status(404).json({ message: 'User not found' });
         }
   
-        // Simulate OTP verification. Replace with actual OTP verification logic.
-        const isValidOtp = otp === '123456'; // Assuming a mock OTP of 123456
+        const isValidOtp = otp === '123456'; // Simulated OTP verification
         if (!isValidOtp) {
           return res.status(401).json({ message: 'Invalid OTP' });
         }
   
-        // Generate JWT token
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '9h' });
         return res.status(200).json({ message: 'Login successful', token });
       }
   
-      // If neither email nor mobileNumber is provided
       return res.status(400).json({ message: 'Invalid login method' });
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: 'Internal server error' });
+      return res.status(500).json({ message: 'Internal server error' });
     }
   });
+  
   
   // Middleware to verify JWT token
   const verifyToken = (req, res, next) => {
@@ -194,6 +192,20 @@ app.put('/api/user/update-password', verifyToken, async (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+const crisisSchema = new mongoose.Schema({
+  desc : String,
+  fullName : String,
+  time : String,
+  date : String,
+  cords : [Number],
+});
+const Crisis = mongoose.model('Crisis', crisisSchema);
+
+
+app.post("/crisis",async(req,res)=>{
+  
+})
 
 
 // Start the server

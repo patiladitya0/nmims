@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import './map.css';
+import axios from 'axios';
 
 // Fix default marker icon
 delete L.Icon.Default.prototype._getIconUrl;
@@ -13,8 +14,34 @@ L.Icon.Default.mergeOptions({
 });
 
 export default function Maps() {
+  const [loading, setLoading] = useState(true); // State to show loading state
+  const [userData, setUserData] = useState(null); // State to hold user data
   const [position, setPosition] = useState([19.1910554, 72.9441314]);
   const [error, setError] = useState(null);
+  const [showHelpForm, setShowHelpForm] = useState(false); // For toggling the help form
+  const [helpMessage, setHelpMessage] = useState(''); // For storing the user's input
+  const fetchUserData = async () => {
+    try {
+        const token = localStorage.getItem('token'); // Assuming you store the JWT token in localStorage
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}` // Pass the JWT token in the Authorization header
+            }
+        };
+
+        // Make API call to fetch user data
+        const response = await axios.get('http://localhost:5000/api/user/account', config); // Replace with your actual API endpoint
+        setUserData(response.data); // Set the fetched data to the state
+        setLoading(false); // Stop loading once data is fetched
+    } catch (error) {
+        console.error('Error fetching user data:', error);
+        setError('Failed to fetch user data');
+        setLoading(false); // Stop loading in case of error
+    }
+};
+useEffect(() => {
+  fetchUserData();
+}, []);
 
   useEffect(() => {
     // Check if browser supports Geolocation API
@@ -35,7 +62,14 @@ export default function Maps() {
   }, []);
 
   const handleHelpMeClick = () => {
-    alert("You clicked 'Help Me!'");
+    setShowHelpForm(!showHelpForm); // Toggle the help form visibility
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Help Message: ${helpMessage}` + userData.fullName);
+    setHelpMessage(''); // Clear the input after submission
+    setShowHelpForm(false); // Close the form after submission
   };
 
   const handleVolunteerWorkClick = () => {
@@ -52,6 +86,23 @@ export default function Maps() {
           Volunteer Work
         </button>
       </div>
+
+      {/* Help form that appears on "Help Me!" click */}
+      {showHelpForm && (
+        <div className="help-form">
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Enter your help message"
+              value={helpMessage}
+              onChange={(e) => setHelpMessage(e.target.value)}
+              required
+            />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      )}
+
       <div style={{ flex: 1 }}>
         <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ height: '100%' }}>
           <TileLayer

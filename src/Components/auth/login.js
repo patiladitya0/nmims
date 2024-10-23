@@ -11,27 +11,23 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        
         try {
-            let response;
-            if (loginMethod === 'email') {
-                console.log(email,pin)
-                response = await axios.post('http://localhost:5000/login', { email, pin });
-            } else {
-                console.log(phoneNumber,otp)
-                response = await axios.post('http://localhost:5000/login', { phoneNumber, otp });
-            }
-
-            console.log(response.data.message);
-            // Store token in local storage and redirect to home if login successful
-            localStorage.setItem('token', response.data.token);
-            window.location.href = '/main';  // Redirect to home page
-
+          let response;
+          if (loginMethod === 'email') {
+            response = await axios.post('http://localhost:5000/login', { email, pin });
+          } else {
+            response = await axios.post('http://localhost:5000/login', { mobileNumber: phoneNumber, otp });
+          }
+      
+          localStorage.setItem('token', response.data.token);
+          window.location.href = '/main';  // Redirect to main page
         } catch (error) {
-            console.error('Login failed:', error.response ? error.response.data.message : error.message);
+          console.error('Login failed:', error.response ? error.response.data.message : error.message);
         }
-    };
-
+      };
+      
+    
     return (
         <div className="login-container">
             <form className="login-form" onSubmit={handleSubmit}>
