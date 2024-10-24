@@ -11,12 +11,12 @@
     },
     {
         "name": "Emergency Communication",
-        "link": "/emergency-communication",
+        "link": "/main/emergency-communication",
         "icon": "FaComments"
     },
     {
         "name": "Create an Emergency Kit",
-        "link": "/create-emergency-kit",
+        "link": "/main/create-emergency-kit",
         "icon": "FaBox"
     },
     {
