@@ -8,6 +8,23 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
+@keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .blinking-marker {
+    animation: blink 1s infinite;
+  }
+  
+
 .button-container {
     display: flex; /* Use flexbox for layout */
     justify-content: center; /* Center the buttons horizontally */

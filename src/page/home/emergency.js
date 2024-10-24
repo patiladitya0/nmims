@@ -19,13 +19,10 @@ const EmergencyServices = () => {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
-    const handleBack = () => {
-        navigate('/'); // Navigate back to the home page
-    };
+    
 
     return (
         <div className="emergency-services-container">
-            <button className="back-button" onClick={handleBack}>Back</button>
             <h1>Emergency Services</h1>
             {services.map((service, index) => (
                 <div className="service-section" key={index}>

@@ -35,11 +35,8 @@ export default function Maps() {
       // Make API call to fetch user data
       const response = await axios.get('http://localhost:5000/api/user/account', config); // Replace with your actual API endpoint
       setUserData(response.data); // Set the fetched data to the state
-      setLoading(false); // Stop loading once data is fetched
     } catch (error) {
       console.error('Error fetching user data:', error);
-      setError('Failed to fetch user data');
-      setLoading(false); // Stop loading in case of error
     }
   };
 
@@ -83,34 +80,37 @@ export default function Maps() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     // Fetch current date and time
     const currentDate = new Date();
     const fullName = userData.fullName;
     const time = currentDate.toTimeString().split(' ')[0]; // Get time in HH:MM:SS format
     const date = currentDate.toISOString().split('T')[0]; // Get date in YYYY-MM-DD format
-  
+
     alert(`Help Message: ${desc} - ${userData.fullName}`);
-  
+
     try {
       // Make the POST request to send data to the server
-      const response = await axios.post("http://localhost:5000/crisis", {
+      const response = await axios.post('http://localhost:5000/crisis', {
         desc,
         fullName,
         time,
         date,
-        cords: position // Assuming position contains coordinates in [lat, long] format
+        cords: position, // Assuming position contains coordinates in [lat, long] format
       });
-  
+
       console.log(response.data.message); // Handle success message if needed
       setHelpMessage(''); // Clear help message input
       setShowHelpForm(false); // Close the form after successful submission
     } catch (error) {
-      console.error('Error submitting crisis form:', error.response ? error.response.data.message : error.message);
+      console.error(
+        'Error submitting crisis form:',
+        error.response ? error.response.data.message : error.message
+      );
       alert('There was an issue submitting your request. Please try again.');
     }
   };
-  
+
   const handleVolunteerWorkClick = () => {
     alert("You clicked 'Volunteer Work'");
   };
@@ -143,7 +143,12 @@ export default function Maps() {
       )}
 
       <div style={{ flex: 1 }}>
-        <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ height: '100%' }}>
+        <MapContainer
+          center={position}
+          zoom={13}
+          scrollWheelZoom={false}
+          style={{ height: '100%' }}
+        >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -153,18 +158,31 @@ export default function Maps() {
               {error ? (
                 <span>Error: {error}</span>
               ) : (
-                <span>Your location: {position[0]}, {position[1]}</span>
+                <span>
+                  Your location: {position[0]}, {position[1]}
+                </span>
               )}
             </Popup>
           </Marker>
-          
-          {/* Display crisis markers */}
+
+          {/* Display crisis markers with blinking effect */}
           {crises.map((crisis, index) => (
-            <Marker key={index} position={[crisis.cords[1], crisis.cords[0]]}>
+            <Marker
+              key={index}
+              position={[crisis.cords[0], crisis.cords[1]]}
+              icon={L.divIcon({
+                className: 'blinking-marker', // Apply blinking class
+                html: '<div style="background-color: red; width: 20px; height: 20px; border-radius: 50%;"></div>', // Customize marker appearance
+                iconSize: [20, 20],
+              })}
+            >
               <Popup>
-                <strong>Description:</strong> {crisis.desc}<br />
-                <strong>Name:</strong> {crisis.fullName}<br />
-                <strong>Time:</strong> {crisis.time}<br />
+                <strong>Description:</strong> {crisis.desc}
+                <br />
+                <strong>Name:</strong> {crisis.fullName}
+                <br />
+                <strong>Time:</strong> {crisis.time}
+                <br />
                 <strong>Date:</strong> {crisis.date}
               </Popup>
             </Marker>
