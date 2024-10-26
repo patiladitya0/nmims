@@ -38,36 +38,36 @@ const Home = () => {
         setModules(reorderedModules);
     };
 
-    const fetchUserData = async () => {
-        try {
-            const token = localStorage.getItem('token');
-            const config = {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            };
+    // const fetchUserData = async () => {
+    //     try {
+    //         const token = localStorage.getItem('token');
+    //         const config = {
+    //             headers: {
+    //                 Authorization: `Bearer ${token}`
+    //             }
+    //         };
 
-            const response = await axios.get('http://localhost:5000/api/user/account', config);
-            setUserData(response.data);
-            setLoading(false);
-        } catch (error) {
-            console.error('Error fetching user data:', error);
-            setError('Failed to fetch user data');
-            setLoading(false);
-        }
-    };
+    //         const response = await axios.get('http://localhost:5000/api/user/account', config);
+    //         setUserData(response.data);
+    //         setLoading(false);
+    //     } catch (error) {
+    //         console.error('Error fetching user data:', error);
+    //         setError('Failed to fetch user data');
+    //         setLoading(false);
+    //     }
+    // };
 
-    useEffect(() => {
-        fetchUserData();
-    }, []);
+    // useEffect(() => {
+    //     fetchUserData();
+    // }, []);
 
-    if (loading) {
-        return <p>Loading...</p>;
-    }
+    // if (loading) {
+    //     return <p>Loading...</p>;
+    // }
 
-    if (error) {
-        return <p>{error}</p>;
-    }
+    // if (error) {
+    //     return <p>{error}</p>;
+    // }
 
     return (
         <div className="home-container">

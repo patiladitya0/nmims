@@ -1,0 +1,56 @@
+[
+    {
+        "title": "Your Emergency Plan",
+        "items": [
+            {
+                "heading": "Your Emergency Preparedness Guide",
+                "link": "/main/your-emergency-preparedness-guide.html"
+            },
+            {
+                "heading": "Emergency Preparedness Guide for People with Disabilities/Special Needs",
+                "link": "emergency-preparedness-guide-for-people-with-disabilities.html"
+            },
+            {
+                "heading": "Emergency Preparedness for Children",
+                "link": "emergency-preparedness-for-children.html"
+            },
+            {
+                "heading": "Pets and Service Animals",
+                "link": "pets-and-service-animals.html"
+            },
+            {
+                "heading": "Staying in touch during emergencies",
+                "link": "staying-in-touch-during-emergencies.html"
+            }
+        ]
+    },
+    {
+        "title": "Hazards and Emergencies",
+        "items": [
+            {
+                "heading": "Hazards",
+                "link": "hazards.html"
+            },
+            {
+                "heading": "Other emergencies",
+                "link": "other-emergencies.html"
+            },
+            {
+                "heading": "Regional information",
+                "link": "regional-information.html"
+            },
+            {
+                "heading": "Before an Emergency",
+                "link": "before-an-emergency.html"
+            },
+            {
+                "heading": "During an emergency",
+                "link": "during-an-emergency.html"
+            },
+            {
+                "heading": "After an emergency",
+                "link": "after-an-emergency.html"
+            }
+        ]
+    }
+]
