@@ -89,20 +89,22 @@ const MyAccount = () => {
                 {editMode && (
                     <form className="password-form" onSubmit={handlePasswordUpdate}>
                         <div className="input-group">
-                            <label htmlFor="currentPassword">Current Password:</label>
+                            <label htmlFor="currentPassword"></label>
                             <input
                                 type="password"
                                 id="currentPassword"
+                                placeholder='Current Password'
                                 value={currentPassword}
                                 onChange={(e) => setCurrentPassword(e.target.value)}
                                 required
                             />
                         </div>
                         <div className="input-group">
-                            <label htmlFor="newPassword">New Password:</label>
+                            <label htmlFor="newPassword"></label>
                             <input
                                 type="password"
                                 id="newPassword"
+                                placeholder='New Password'
                                 value={newPassword}
                                 onChange={(e) => setNewPassword(e.target.value)}
                                 required

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { AiOutlineUsergroupAdd } from "react-icons/ai";
+
 import { FaUser, FaHistory, FaUserFriends, FaBell, FaHandshake, FaComments, FaBox, FaBook, FaShieldAlt, FaTachometerAlt, FaHandsHelping, FaAmbulance, FaBriefcaseMedical, FaChalkboardTeacher } from 'react-icons/fa'; // Import icons
 import './home.css'; // Importing the CSS file
 import modulesData from '../../data/modules.json'; // Updated path
@@ -38,37 +40,7 @@ const Home = () => {
         setModules(reorderedModules);
     };
 
-    // const fetchUserData = async () => {
-    //     try {
-    //         const token = localStorage.getItem('token');
-    //         const config = {
-    //             headers: {
-    //                 Authorization: `Bearer ${token}`
-    //             }
-    //         };
-
-    //         const response = await axios.get('http://localhost:5000/api/user/account', config);
-    //         setUserData(response.data);
-    //         setLoading(false);
-    //     } catch (error) {
-    //         console.error('Error fetching user data:', error);
-    //         setError('Failed to fetch user data');
-    //         setLoading(false);
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     fetchUserData();
-    // }, []);
-
-    // if (loading) {
-    //     return <p>Loading...</p>;
-    // }
-
-    // if (error) {
-    //     return <p>{error}</p>;
-    // }
-
+   
     return (
         <div className="home-container">
             <div>
@@ -130,14 +102,14 @@ const Home = () => {
             </div>
 
             <div className="account-section">
-                <Link to="/myaccount" className="account-button">
+                <Link to="/main/my-account" className="account-button">
                     <FaUser /> My Account
                 </Link>
-                <Link to="/myactivity" className="account-button">
+                <Link to="/main/myactivity" className="account-button">
                     <FaHistory /> My Activity
                 </Link>
-                <Link to="/mynominee" className="account-button">
-                    <FaUserFriends /> Nominee
+                <Link to="/main/nominee" className="account-button">
+                    <AiOutlineUsergroupAdd /> Nominee
                 </Link>
             </div>
         </div>

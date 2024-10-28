@@ -18,6 +18,7 @@ import EducationalResources from './page/home/Educational-Resources';
 import YourEmergencyPreparednessGuide from './Module/Your_Emergency _Preparedness_Guide';
 import EmergencyPreparednessGuide from './Module/Disabilities_Special';
 import EmergencyPreparednessForChildren from './Module/children';
+import Nominee from './page/menu/nominee';
 
 
 
@@ -35,6 +36,8 @@ const App = () => {
         <Route path="menu" element={<Menu />} /> 
         <Route path="maps" element={<Maps />} /> 
         <Route path="my-account" element={<MyAccount />} />
+        <Route path="nominee" element={<Nominee />} />
+
         <Route path="about" element={<AboutUs />} />
         <Route path="emergency-communication" element={<EmergencyServices />} />
         <Route path="create-emergency-kit" element={<EmergencyKIT />} />
