@@ -4,23 +4,15 @@
         "items": [
             {
                 "heading": "Your Emergency Preparedness Guide",
-                "link": "/main/your-emergency-preparedness-guide.html"
+                "link": "/your-emergency-preparedness-guide"
             },
             {
                 "heading": "Emergency Preparedness Guide for People with Disabilities/Special Needs",
-                "link": "emergency-preparedness-guide-for-people-with-disabilities.html"
+                "link": "/emergency-preparedness-guide-for-people-with-disabilities"
             },
             {
                 "heading": "Emergency Preparedness for Children",
-                "link": "emergency-preparedness-for-children.html"
-            },
-            {
-                "heading": "Pets and Service Animals",
-                "link": "pets-and-service-animals.html"
-            },
-            {
-                "heading": "Staying in touch during emergencies",
-                "link": "staying-in-touch-during-emergencies.html"
+                "link": "/emergency-preparedness-for-children"
             }
         ]
     },
@@ -29,7 +21,7 @@
         "items": [
             {
                 "heading": "Hazards",
-                "link": "hazards.html"
+                "link": "/hazards"
             },
             {
                 "heading": "Other emergencies",

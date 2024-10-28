@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaFileAlt } from 'react-icons/fa'; // Importing the icon
 import { Link } from 'react-router-dom'; // Import Link
 import './Educational-Resources.css';
-import educationalResources from '../data/educationalResources.json'; // Adjusted path
+import educationalResources from '../../data/educationalResources.json'; // Adjusted path
 
 const EducationalResources = () => {
     const [activeDropdown, setActiveDropdown] = useState(null);
