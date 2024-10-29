@@ -16,7 +16,7 @@ L.Icon.Default.mergeOptions({
 export default function Maps() {
   const [loading, setLoading] = useState(true); // State to show loading state
   const [userData, setUserData] = useState(null); // State to hold user data
-  const [position, setPosition] = useState([19.1910554, 72.9441314]); // Default position
+  const [position, setPosition] = useState([19.1066094,72.834363]); // Default position
   const [error, setError] = useState(null);
   const [showHelpForm, setShowHelpForm] = useState(false); // For toggling the help form
   const [desc, setHelpMessage] = useState(''); // For storing the user's input
