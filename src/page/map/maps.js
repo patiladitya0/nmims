@@ -117,30 +117,7 @@ export default function Maps() {
 
   return (
     <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <div className="button-container">
-        <button className="fancy" onClick={handleHelpMeClick}>
-          Help Me!
-        </button>
-        <button className="fancy" onClick={handleVolunteerWorkClick}>
-          Volunteer Work
-        </button>
-      </div>
-
-      {/* Help form that appears on "Help Me!" click */}
-      {showHelpForm && (
-        <div className="help-form">
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Enter your help message"
-              value={desc}
-              onChange={(e) => setHelpMessage(e.target.value)}
-              required
-            />
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-      )}
+      
 
       <div style={{ flex: 1 }}>
         <MapContainer
@@ -189,6 +166,31 @@ export default function Maps() {
           ))}
         </MapContainer>
       </div>
+
+      <div className="button-container">
+        <button className="fancy" onClick={handleHelpMeClick}>
+          Help Me!
+        </button>
+        <button className="fancy" onClick={handleVolunteerWorkClick}>
+          Volunteer Work
+        </button>
+      </div>
+
+      {/* Help form that appears on "Help Me!" click */}
+      {showHelpForm && (
+        <div className="help-form">
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Enter your help message"
+              value={desc}
+              onChange={(e) => setHelpMessage(e.target.value)}
+              required
+            />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      )}
     </div>
   );
 }

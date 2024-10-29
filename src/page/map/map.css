@@ -65,3 +65,53 @@ body, html {
         width: auto; /* Automatic width for buttons */
     }
 }
+
+
+.help-form {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  background-color: white; /* White background for the form */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  padding: 20px; /* Padding inside the form */
+  margin: 20px; /* Margin around the form */
+}
+
+/* Input field styling */
+.help-form input {
+  width: 100%; /* Full width */
+  padding: 10px; /* Inner spacing */
+  border: 2px solid #ccc; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size for input text */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+/* Input focus effect */
+.help-form input:focus {
+  border-color: #28a745; /* Green border on focus */
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5); /* Subtle glow effect */
+}
+
+/* Submit button styling within help form */
+.help-form button[type="submit"] {
+  margin-top: 10px; /* Space above submit button */
+  background-color: #28a745; /* Bootstrap primary blue */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  color: white; /* White text */
+  font-size: 16px; /* Button text size */
+  padding: 10px; /* Inner spacing */
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition effects */
+  align-items: end;
+
+}
+
+/* Submit button hover effect */
+.help-form button[type="submit"]:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Lift effect */
+}

@@ -1,101 +1,141 @@
+/* Container for the account details */
 .account-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: #f0f0f0; 
+    background-color: #f0f0f0; /* Light gray background */
     height: 100%;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+    font-size: larger;
 }
 
+/* Username styling */
 .username {
     font-size: 24px;
-    color: #333;
+    color: #333; /* Dark gray for better readability */
     margin-bottom: 20px;
 }
 
+/* Container for user detail items */
 .detail-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 10px 0;
+    background-color: white; /* White background for the details */
+    border-radius: 18px; /* Rounded corners */
+    padding: 30px; /* Inner spacing */
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for details */
+    width: 100%;
+    max-width: 400px; /* Max width for responsive design */
+    transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+}
+
+/* Container hover effect */
+.detail-container:hover {
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
 
 /* Edit button styling */
-.editBtn {
-    width: 55px;
-    height: 55px;
-    border-radius: 20px;
-    border: none;
+.edit-button {
+    width: 200px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    border-radius: 20px; /* Rounded corners */
+    border: none; /* No border */
     background-color: #28a745; /* Green color */
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.123);
-    cursor: pointer;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.123); /* Soft shadow */
+    cursor: pointer; /* Pointer on hover */
     position: relative;
     overflow: hidden;
-    transition: all 0.3s;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth background and transform transitions */
+    color: white; /* Text color */
+    font-weight: bold; /* Bold text */
 }
 
-.editBtn::before {
-    content: "";
-    width: 200%;
-    height: 200%;
-    background-color: rgba(102, 102, 141, 0.7);
-    position: absolute;
-    z-index: 1;
-    transform: scale(0);
-    transition: all 0.3s;
-    border-radius: 50%;
-    filter: blur(10px);
+/* Button hover effect */
+.edit-button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px); /* Lift effect */
 }
 
-/* Animation starts on hover */
-.editBtn:hover::before {
-    transform: scale(1);
+/* Input group styling */
+.input-group {
+    margin-bottom: 15px; /* Spacing between inputs */
+    width: 100%; /* Full width */
 }
 
-.editBtn:hover {
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.336);
+.input-group label {
+    display: block; /* Block label */
+    margin-bottom: 5px; /* Space between label and input */
+    font-size: 14px; /* Label font size */
+    color: #555; /* Slightly darker gray for labels */
 }
 
-.editBtn svg {
-    height: 17px;
-    fill: white;
-    z-index: 3;
-    transition: all 0.2s;
-    transform-origin: bottom;
+/* Input styling */
+.input-group input {
+    width: 100%; /* Full width */
+    padding: 10px; /* Inner spacing */
+    border: 2px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth border and shadow transitions */
 }
 
-/* Rotate icon on hover */
-.editBtn:hover svg {
-    transform: rotate(-15deg) translateX(5px);
+/* Input focus effect */
+.input-group input:focus {
+    border-color: #28a745; /* Green border on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5); /* Subtle glow effect on focus */
 }
 
-.editBtn::after {
-    content: "";
-    width: 25px;
-    height: 1.5px;
-    position: absolute;
-    bottom: 19px;
-    left: -5px;
-    background-color: white;
-    border-radius: 2px;
-    z-index: 2;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.5s ease-out;
+/* Save button styling */
+.save-button {
+    width: 100%; /* Full width */
+    padding: 10px; /* Inner spacing */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #007bff; /* Bootstrap primary blue */
+    color: white; /* White text */
+    font-size: 16px; /* Button text size */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth background and transform transitions */
 }
 
-/* Line animation on hover */
-.editBtn:hover::after {
-    transform: scaleX(1);
-    left: 0px;
-    transform-origin: right;
+/* Save button hover effect */
+.save-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Lift effect */
 }
 
-/* Button click effect */
-.editBtn:active {
-    transform: translate(2px, 2px);
+/* Success message styling */
+.success-message {
+    color: #28a745; /* Green color for success messages */
+    margin-top: 10px; /* Space above message */
+    transition: opacity 0.5s ease; /* Smooth fade transition */
+}
+
+/* Error message styling */
+.error-message {
+    color: #dc3545; /* Red color for error messages */
+    margin-top: 10px; /* Space above message */
+    transition: opacity 0.5s ease; /* Smooth fade transition */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .account-container {
+        padding: 10px; /* Reduced padding on mobile */
+    }
+
+    .edit-button {
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    .detail-container {
+        padding: 15px; /* Adjust padding for mobile */
+    }
 }

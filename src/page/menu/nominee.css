@@ -1,0 +1,116 @@
+/* Positioning the container for the nominee form */
+.nominee-container {
+    position: relative;
+    padding: 20px;
+}
+
+/* Button to toggle form visibility */
+.cssbuttons-io-button {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Fixed width for a round button */
+    height: 40px; /* Fixed height for a round button */
+    border: none;
+    border-radius: 50%; /* Circular button */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    font-size: 50px; /* Icon size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.cssbuttons-io-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.1); /* Slight scaling effect */
+}
+
+/* Form styling */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1px; /* Spacing between form fields */
+    max-width: 400px; /* Max width of the form */
+    background-color: #ffffff; /* White background */
+    padding: 20px; /* Inner spacing */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    position: fixed; /* Fixed position */
+    bottom: 80px; /* Space above the button */
+    right: 20px; /* Align to the right */
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+/* Input group styling */
+.inputGroup {
+    position: relative;
+    margin: 1em 0;
+}
+
+.inputGroup input, .inputGroup select {
+    font-family: 'Segoe UI', sans-serif; /* Font style */
+    padding: 0.8em; /* Padding for input fields */
+    outline: none; /* Remove outline */
+    border: 2px solid rgb(200, 200, 200); /* Light border */
+    background-color: #f9f9f9; /* Light background */
+    border-radius: 5px; /* Slightly rounded corners */
+    width: 100%; /* Full width */
+    transition: border-color 0.3s; /* Smooth border transition */
+}
+
+/* Label styling */
+.inputGroup label {
+    position: absolute; /* Absolute position for floating effect */
+    left: 10px; /* Positioning */
+    top: 10px; /* Positioning */
+    pointer-events: none; /* Disable events for label */
+    transition: all 0.3s; /* Smooth transition */
+    color: rgb(100, 100, 100); /* Gray color */
+}
+
+/* Label floating effect */
+.inputGroup :is(input:focus, input:valid) ~ label,
+.inputGroup :is(select:focus, select:valid) ~ label {
+    transform: translateY(-20px) scale(0.8); /* Floating effect */
+    color: #4CAF50; /* Change label color on focus */
+}
+
+/* Input focus styles */
+.inputGroup :is(input:focus, input:valid),
+.inputGroup :is(select:focus, select:valid) {
+    border-color: rgb(76, 175, 80); /* Green border on focus */
+}
+
+/* Submit button */
+.fancy {
+    background-color: #4CAF50; /* Green background */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for the button */
+    cursor: pointer; /* Pointer cursor */
+    color: #ffffff; /* White text */
+    font-size: 16px; /* Text size */
+    font-weight: bold; /* Bold text */
+    letter-spacing: 1px; /* Letter spacing */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+.fancy:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cssbuttons-io-button {
+        width: 50px; /* Smaller button on mobile */
+        height: 50px; /* Smaller button on mobile */
+    }
+    .form {
+        max-width: 90%; /* Full width on smaller screens */
+    }
+}

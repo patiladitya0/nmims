@@ -1,0 +1,112 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+:root {
+    --primary-color: #28a745; /* Main button color */
+    --primary-color-hover: #218838; /* Darker green on hover */
+    --text-color: #333; /* Default text color */
+    --background-color: #f7f7f7; /* Container background color */
+    --dropdown-bg-color: #fff; /* Dropdown background color */
+    --border-color: #ccc; /* Border color */
+    --border-radius: 5px; /* Border radius for elements */
+}
+
+html, body {
+    height: 100%; /* Ensure body takes full height */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto; /* Allow vertical scrolling only when necessary */
+}
+
+.resources-container {
+    padding: 20px;
+    background-color: var(--background-color);
+    overflow-x: hidden; /* Prevent horizontal overflow in the container */
+    overflow-y: auto; /* Allow vertical scrolling */
+    max-width: 100vw; /* Limit the container to the viewport width */
+}
+
+.resource-title {
+    font-size: 24px;
+    color: var(--primary-color); /* Darker color for the title */
+    margin-bottom: 10px;
+}
+
+.dropdown {
+    margin-bottom: 10px;
+}
+
+.Documents-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* Full width for button */
+    height: 45px;
+    border: none;
+    padding: 0 15px;
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color); /* Main button color */
+    color: white; /* Text color for button */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.Documents-btn:hover {
+    background-color: var(--primary-color-hover); /* Darker green on hover */
+}
+
+.file-icon {
+    font-size: 20px; /* Icon size */
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.dropdown-content {
+    margin-top: 5px;
+    padding: 10px;
+    background-color: var(--dropdown-bg-color); /* White background for dropdown */
+    border: 1px solid var(--border-color); /* Light border */
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    max-width: 100%; /* Ensure it doesn't exceed the parent width */
+}
+
+/* Styling for dropdown items */
+.item {
+    padding: 8px 10px; /* Increased padding for better click area */
+    color: var(--text-color); /* Default color for item text */
+    font-size: 16px; /* Font size for items */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Hover effect for dropdown items */
+.item:hover {
+    background-color: #e9f7ea; /* Light green background on hover */
+    border-radius: var(--border-radius); /* Rounded corners on hover */
+}
+
+/* Additional styling for text */
+.text {
+    color: var(--text-color); /* Color for item text */
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .resource-title {
+        font-size: 20px; /* Adjust title size for smaller screens */
+    }
+
+    .Documents-btn {
+        height: 40px; /* Slightly smaller button height */
+    }
+
+    .item {
+        font-size: 14px; /* Smaller font size for items */
+    }
+}

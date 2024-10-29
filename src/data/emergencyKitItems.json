@@ -136,6 +136,11 @@
             "name": "Duct tape",
             "description": "Duct tape",
             "checked": false
+        },
+        {
+            "name": "Tent",
+            "description": "Small Tent to spend a night",
+            "checked": false
         }
     ]
 }

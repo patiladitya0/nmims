@@ -14,6 +14,14 @@ import EmergencyServices from './page/home/emergency';
 import EmergencyKIT from './page/home/emergencyKIT';
 import Maps from './page/map/maps';
 import VolunteerMatching from './page/home/VolunteerMatching';
+import EducationalResources from './page/home/Educational-Resources';
+import YourEmergencyPreparednessGuide from './Module/Your_Emergency _Preparedness_Guide';
+import EmergencyPreparednessGuide from './Module/Disabilities_Special';
+import EmergencyPreparednessForChildren from './Module/children';
+import Nominee from './page/menu/nominee';
+
+
+
 
 const App = () => {
   return (
@@ -22,16 +30,24 @@ const App = () => {
       <Route path="/second" element={<Option />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/main" element={<MainPage />}>
+      <Route path="/main" element={<MainPage />} >
         <Route path="home" element={<Home />} />
         <Route path="search" element={<Search />} />
         <Route path="menu" element={<Menu />} /> 
         <Route path="maps" element={<Maps />} /> 
         <Route path="my-account" element={<MyAccount />} />
+        <Route path="nominee" element={<Nominee />} />
+
         <Route path="about" element={<AboutUs />} />
         <Route path="emergency-communication" element={<EmergencyServices />} />
         <Route path="create-emergency-kit" element={<EmergencyKIT />} />
-        <Route path="volunteer-matching" element={<VolunteerMatching />} /> {/* Add Volunteer Matching route */}
+        <Route path="volunteer-matching" element={<VolunteerMatching />} /> 
+        <Route path="educational-resources" element={<EducationalResources />} />
+        <Route path="your-emergency-preparedness-guide" element={<YourEmergencyPreparednessGuide />} /> 
+        <Route path="emergency-preparedness-guide-for-people-with-disabilities" element={<EmergencyPreparednessGuide />} /> 
+        <Route path="emergency-preparedness-for-children" element={<EmergencyPreparednessForChildren />} /> 
+
+
       </Route>
     </Routes>
   );
