@@ -19,6 +19,7 @@ import YourEmergencyPreparednessGuide from './Module/Your_Emergency _Preparednes
 import EmergencyPreparednessGuide from './Module/Disabilities_Special';
 import EmergencyPreparednessForChildren from './Module/children';
 import Nominee from './page/menu/nominee';
+import ContactUs from './page/menu/ContactUs';
 
 
 
@@ -37,7 +38,7 @@ const App = () => {
         <Route path="maps" element={<Maps />} /> 
         <Route path="my-account" element={<MyAccount />} />
         <Route path="nominee" element={<Nominee />} />
-
+        <Route path="ContactUs" element={<ContactUs />} />
         <Route path="about" element={<AboutUs />} />
         <Route path="emergency-communication" element={<EmergencyServices />} />
         <Route path="create-emergency-kit" element={<EmergencyKIT />} />

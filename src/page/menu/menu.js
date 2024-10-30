@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUser, FaUserFriends, FaInfoCircle, FaSignOutAlt } from 'react-icons/fa';
+import { FaUser, FaUserFriends, FaInfoCircle, FaSignOutAlt, FaEnvelope } from 'react-icons/fa';
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import './menu.css';
 import { ThemeContext } from '../../context/themeContext';
@@ -61,6 +61,13 @@ const Menu = () => {
                         About
                     </button>
                 </Link>
+                <Link to="/main/ContactUs">
+                    <button className="menu-button">
+                        < FaEnvelope size={20} />
+                        Contact Us
+                    </button>
+                </Link>
+
             </div>
 
             {/* Logout Button at the Bottom */}

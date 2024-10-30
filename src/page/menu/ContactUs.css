@@ -1,0 +1,95 @@
+/* ContactUs.css */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+    padding: 0 1rem; /* Add some padding to avoid content touching the edges */
+}
+
+.max-w-md {
+    max-width: 600px; /* Maximum width for the form */
+    width: 100%; /* Ensure the form is responsive */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.bg-gray-100 {
+    background-color: #f7fafc;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.text-gray-800 {
+    color: #2d3748; /* Dark gray text */
+    padding: 5px;
+}
+
+.bg-yellow-300 {
+    background-color: #28a745; /* Green background */
+}
+
+.hover\:bg-yellow-400:hover {
+    background-color: #4cb464; /* Lighter green on hover */
+}
+
+.focus\:ring-yellow-300:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* Green ring on focus */
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem; /* Space between form fields */
+}
+
+/* Input and Textarea styles */
+input, textarea {
+    transition: border-color 0.3s ease-in-out; /* Smooth border transition */
+    border-radius: 5px;
+    padding: 10px; /* Increase padding for comfort */
+    width: 100%; /* Make inputs full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+input:focus, textarea:focus {
+    border-color: #28a745; /* Change border color on focus */
+    background-color: #fff; /* White background on focus for inputs */
+}
+
+/* Button styles */
+button {
+    cursor: pointer; /* Change cursor to pointer */
+    width: 100%; /* Make the button full width */
+    padding: 10px; /* Add padding to the button */
+    border-radius: 5px; /* Consistent border radius */
+}
+
+button:hover {
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem; /* Add padding on small screens */
+        height: auto; /* Allow height to adjust based on content */
+        margin: 0; /* Remove margin */
+    }
+
+    .bg-gray-100 {
+        padding: 15px; /* Reduce padding on smaller screens */
+    }
+
+    .text-gray-800 {
+        font-size: 1.2rem; /* Adjust font size for readability */
+    }
+
+    /* Adjust input and textarea styles for smaller screens */
+    input, textarea {
+        padding: 12px; /* Add a bit more padding for touch targets */
+    }
+
+    button {
+        font-size: 1.1rem; /* Increase button font size for better readability */
+    }
+}

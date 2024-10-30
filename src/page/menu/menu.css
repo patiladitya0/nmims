@@ -40,6 +40,7 @@
     align-items: center;
     text-decoration: none;
     width: 100%; /* Make buttons full width */
+    
 }
 
 .menu-button:hover {

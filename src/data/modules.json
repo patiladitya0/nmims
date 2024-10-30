@@ -10,8 +10,13 @@
         "icon": "FaHandshake"
     },
     {
-        "name": "Emergency Communication",
+        "name": "Help Line Numbers",
         "link": "/main/emergency-communication",
+        "icon": "FaPhoneAlt"
+    },
+    {
+        "name": "Live Chat",
+        "link": "/Chat",
         "icon": "FaComments"
     },
     {
@@ -30,16 +35,6 @@
         "icon": "FaShieldAlt"
     },
     {
-        "name": "Quick Dashboard",
-        "link": "/quick-dashboard",
-        "icon": "FaTachometerAlt"
-    },
-    {
-        "name": "Help Center",
-        "link": "/help-center",
-        "icon": "FaHandsHelping"
-    },
-    {
         "name": "Emergency Services",
         "link": "/emergency-services",
         "icon": "FaAmbulance"
@@ -48,10 +43,5 @@
         "name": "Medical Assistance",
         "link": "/medical-assistance",
         "icon": "FaBriefcaseMedical"
-    },
-    {
-        "name": "Education",
-        "link": "/education",
-        "icon": "FaChalkboardTeacher"
     }
 ]
