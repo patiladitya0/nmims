@@ -115,3 +115,43 @@ body, html {
   background-color: #0056b3; /* Darker blue on hover */
   transform: translateY(-2px); /* Lift effect */
 }
+
+/* Overlay for the help form */
+.help-form-overlay {
+  position: fixed; /* Stay in place */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  right: 0; /* Align to the right */
+  bottom: 0; /* Cover the whole screen */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex; /* Use flexbox to center the form */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 1000; /* Ensure it is on top of other elements */
+}
+
+/* Styles for the help form */
+.help-form {
+  background-color: white; /* White background for the form */
+  padding: 20px; /* Padding inside the form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  width: 300px; /* Fixed width for the form */
+  text-align: center; /* Center text */
+}
+
+/* Close button style */
+.close-button {
+  margin-top: 10px; /* Space above the button */
+  background-color: red; /* Red background */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  padding: 10px; /* Padding inside the button */
+}
+
+/* Add hover effect for the close button */
+.close-button:hover {
+  background-color: darkred; /* Darker shade on hover */
+}

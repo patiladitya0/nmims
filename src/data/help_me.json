@@ -1,0 +1,36 @@
+{
+    "emergency_services": [
+      {
+        "category": "Medical Emergency Services",
+        "subcategories": [
+          {
+            "name": "Ambulance Services",
+            "icon": "FaAmbulance" 
+          }
+        ]
+      },
+      {
+        "category": "Fire Services",
+        "subcategories": [
+          {
+            "name": "Fire Departments",
+            "icon": "GiFireExtinguisher" 
+          },
+          {
+            "name": "Rescue Services",
+            "icon": "MdEmergency" 
+          }
+        ]
+      },
+      {
+        "category": "Law Enforcement Services",
+        "subcategories": [
+          {
+            "name": "Police Departments",
+            "icon": "FaPolice" 
+          }
+        ]
+      }
+    ]
+  }
+  

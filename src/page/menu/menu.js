@@ -50,7 +50,7 @@ const Menu = () => {
                 <Link to="/main/nominee">
                     <button className="menu-button">
                         <AiOutlineUsergroupAdd size={20} />
-                        Nominee
+                        Emergency Contact
                     </button>
                 </Link>
             </div>

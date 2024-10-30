@@ -109,7 +109,7 @@ const Home = () => {
                     <FaHistory /> My Activity
                 </Link>
                 <Link to="/main/nominee" className="account-button">
-                    <AiOutlineUsergroupAdd /> Nominee
+                    <AiOutlineUsergroupAdd /> Emergency Contact
                 </Link>
             </div>
         </div>

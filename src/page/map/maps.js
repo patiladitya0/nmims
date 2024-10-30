@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, LayersControl } from 'react-leaflet'; // Import LayersControl
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import './map.css';
@@ -117,8 +117,6 @@ export default function Maps() {
 
   return (
     <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
-      
-
       <div style={{ flex: 1 }}>
         <MapContainer
           center={position}
@@ -126,10 +124,22 @@ export default function Maps() {
           scrollWheelZoom={false}
           style={{ height: '100%' }}
         >
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
+          <LayersControl position="topright"> {/* Position of the LayersControl */}
+            <LayersControl.BaseLayer checked name="Street Map">
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+            </LayersControl.BaseLayer>
+
+            <LayersControl.BaseLayer name="Satellite Map">
+              <TileLayer
+                url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png" // Example satellite map URL
+                attribution='&copy; <a href="https://opentopomap.org/copyright">OpenTopoMap</a> contributors'
+              />
+            </LayersControl.BaseLayer>
+          </LayersControl>
+
           <Marker position={position}>
             <Popup>
               {error ? (
@@ -178,19 +188,23 @@ export default function Maps() {
 
       {/* Help form that appears on "Help Me!" click */}
       {showHelpForm && (
-        <div className="help-form">
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Enter your help message"
-              value={desc}
-              onChange={(e) => setHelpMessage(e.target.value)}
-              required
-            />
-            <button type="submit">Submit</button>
-          </form>
+        <div className="help-form-overlay">
+          <div className="help-form">
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Enter your help message"
+                value={desc}
+                onChange={(e) => setHelpMessage(e.target.value)}
+                required
+              />
+              <button type="submit">Submit</button>
+            </form>
+            <button className="close-button" onClick={handleHelpMeClick}>Close</button>
+          </div>
         </div>
       )}
+
     </div>
   );
 }
