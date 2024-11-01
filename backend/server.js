@@ -38,21 +38,25 @@ mongoose.connect(process.env.MONGO)
     mobileNumber: String,
     email: { type: String, unique: true },
     pin: String,
+    emergencyContacts: [
+      {
+        fullName: String,
+        relation: String,
+        contactNumber: String,
+      }
+    ]
   });
+  
 
   
   // Pre-save hook for password hashing
   userSchema.pre('save', async function (next) {
-    try {
-      if (!this.isModified('pin')) return next(); // Use 'pin' for password hashing
-      const salt = await bcrypt.genSalt(10);
-      this.pin = await bcrypt.hash(this.pin, salt); // Hash the pin
-      next();
-    } catch (error) {
-      next(error);
-    }
+    if (!this.isModified('pin')) return next();
+    const salt = await bcrypt.genSalt(10);
+    this.pin = await bcrypt.hash(this.pin, salt);
+    next();
   });
-  
+
   // Method to compare the pin
   userSchema.methods.comparePin = async function (inputPin) {
     return await bcrypt.compare(inputPin, this.pin); // Compare hashed pin
@@ -135,18 +139,41 @@ mongoose.connect(process.env.MONGO)
   
   // Middleware to verify JWT token
   const verifyToken = (req, res, next) => {
-    const token = req.headers.authorization;
-    if (!token) {
-      return res.status(401).json({ message: 'No token provided' });
-    }
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) return res.status(401).json({ message: 'No token provided' });
+
     try {
-      const decoded = jwt.verify(token.split(' ')[1], process.env.JWT_SECRET);
-      req.userId = decoded.userId;
-      next();
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.userId = decoded.userId;
+        next();
     } catch (error) {
-      return res.status(403).json({ message: 'Failed to authenticate token' });
+        console.error("JWT verification failed:", error);
+        return res.status(403).json({ message: 'Failed to authenticate token' });
     }
-  };
+};
+
+
+
+  app.post('/nominee', verifyToken, async (req, res) => {
+    try {
+      console.log("this triggered")
+      const { fullName, relation, contactNumber } = req.body;
+      const userId = req.userId;
+  
+      const user = await User.findById(userId);
+      if (!user) return res.status(404).json({ message: 'User not found' });
+  
+      const newContact = { fullName, relation, contactNumber };
+      user.emergencyContacts.push(newContact);
+  
+      await user.save();
+  
+      res.status(201).json({ message: 'Emergency contact added successfully', emergencyContacts: user.emergencyContacts });
+    } catch (error) {
+      console.error('Error adding nominee:', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
   
 
 // User Profile Route
