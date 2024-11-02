@@ -20,7 +20,7 @@ const Menu = () => {
             };
 
             // Make API call to fetch user data
-            const response = await axios.get('http://localhost:5000/api/user/account', config);
+            const response = await axios.get('http://localhost:5001/api/user/account', config);
             setUserData(response.data); // Set the fetched data to the state
         } catch (error) {
             console.error('Error fetching user data:', error);

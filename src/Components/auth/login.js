@@ -15,9 +15,9 @@ const Login = () => {
         try {
           let response;
           if (loginMethod === 'email') {
-            response = await axios.post('http://localhost:5000/login', { email, pin });
+            response = await axios.post('http://localhost:5001/login', { email, pin });
           } else {
-            response = await axios.post('http://localhost:5000/login', { mobileNumber: phoneNumber, otp });
+            response = await axios.post('http://localhost:5001/login', { mobileNumber: phoneNumber, otp });
           }
       
           localStorage.setItem('token', response.data.token);
