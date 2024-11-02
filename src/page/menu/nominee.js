@@ -1,47 +1,35 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { FaPlus } from 'react-icons/fa';
-import './nominee.css';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './nominee.css';
 
 const Nominee = () => {
-    const [userData, setUserData] = useState(null); // State to hold user data
+    const [userData, setUserData] = useState(null);
     const [isFormVisible, setIsFormVisible] = useState(false);
     const [formData, setFormData] = useState({
         fullName: '',
         relation: '',
         contactNumber: ''
     });
+    const [loading, setLoading] = useState(true); // Added loading state
+    const [error, setError] = useState(''); // Added error state
 
     const fetchUserData = async () => {
         try {
             const token = localStorage.getItem('token');
-            if (!token) {
-                throw new Error("No token available");
-            }
-            
-            const config = {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            };
-
-            console.log(formData);
-            
+            const config = token ? { headers: { Authorization: `Bearer ${token}` } } : {};
             const response = await axios.get('http://localhost:5000/api/user/account', config);
             setUserData(response.data);
         } catch (error) {
             console.error('Error fetching user data:', error);
-            if (error.response && error.response.status === 401) {
-                console.error("Authentication failed. Redirecting to login...");
-                // Redirect to login page or display an error message
-            }
+            setError('Failed to fetch user data.'); // Set error message
+        } finally {
+            setLoading(false); // Set loading to false after fetching
         }
     };
-    
 
     useEffect(() => {
         fetchUserData();
-    }, []); 
+    }, []);
 
     const toggleFormVisibility = () => {
         setIsFormVisible(!isFormVisible);
@@ -51,96 +39,122 @@ const Nominee = () => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
-            [name]: value
+            [name]: value,
         });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        // Prepare data to be sent, including user data
+
+        if (!userData) {
+            console.error("User data not available. Cannot submit form.");
+            return;
+        }
+
         const dataToSend = {
             ...formData,
-            userId: userData.id, // or whatever property uniquely identifies the user
-            userName: userData.name // add any additional user data if needed
+            mobileNumber: userData.mobileNumber,
         };
 
         try {
-            const response = await fetch('http://localhost:5000/nominee', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(dataToSend),
+            const response = await axios.post('http://localhost:5000/nominee', dataToSend, {
+                headers: { 'Content-Type': 'application/json' }
             });
 
-            if (response.ok) {
+            if (response.status === 200) {
                 console.log("Form data sent successfully");
-                // Clear form or show success message if needed
+                setFormData({ fullName: '', relation: '', contactNumber: '' });
             } else {
-                console.error("Failed to send form data");
+                setError("Failed to send form data.");
             }
         } catch (error) {
             console.error("Error sending form data:", error);
+            setError("Error sending form data.");
         }
     };
 
+    const emergencyContacts = userData?.emergencyContacts || []; // Safe access with optional chaining
+
     return (
         <div className="nominee-container">
-            <button className="cssbuttons-io-button" onClick={toggleFormVisibility}>
-                <span className="button-text">{isFormVisible ? '-' : '+'}</span>
-            </button>
-
-            {isFormVisible && (
-                <form className="form" onSubmit={handleSubmit}>
-                    <div className="inputGroup">
-                        <input
-                            required
-                            type="text"
-                            name="fullName"
-                            placeholder=""
-                            value={formData.fullName}
-                            onChange={handleChange}
-                        />
-                        <label>Full Name</label>
-                    </div>
-
-                    <div className="inputGroup">
-                        <select
-                            required
-                            name="relation"
-                            value={formData.relation}
-                            onChange={handleChange}
-                        >
-                            <option value="" disabled hidden></option>
-                            <option value="mother">Mother</option>
-                            <option value="father">Father</option>
-                            <option value="brother">Brother</option>
-                            <option value="sister">Sister</option>
-                            <option value="son">Son</option>
-                            <option value="daughter">Daughter</option>
-                            <option value="guardian">Guardian</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <label>Relation</label>
-                    </div>
-
-                    <div className="inputGroup">
-                        <input
-                            required
-                            type="tel"
-                            name="contactNumber"
-                            placeholder=""
-                            value={formData.contactNumber}
-                            onChange={handleChange}
-                        />
-                        <label>Contact Number</label>
-                    </div>
-
-                    <button className="fancy" type="submit">
-                        <span>Submit</span>
+            {loading ? ( // Display loading state
+                <p>Loading user data...</p>
+            ) : (
+                <>
+                    <button className="toggle-button" onClick={toggleFormVisibility}>
+                        {isFormVisible ? '-' : '+'}
                     </button>
-                </form>
+
+                    {isFormVisible && (
+                        <form className="form" onSubmit={handleSubmit}>
+                            <div className="inputGroup">
+                                <input
+                                    required
+                                    type="text"
+                                    name="fullName"
+                                    placeholder="Full Name"
+                                    value={formData.fullName}
+                                    onChange={handleChange}
+                                />
+                            </div>
+
+                            <div className="inputGroup">
+                                <select
+                                    required
+                                    name="relation"
+                                    value={formData.relation}
+                                    onChange={handleChange}
+                                >
+                                    <option value="" disabled>Select Relation</option>
+                                    <option value="mother">Mother</option>
+                                    <option value="father">Father</option>
+                                    <option value="brother">Brother</option>
+                                    <option value="sister">Sister</option>
+                                    <option value="son">Son</option>
+                                    <option value="daughter">Daughter</option>
+                                    <option value="guardian">Guardian</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div className="inputGroup">
+                                <input
+                                    required
+                                    type="tel"
+                                    name="contactNumber"
+                                    placeholder="Contact Number"
+                                    value={formData.contactNumber}
+                                    onChange={handleChange}
+                                />
+                            </div>
+
+                            <button className="submit-button" type="submit">
+                                Submit
+                            </button>
+                        </form>
+                    )}
+                    
+                    {/* Display error messages */}
+                    {error && <p className="error-message">{error}</p>}
+
+                    {/* Display emergency contacts */}
+                    <div className="emergency-contacts">
+                        <h3>Emergency Contacts</h3>
+                        {emergencyContacts.length > 0 ? (
+                            <ul>
+                                {emergencyContacts.map((contact) => (
+                                    <li key={contact._id}>
+                                        <strong>Name:</strong> {contact.fullName} <br />
+                                        <strong>Relation:</strong> {contact.relation} <br />
+                                        <strong>Contact Number:</strong> {contact.contactNumber}
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <p>No emergency contacts added.</p>
+                        )}
+                    </div>
+                </>
             )}
         </div>
     );
