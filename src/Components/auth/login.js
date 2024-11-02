@@ -21,7 +21,7 @@ const Login = () => {
           }
       
           localStorage.setItem('token', response.data.token);
-          window.location.href = '/main';
+          window.location.href = '/main/home';
         } catch (error) {
           console.error('Login failed:', error.response ? error.response.data.message : error.message);
         }
@@ -96,7 +96,7 @@ const Login = () => {
                         <div className="input-group">
                             <label htmlFor="otp">OTP</label>
                             <input
-                                type="text"
+                                type="password"
                                 id="otp"
                                 value={otp}
                                 onChange={(e) => setOtp(e.target.value)}

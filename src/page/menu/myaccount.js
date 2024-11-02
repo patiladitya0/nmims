@@ -75,6 +75,7 @@ const MyAccount = () => {
         <div className="account-container">
             <h1 className="username">{userData.name}</h1>
             <div className="detail-container">
+            <p>Name: {userData.fullName}</p>
                 <p>Email: {userData.email}</p>
                 {/* Display password in dotted format */}
                 <p>Password: {'•'.repeat(userData.password ? userData.password.length : 0)}</p>
