@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import axios from 'axios';
 
-const socket = io("http://localhost:5001"); // Ensure this matches your backend URL and port
+const socket = io("https://cap-server-nv40.onrender.com"); // Ensure this matches your backend URL and port
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
@@ -20,7 +20,7 @@ export default function Chat() {
       };
 
       // Make API call to fetch user data
-      const response = await axios.get('http://localhost:5001/api/user/account', config); // Adjust with your actual API endpoint
+      const response = await axios.get('https://cap-server-nv40.onrender.com/api/user/account', config); // Adjust with your actual API endpoint
       setUserData(response.data); // Set the fetched data to the state
     } catch (error) {
       console.error('Error fetching user data:', error);

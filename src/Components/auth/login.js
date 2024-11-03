@@ -15,9 +15,9 @@ const Login = () => {
         try {
           let response;
           if (loginMethod === 'email') {
-            response = await axios.post('http://localhost:5001/login', { email, pin });
+            response = await axios.post('https://cap-server-nv40.onrender.com/login', { email, pin });
           } else {
-            response = await axios.post('http://localhost:5001/login', { mobileNumber: phoneNumber, otp });
+            response = await axios.post('https://cap-server-nv40.onrender.com/login', { mobileNumber: phoneNumber, otp });
           }
       
           localStorage.setItem('token', response.data.token);
