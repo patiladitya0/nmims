@@ -16,7 +16,7 @@
     },
     {
         "name": "Live Chat",
-        "link": "/Chat",
+        "link": "/main/chat",
         "icon": "FaComments"
     },
     {

@@ -9,6 +9,7 @@ import Home from './page/home/home';
 import Search from './page/search/search';     
 import Menu from './page/menu/menu';       
 import MyAccount from './page/menu/myaccount';  
+import Chat from './page/home/chat';
 import AboutUs from './page/menu/about';  
 import EmergencyServices from './page/home/emergency';
 import EmergencyKIT from './page/home/emergencyKIT';
@@ -32,6 +33,7 @@ const App = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/main" element={<MainPage />} >
+      <Route path="chat" element={<Chat />} />
         <Route path="home" element={<Home />} />
         <Route path="search" element={<Search />} />
         <Route path="menu" element={<Menu />} /> 
