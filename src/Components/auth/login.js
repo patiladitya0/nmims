@@ -15,13 +15,13 @@ const Login = () => {
         try {
           let response;
           if (loginMethod === 'email') {
-            response = await axios.post('http://localhost:5000/login', { email, pin });
+            response = await axios.post('https://cap-server-nv40.onrender.com/login', { email, pin });
           } else {
-            response = await axios.post('http://localhost:5000/login', { mobileNumber: phoneNumber, otp });
+            response = await axios.post('https://cap-server-nv40.onrender.com/login', { mobileNumber: phoneNumber, otp });
           }
       
           localStorage.setItem('token', response.data.token);
-          window.location.href = '/main';
+          window.location.href = '/main/home';
         } catch (error) {
           console.error('Login failed:', error.response ? error.response.data.message : error.message);
         }
@@ -96,7 +96,7 @@ const Login = () => {
                         <div className="input-group">
                             <label htmlFor="otp">OTP</label>
                             <input
-                                type="text"
+                                type="password"
                                 id="otp"
                                 value={otp}
                                 onChange={(e) => setOtp(e.target.value)}

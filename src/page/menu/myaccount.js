@@ -23,7 +23,7 @@ const MyAccount = () => {
             };
 
             // Make API call to fetch user data
-            const response = await axios.get('http://localhost:5000/api/user/account', config); // Replace with your actual API endpoint
+            const response = await axios.get('https://cap-server-nv40.onrender.com/api/user/account', config); // Replace with your actual API endpoint
             setUserData(response.data); // Set the fetched data to the state
             setLoading(false); // Stop loading once data is fetched
         } catch (error) {
@@ -44,7 +44,7 @@ const MyAccount = () => {
                 }
             };
             // Make API call to update the password
-            const response = await axios.put('http://localhost:5000/api/user/update-password', { currentPassword, newPassword }, config); // Replace with your actual endpoint
+            const response = await axios.put('https://cap-server-nv40.onrender.com/api/user/update-password', { currentPassword, newPassword }, config); // Replace with your actual endpoint
             setSuccessMessage('Password updated successfully');
             setError(''); // Clear any errors
         } catch (error) {
@@ -75,6 +75,7 @@ const MyAccount = () => {
         <div className="account-container">
             <h1 className="username">{userData.name}</h1>
             <div className="detail-container">
+            <p>Name: {userData.fullName}</p>
                 <p>Email: {userData.email}</p>
                 {/* Display password in dotted format */}
                 <p>Password: {'•'.repeat(userData.password ? userData.password.length : 0)}</p>
