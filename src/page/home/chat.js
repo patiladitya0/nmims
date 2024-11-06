@@ -1,34 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import io from 'socket.io-client';
 import axios from 'axios';
+import './chat.css';
 
-const socket = io("https://cap-server-nv40.onrender.com"); // Ensure this matches your backend URL and port
+const socket = io("https://cap-server-nv40.onrender.com");
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
   const [userData, setUserData] = useState(null);
   const [name, setName] = useState("Anon");
+  const chatBoxRef = useRef(null);
+
+  const generateRandomColor = () => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
 
   const fetchUserData = async () => {
     try {
-      const token = localStorage.getItem('token'); // Assuming you store the JWT token in localStorage
+      const token = localStorage.getItem('token');
       const config = {
         headers: {
-          Authorization: `Bearer ${token}`, // Pass the JWT token in the Authorization header
+          Authorization: `Bearer ${token}`,
         },
       };
-
-      // Make API call to fetch user data
-      const response = await axios.get('https://cap-server-nv40.onrender.com/api/user/account', config); // Adjust with your actual API endpoint
-      setUserData(response.data); // Set the fetched data to the state
+      const response = await axios.get('https://cap-server-nv40.onrender.com/api/user/account', config);
+      setUserData(response.data);
     } catch (error) {
       console.error('Error fetching user data:', error);
     }
   };
 
   useEffect(() => {
-    // Fetch user data and set the user's name
     const initializeUserData = async () => {
       await fetchUserData();
       if (userData && userData.fullName) {
@@ -38,41 +46,45 @@ export default function Chat() {
 
     initializeUserData();
 
-    // Listen for incoming chat messages
     socket.on("chat message", (data) => {
       setMessages((prevMessages) => [...prevMessages, data]);
     });
 
-    // Clean up the socket connection
     return () => socket.off("chat message");
-  }, [userData]); // Add userData as a dependency to re-run if it changes
+  }, [userData]);
+
+  useEffect(() => {
+    if (chatBoxRef.current) {
+      chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   const handleSendMessage = (e) => {
     e.preventDefault();
     if (message.trim()) {
-      // Send the message along with the user's name
-      socket.emit("chat message", { name, message });
+      socket.emit("chat message", { name, message, color: generateRandomColor() });
       setMessage(""); // Clear input after sending
     }
   };
 
   return (
-    <div>
-      <div id="chatBox">
+    <div className="chat-container">
+      <div id="chatBox" className="chat-box" ref={chatBoxRef}>
         {messages.map((msg, index) => (
-          <p key={index}>
-            <strong>{msg.name}:</strong> {msg.message}
+          <p key={index} className="chat-message">
+            <strong style={{ color: msg.color }}>{msg.name}:</strong> {msg.message}
           </p>
         ))}
       </div>
-      <form onSubmit={handleSendMessage}>
+      <form onSubmit={handleSendMessage} className="chat-form">
         <input
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Type your message here"
+          className="chat-input"
         />
-        <button type="submit">Send</button>
+        <button type="submit" className="chat-send-button">Send</button>
       </form>
     </div>
   );
