@@ -1,4 +1,4 @@
-/* Container for all emergency services */
+/* Main container for all services */
 .emergency-services-container {
     display: flex;
     flex-direction: column;
@@ -8,36 +8,53 @@
     background-color: #f7f7f7;
 }
 
-/* Card styling for each service */
+/* Styling each service card */
 .service-card {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 15px 20px;
     width: 90%;
     max-width: 400px;
     background-color: #ffffff;
-    border: 2px solid #ddd;
-    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    gap: 20px;
 }
 
-.service-card h2 {
-    margin-bottom: 10px;
+/* Service name and number alignment */
+.service-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.service-name {
+    font-weight: bold;
     color: #333;
+    flex: 1; /* Align to the left */
 }
 
-/* Button styling */
+.service-number {
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+}
+
+/* Button styling with phone icon */
 .dial-button {
-    padding: 10px 20px;
-    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    font-size: 14px;
     color: #ffffff;
     background-color: #4CAF50;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 40%;
 }
 
 .dial-button:hover {
@@ -45,7 +62,12 @@
     transform: scale(1.05);
 }
 
-/* Responsive design */
+.dial-button svg {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 16px;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .emergency-services-container {
         padding: 10px;

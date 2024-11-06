@@ -1,5 +1,6 @@
 import React from 'react';
 import './emergency-services.css';
+import { FaPhone } from 'react-icons/fa';  // Import phone icon
 
 const EmergencyServices = () => {
     const services = [
@@ -7,7 +8,7 @@ const EmergencyServices = () => {
         { name: 'Ambulance', number: '102' },
         { name: 'Fire Services', number: '101' },
         { name: 'Disaster Management Services', number: '108' },
-        { name: 'Womens Helpline', number: '1091' },
+        { name: 'Women’s Helpline', number: '1091' },
         { name: 'National Emergency Number', number: '112' },
     ];
 
@@ -19,11 +20,14 @@ const EmergencyServices = () => {
         <div className="emergency-services-container">
             {services.map((service, index) => (
                 <div key={index} className="service-card">
-                    <h2>{service.name}</h2>
+                    <div className="service-info">
+                        <span className="service-name">{service.name}</span>
+                        <span className="service-number">{service.number}</span>
+                    </div>
                     <button 
                         onClick={() => handleDial(service.number)} 
                         className="dial-button">
-                        Call {service.number}
+                        <FaPhone /> Call
                     </button>
                 </div>
             ))}
