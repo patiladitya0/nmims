@@ -8,7 +8,7 @@
 /* Button to toggle form visibility */
 .cssbuttons-io-button {
     position: fixed; /* Fixed position for bottom-right placement */
-    bottom: 75px; /* Bottom margin for spacing */
+    bottom: 76px; /* Bottom margin for spacing */
     right: 20px; /* Right margin for spacing */
     display: flex;
     align-items: center;
