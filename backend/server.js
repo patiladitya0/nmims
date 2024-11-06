@@ -271,6 +271,22 @@ app.get("/crises", async (req, res) => {
   }
 });
 
+app.get('/gethist', verifyToken, async (req, res) => {
+  const { _id } = req.query;
+
+  console.log(_id);
+  try {
+    const historyData = await Crisis.find({ _id });
+    if (!historyData.length) {
+      return res.status(404).json({ message: "No documents found" });
+    }
+    res.json(historyData);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 // Start Server with HTTP and WebSocket (Socket.io) support
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

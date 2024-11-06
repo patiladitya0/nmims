@@ -22,6 +22,7 @@ import EmergencyPreparednessForChildren from './Module/children';
 import Nominee from './page/menu/nominee';
 import ContactUs from './page/menu/ContactUs';
 import Alerts from './page/home/alerts';
+import Myactivity from './page/menu/myactivity';
 
 
 
@@ -36,6 +37,7 @@ const App = () => {
       <Route path="/main" element={<MainPage />} >
       <Route path="real-time-alerts" element={<Alerts />} />
       <Route path="chat" element={<Chat />} />
+      <Route path="myactivity" element={<Myactivity />} />
         <Route path="home" element={<Home />} />
         <Route path="search" element={<Search />} />
         <Route path="menu" element={<Menu />} /> 
