@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './VolunteerMatching.css'; // Ensure this file is in the same directory
 
 export default function VolunteerMatching() {
   const [eventData, setEventData] = useState({
@@ -76,14 +77,14 @@ export default function VolunteerMatching() {
   };
 
   return (
-    <div>
+    <div className="volunteer-matching-container">
       <h2>NGO Events</h2>
       <button onClick={() => setShowForm(!showForm)}>
         {showForm ? 'Hide Form' : 'Create Event'}
       </button>
 
       {showForm && (
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px', margin: '0 auto' }}>
+        <form onSubmit={handleSubmit} className="volunteer-matching-form">
           <label>
             Event Title:
             <input type="text" name="title" value={eventData.title} onChange={handleChange} />
