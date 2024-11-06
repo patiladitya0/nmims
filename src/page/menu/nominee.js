@@ -128,7 +128,7 @@ const Nominee = () => {
                                 />
                             </div>
 
-                            <button className="submit-button" type="submit">
+                            <button className="fancy" type="submit">
                                 Submit
                             </button>
                         </form>

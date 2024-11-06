@@ -1,0 +1,78 @@
+.volunteer-matching-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.volunteer-matching-container h2 {
+    font-size: 24px;
+    color: #3a8f5b;
+    margin-bottom: 20px;
+}
+
+.volunteer-matching-form label {
+    display: block;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.volunteer-matching-form input,
+.volunteer-matching-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #28a745;
+    border-radius: 6px;
+    font-size: 14px;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.volunteer-matching-form input:focus,
+.volunteer-matching-form textarea:focus {
+    border-color: #34b556;
+    outline: none;
+}
+
+.volunteer-matching-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.volunteer-matching-form button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.volunteer-matching-form button:hover {
+    background-color: #208c37;
+    transform: scale(1.05);
+}
+
+/* Responsive design for mobile screens */
+@media (max-width: 600px) {
+    .volunteer-matching-container {
+        padding: 15px;
+        width: 90%;
+    }
+
+    .volunteer-matching-form label {
+        font-size: 14px;
+    }
+
+    .volunteer-matching-form button {
+        width: 100%;
+        font-size: 15px;
+    }
+}
