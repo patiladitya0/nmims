@@ -36,7 +36,7 @@
     },
     {
         "name": "Emergency Services",
-        "link": "/emergency-services",
+        "link": "/main/emergency-services",
         "icon": "FaAmbulance"
     },
     {

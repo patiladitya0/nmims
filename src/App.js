@@ -10,8 +10,8 @@ import Search from './page/search/search';
 import Menu from './page/menu/menu';       
 import MyAccount from './page/menu/myaccount';  
 import Chat from './page/home/chat';
-import AboutUs from './page/menu/about';  
-import EmergencyServices from './page/home/emergency';
+import AboutUs from './page/menu/about'; 
+import EmergencyServices from './page/home/emergency-services';
 import EmergencyKIT from './page/home/emergencyKIT';
 import Maps from './page/map/maps';
 import VolunteerMatching from './page/home/VolunteerMatching';
@@ -46,7 +46,7 @@ const App = () => {
         <Route path="nominee" element={<Nominee />} />
         <Route path="ContactUs" element={<ContactUs />} />
         <Route path="about" element={<AboutUs />} />
-        <Route path="emergency-communication" element={<EmergencyServices />} />
+        <Route path="Emergency Services" element={<EmergencyServices />} />
         <Route path="create-emergency-kit" element={<EmergencyKIT />} />
         <Route path="volunteer-matching" element={<VolunteerMatching />} /> 
         <Route path="educational-resources" element={<EducationalResources />} />
