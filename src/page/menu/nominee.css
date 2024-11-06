@@ -5,29 +5,33 @@
 }
 
 /* Button to toggle form visibility */
+/* Button to toggle form visibility */
 .cssbuttons-io-button {
-    position: fixed;
-    bottom: 70px;
-    right: 20px;
+    position: fixed; /* Fixed position for bottom-right placement */
+    bottom: 75px; /* Bottom margin for spacing */
+    right: 20px; /* Right margin for spacing */
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px; /* Fixed width for a round button */
-    height: 40px; /* Fixed height for a round button */
+    width: 50px; /* Adjusted width for visibility */
+    height: 50px; /* Adjusted height for visibility */
     border: none;
     border-radius: 50%; /* Circular button */
     background-color: #4CAF50; /* Green background */
     color: white; /* White text */
-    font-size: 50px; /* Icon size */
+    font-size: 24px; /* Font size for the '+' icon */
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+    transition: background-color 0.3s, transform 0.3s;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+
 }
+
 
 .cssbuttons-io-button:hover {
     background-color: #45a049; /* Darker green on hover */
     transform: scale(1.1); /* Slight scaling effect */
 }
+
 
 /* Form styling */
 .form {

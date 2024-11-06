@@ -81,7 +81,7 @@ const Nominee = () => {
                 <p>Loading user data...</p>
             ) : (
                 <>
-                    <button className="toggle-button" onClick={toggleFormVisibility}>
+                    <button className="cssbuttons-io-button" onClick={toggleFormVisibility}>
                         {isFormVisible ? '-' : '+'}
                     </button>
 
@@ -133,7 +133,7 @@ const Nominee = () => {
                             </button>
                         </form>
                     )}
-                    
+
                     {/* Display error messages */}
                     {error && <p className="error-message">{error}</p>}
 
