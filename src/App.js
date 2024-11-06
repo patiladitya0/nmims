@@ -46,7 +46,7 @@ const App = () => {
         <Route path="nominee" element={<Nominee />} />
         <Route path="ContactUs" element={<ContactUs />} />
         <Route path="about" element={<AboutUs />} />
-        <Route path="Emergency Services" element={<EmergencyServices />} />
+        <Route path="emergency-services" element={<EmergencyServices />} />
         <Route path="create-emergency-kit" element={<EmergencyKIT />} />
         <Route path="volunteer-matching" element={<VolunteerMatching />} /> 
         <Route path="educational-resources" element={<EducationalResources />} />
