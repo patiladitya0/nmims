@@ -111,14 +111,17 @@ body, html {
 
 /* Form buttons */
 .help-form button[type="submit"] {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 12px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  margin-top: 10px; /* Space above submit button */
+  background-color: #a72828; /* Bootstrap primary blue */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  color: white; /* White text */
+  font-size: 16px; /* Button text size */
+  padding: 10px; /* Inner spacing */
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition effects */
+  align-items: end;
+
 }
 
 .help-form button[type="submit"]:hover {
