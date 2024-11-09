@@ -23,7 +23,7 @@ const Login = () => {
             }
 
             localStorage.setItem('token', response.data.token);
-            window.location.href = '/main/home';
+            window.location.href = '/home';
         } catch (error) {
             console.error('Login failed:', error.response ? error.response.data.message : error.message);
         }

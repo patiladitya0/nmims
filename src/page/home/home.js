@@ -20,7 +20,7 @@ const Home = () => {
         holdTimeout = setTimeout(() => {
             clearInterval(animationInterval);
             setShowConfirmation(true);
-            setHoldProgress(0);
+            setHoldPro(0);
         }, 3000);
     };
 
@@ -33,7 +33,7 @@ const Home = () => {
     const handleConfirmation = (confirm) => {
         setShowConfirmation(false);
         if (confirm) {
-            navigate('/main/settings'); // Adjust this route as needed
+            navigate('/settings'); // Adjust this route as needed
         }
     };
 

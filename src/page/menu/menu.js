@@ -44,19 +44,19 @@ const Menu = () => {
         <div className="menu-container">
             <h1 className="username">{userData.fullName}</h1>
             <div className="butn-container">
-                <Link to="/main/my-account">
+                <Link to="/my-account">
                     <button className="menu-button">
                         <FaUser size={20} />
                         My Account
                     </button>
                 </Link>
-                <Link to="/main/settings">
+                <Link to="/settings">
                     <button className="menu-button">
                         <FaUserFriends size={20} />
                         Settings
                     </button>
                 </Link>
-                <Link to="/main/nominee">
+                <Link to="/nominee">
                     <button className="menu-button">
                         <AiOutlineUsergroupAdd size={20} />
                         Emergency Contact
@@ -64,13 +64,13 @@ const Menu = () => {
                 </Link>
             </div>
             <div className="butn-container">
-                <Link to="/main/about">
+                <Link to="/about">
                     <button className="menu-button">
                         <FaInfoCircle size={20} />
                         About
                     </button>
                 </Link>
-                <Link to="/main/ContactUs">
+                <Link to="/ContactUs">
                     <button className="menu-button">
                         < FaEnvelope size={20} />
                         Contact Us
