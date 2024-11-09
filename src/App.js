@@ -42,7 +42,7 @@ const App = () => {
         <Route path="myactivity" element={<ProtectedRoute><Myactivity /></ProtectedRoute>} />
         <Route index element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path="settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+        <Route path="personalinfo" element={<ProtectedRoute><PersonalInfo /></ProtectedRoute>} />
         <Route path="search" element={<ProtectedRoute><Search /></ProtectedRoute>} />
         <Route path="menu" element={<ProtectedRoute><Menu /></ProtectedRoute>} /> 
         <Route path="maps" element={<ProtectedRoute><Maps /></ProtectedRoute>} /> 
