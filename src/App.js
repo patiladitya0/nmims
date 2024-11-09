@@ -40,6 +40,7 @@ const App = () => {
         <Route path="real-time-alerts" element={<ProtectedRoute><Alerts /></ProtectedRoute>} />
         <Route path="chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
         <Route path="myactivity" element={<ProtectedRoute><Myactivity /></ProtectedRoute>} />
+        <Route index element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
         <Route path="search" element={<ProtectedRoute><Search /></ProtectedRoute>} />
