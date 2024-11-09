@@ -20,7 +20,7 @@ const Home = () => {
         holdTimeout = setTimeout(() => {
             clearInterval(animationInterval);
             setShowConfirmation(true);
-            setHoldPro(0);
+            setHoldProgress(0);
         }, 3000);
     };
 
