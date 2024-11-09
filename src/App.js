@@ -22,7 +22,7 @@ import EmergencyPreparednessForChildren from './Module/children';
 import Nominee from './page/menu/nominee';
 import ContactUs from './page/menu/ContactUs';
 import Alerts from './page/home/alerts';
-import Settings from './page/menu/setting';
+import PersonalInfo from './page/menu/PersonalInfo';
 import Myactivity from './page/menu/myactivity';
 import EmergencyContact from './page/home/emergency';
 import ProtectedRoute from './ProtectedRoute';

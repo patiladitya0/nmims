@@ -1,7 +1,7 @@
 import React from 'react';
-import './setting.css';
+import './PersonalInfo.css';
 
-const Settings = () => {
+const PersonalInfo = () => {
     return (
         <div className="settings-container">
             Critical info
@@ -9,4 +9,4 @@ const Settings = () => {
     );
 };
 
-export default Settings;
+export default PersonalInfo;

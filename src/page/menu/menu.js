@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUser, FaUserFriends, FaInfoCircle, FaSignOutAlt, FaEnvelope } from 'react-icons/fa';
+import { MdPersonalInjury } from "react-icons/md";
+
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import Login from '../../Components/auth/login';
 import './menu.css';
@@ -52,8 +54,8 @@ const Menu = () => {
                 </Link>
                 <Link to="/settings">
                     <button className="menu-button">
-                        <FaUserFriends size={20} />
-                        Settings
+                        <MdPersonalInjury size={20} />
+                        Personal Info
                     </button>
                 </Link>
                 <Link to="/nominee">
