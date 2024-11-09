@@ -181,9 +181,7 @@ export default function Maps() {
         <button className="fancy" onClick={handleHelpMeClick}>
           Help Me!
         </button>
-        <button className="fancy" onClick={handleVolunteerWorkClick}>
-          Volunteer Work
-        </button>
+      
       </div>
 
       {/* Help form that appears on "Help Me!" click */}

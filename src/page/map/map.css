@@ -98,7 +98,7 @@ body, html {
 /* Submit button styling within help form */
 .help-form button[type="submit"] {
   margin-top: 10px; /* Space above submit button */
-  background-color: #28a745; /* Bootstrap primary blue */
+  background-color: #a72828; /* Bootstrap primary blue */
   border: none; /* No border */
   border-radius: 5px; /* Rounded corners */
   color: white; /* White text */

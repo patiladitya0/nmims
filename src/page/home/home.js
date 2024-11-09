@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; // Import Link here
 import modules from '../../data/modules.json';
 import * as Icons from 'react-icons/fa';
+import { AiOutlineUsergroupAdd } from 'react-icons/ai'; // Import the missing icon
+import { FaUser, FaHistory, FaInfoCircle, FaEnvelope } from 'react-icons/fa'; // Import missing icons
+import { MdPersonalInjury, MdEmergencyShare } from "react-icons/md";
+
 import './home.css';
 
 const Home = () => {
@@ -44,7 +48,7 @@ const Home = () => {
     return (
         <div className="home-page-container">
             <h1 className="home-page-title">Quick Access</h1>
-            
+
             {showConfirmation && (
                 <div className="home-page-confirmation">
                     <p>Are you sure?</p>
@@ -81,6 +85,42 @@ const Home = () => {
             >
                 SOS
             </button>
+
+            <hr className="account-section-divider" />
+
+
+            <Link to="/maps" className="help-bottonn">
+                    <MdEmergencyShare size={30} /> Help Me
+                </Link>
+
+
+            <hr className="account-section-divider" />
+
+            
+            <div className="account-sectionn">
+                <Link to="/my-account" className="account-buttonn">
+                    <FaUser size={20} /> My Account
+                </Link>
+                <Link to="/myactivity" className="account-buttonn">
+                    <FaHistory size={20} /> My Activity
+                </Link>
+                <Link to="/personalinfo">
+                    <button className="account-buttonn">
+                        <MdPersonalInjury size={20} />
+                        Personal Info
+                    </button>
+                </Link>
+                <Link to="/nominee" className="account-buttonn">
+                    <AiOutlineUsergroupAdd size={20} /> Emergency Contact
+                </Link>
+
+                <Link to="/about" className="account-buttonn">
+                    <FaInfoCircle size={20}/> About
+                </Link>
+                <Link to="/ContactUs" className="account-buttonn">
+                    <FaEnvelope size={20} /> Contact Us
+                </Link>
+            </div>
         </div>
     );
 };
