@@ -52,7 +52,7 @@ const Menu = () => {
                         My Account
                     </button>
                 </Link>
-                <Link to="/settings">
+                <Link to="/personalinfo">
                     <button className="menu-button">
                         <MdPersonalInjury size={20} />
                         Personal Info
