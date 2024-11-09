@@ -42,27 +42,27 @@ const Home = () => {
     };
 
     return (
-        <div className="home-container">
-            <h1>Quick Access</h1>
+        <div className="home-page-container">
+            <h1 className="home-page-title">Quick Access</h1>
             
             {showConfirmation && (
-                <div className="confirmation">
+                <div className="home-page-confirmation">
                     <p>Are you sure?</p>
                     <button onClick={() => handleConfirmation(true)}>Yes</button>
                     <button onClick={() => handleConfirmation(false)}>No</button>
                 </div>
             )}
 
-            <div className="modules-grid">
+            <div className="home-page-modules-grid">
                 {modules.map((module, index) => {
                     const Icon = Icons[module.icon];
                     return (
                         <button
                             key={index}
-                            className="module-button"
+                            className="home-page-module-button"
                             onClick={() => handleModuleClick(module.link)}
                         >
-                            {Icon && <Icon className="module-icon" />}
+                            {Icon && <Icon className="home-page-module-icon" />}
                         </button>
                     );
                 })}
@@ -74,7 +74,7 @@ const Home = () => {
                 onMouseUp={cancelHold}
                 onMouseLeave={cancelHold}
                 onTouchEnd={cancelHold}
-                className="hold-button no-select"
+                className="home-page-hold-button no-select"
                 style={{
                     background: `conic-gradient(#ffc107 ${holdProgress}%, #e0a800 ${holdProgress}% 100%)`
                 }}
