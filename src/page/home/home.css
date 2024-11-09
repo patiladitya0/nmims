@@ -1,5 +1,5 @@
 /* General page styling */
-.home-container {
+.home-page-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,13 +8,13 @@
     min-height: 100vh;
 }
 
-h1 {
+.home-page-title {
     color: #333;
     margin-bottom: 20px;
 }
 
 /* Grid for module buttons */
-.modules-grid {
+.home-page-modules-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     gap: 10px;
@@ -24,7 +24,7 @@ h1 {
 }
 
 /* Module button styling */
-.module-button {
+.home-page-module-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,17 +38,17 @@ h1 {
     color: white;
 }
 
-.module-button:hover {
+.home-page-module-button:hover {
     transform: scale(1.05);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.module-icon {
+.home-page-module-icon {
     font-size: 24px;
 }
 
 /* Confirmation pop-up styling */
-.confirmation {
+.home-page-confirmation {
     position: fixed;
     top: 40%;
     left: 50%;
@@ -61,12 +61,12 @@ h1 {
     animation: fadeInScale 0.3s ease forwards;
 }
 
-.confirmation p {
+.home-page-confirmation p {
     margin-bottom: 15px;
     color: #333;
 }
 
-.confirmation button {
+.home-page-confirmation button {
     margin: 0 5px;
     padding: 8px 16px;
     background-color: #007bff;
@@ -76,12 +76,12 @@ h1 {
     cursor: pointer;
 }
 
-.confirmation button:hover {
+.home-page-confirmation button:hover {
     background-color: #0056b3;
 }
 
 /* Hold button styling - fixed at the bottom-right corner */
-.hold-button {
+.home-page-hold-button {
     position: fixed;
     bottom: 80px;
     right: 20px;
@@ -101,6 +101,6 @@ h1 {
     transition: background-color 0.3s;
 }
 
-.hold-button:hover {
+.home-page-hold-button:hover {
     background-color: #e0a800;
 }
