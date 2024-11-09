@@ -4,7 +4,7 @@ import emergencyServicesData from '../../data/emergency.json'; // Updated path
 import './emergency.css'; // Import the CSS for styling
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 
-const EmergencyServices = () => {
+const EmergencyContact = () => {
     const [services, setServices] = useState([]);
     const [activeIndex, setActiveIndex] = useState(null); // Track the index of the active section
     const navigate = useNavigate(); // Initialize useNavigate for navigation
@@ -59,4 +59,4 @@ const EmergencyServices = () => {
     );
 };
 
-export default EmergencyServices;
+export default EmergencyContact;

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './login.css';
 import axios from 'axios';  // Assuming axios is used for API requests
+import { Link } from 'react-router-dom';
+import { CiTextAlignCenter } from 'react-icons/ci';
 
 const Login = () => {
     const [loginMethod, setLoginMethod] = useState('phone');
@@ -11,23 +13,23 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         try {
-          let response;
-          if (loginMethod === 'email') {
-            response = await axios.post('https://cap-server-nv40.onrender.com/login', { email, pin });
-          } else {
-            response = await axios.post('https://cap-server-nv40.onrender.com/login', { mobileNumber: phoneNumber, otp });
-          }
-      
-          localStorage.setItem('token', response.data.token);
-          window.location.href = '/main/home';
+            let response;
+            if (loginMethod === 'email') {
+                response = await axios.post('https://cap-server-nv40.onrender.com/login', { email, pin });
+            } else {
+                response = await axios.post('https://cap-server-nv40.onrender.com/login', { mobileNumber: phoneNumber, otp });
+            }
+
+            localStorage.setItem('token', response.data.token);
+            window.location.href = '/main/home';
         } catch (error) {
-          console.error('Login failed:', error.response ? error.response.data.message : error.message);
+            console.error('Login failed:', error.response ? error.response.data.message : error.message);
         }
-      };
-      
-    
+    };
+
+
     return (
         <div className="login-container">
             <form className="login-form" onSubmit={handleSubmit}>
@@ -109,6 +111,12 @@ const Login = () => {
                 )}
 
                 <button type="submit" className="login-button">Login</button>
+
+                <p style={{textAlign:"center"}}>OR</p>
+
+                <Link to="/signup">
+                    <button className="login-button">Create Account</button>
+                </Link>
             </form>
         </div>
     );

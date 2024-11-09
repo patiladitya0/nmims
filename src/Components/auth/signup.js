@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './signup.css';
+import { Link } from 'react-router-dom';
+
 
 const Signup = () => {
   const [fullName, setFullName] = useState('');
@@ -183,6 +185,13 @@ const Signup = () => {
         </div>
 
         <button type="submit" className="signup-button">Sign Up</button>
+
+        <p style={{textAlign:"center"}}>OR</p>
+
+        <Link to="/login">
+          <button className="login-button">Login</button> 
+        </Link>
+
       </form>
     </div>
   );
