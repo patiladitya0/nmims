@@ -8,7 +8,7 @@ const ProtectedRoute = ({ children }) => {
     const token = localStorage.getItem('token');
 
     if (!token) {
-      navigate('/login');
+      navigate('/second');
     }
   }, [navigate]);
 
