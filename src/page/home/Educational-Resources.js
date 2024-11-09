@@ -29,7 +29,7 @@ const EducationalResources = () => {
                                 {resource.items.map((item, index) => (
                                     <div key={index} className="item">
                                         {/* Use Link to navigate to the routes */}
-                                        <Link to={`/main${item.link.replace('.html', '')}`} className="resource-link">
+                                        <Link to={`${item.link.replace('.html', '')}`} className="resource-link">
                                             {item.heading}
                                         </Link>
                                     </div>

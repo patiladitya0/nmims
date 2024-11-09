@@ -105,13 +105,13 @@ const Search = () => {
 
             <div className="account-heading">Go to My Account</div>
             <div className="account-section">
-                <Link to="/main/my-account" className="account-button">
+                <Link to="/my-account" className="account-button">
                     <FaUser /> My Account
                 </Link>
-                <Link to="/main/myactivity" className="account-button">
+                <Link to="/myactivity" className="account-button">
                     <FaHistory /> My Activity
                 </Link>
-                <Link to="/main/nominee" className="account-button">
+                <Link to="/nominee" className="account-button">
                     <AiOutlineUsergroupAdd /> Emergency Contact
                 </Link>
             </div>

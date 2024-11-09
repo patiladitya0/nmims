@@ -1,32 +1,32 @@
 [
     {
         "name": "Real-Time Crisis Alerts",
-        "link": "/main/real-time-alerts",
+        "link": "/real-time-alerts",
         "icon": "FaBell"
     },
     {
         "name": "Volunteer & Resource Matching",
-        "link": "/main/volunteer-matching",
+        "link": "/volunteer-matching",
         "icon": "FaHandshake"
     },
     {
         "name": "Help Line Numbers",
-        "link": "/main/emergency-communication",
+        "link": "/emergency-communication",
         "icon": "FaPhoneAlt"
     },
     {
         "name": "Live Chat",
-        "link": "/main/chat",
+        "link": "/chat",
         "icon": "FaComments"
     },
     {
         "name": "Create an Emergency Kit",
-        "link": "/main/create-emergency-kit",
+        "link": "/create-emergency-kit",
         "icon": "FaBox"
     },
     {
         "name": "Educational Resources",
-        "link": "/main/educational-resources",
+        "link": "/educational-resources",
         "icon": "FaBook"
     },
     {
@@ -36,7 +36,7 @@
     },
     {
         "name": "Emergency Services",
-        "link": "/main/emergency-services",
+        "link": "/emergency-services",
         "icon": "FaAmbulance"
     },
     {
