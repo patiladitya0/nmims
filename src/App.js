@@ -36,28 +36,27 @@ const App = () => {
       <Route path="/second" element={<Option />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/" element={<MainPage />} >
-        <Route path="real-time-alerts" element={<Alerts />} />
-        <Route path="chat" element={<Chat />} />
-        <Route path="myactivity" element={<Myactivity />} />
-        <Route path="home" element={<Home />} />
-        <Route path="settings" element={<Settings />} />
-        <Route path="search" element={<Search />} />
-        <Route path="menu" element={<Menu />} /> 
-        <Route path="maps" element={<Maps />} /> 
-        <Route path="my-account" element={<MyAccount />} />
-        <Route path="emergency-communication" element={<EmergencyContact />} />
-
-        <Route path="nominee" element={<Nominee />} />
-        <Route path="ContactUs" element={<ContactUs />} />
-        <Route path="about" element={<AboutUs />} />
-        <Route path="emergency-services" element={<EmergencyServices />} />
-        <Route path="create-emergency-kit" element={<EmergencyKIT />} />
-        <Route path="volunteer-matching" element={<VolunteerMatching />} /> 
-        <Route path="educational-resources" element={<EducationalResources />} />
-        <Route path="your-emergency-preparedness-guide" element={<YourEmergencyPreparednessGuide />} /> 
-        <Route path="emergency-preparedness-guide-for-people-with-disabilities" element={<EmergencyPreparednessGuide />} /> 
-        <Route path="emergency-preparedness-for-children" element={<EmergencyPreparednessForChildren />} /> 
+      <Route path="/" element={<ProtectedRoute><MainPage /></ProtectedRoute>} >
+        <Route path="real-time-alerts" element={<ProtectedRoute><Alerts /></ProtectedRoute>} />
+        <Route path="chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
+        <Route path="myactivity" element={<ProtectedRoute><Myactivity /></ProtectedRoute>} />
+        <Route path="home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path="settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+        <Route path="search" element={<ProtectedRoute><Search /></ProtectedRoute>} />
+        <Route path="menu" element={<ProtectedRoute><Menu /></ProtectedRoute>} /> 
+        <Route path="maps" element={<ProtectedRoute><Maps /></ProtectedRoute>} /> 
+        <Route path="my-account" element={<ProtectedRoute><MyAccount /></ProtectedRoute>} />
+        <Route path="emergency-communication" element={<ProtectedRoute><EmergencyContact /></ProtectedRoute>} />
+        <Route path="nominee" element={<ProtectedRoute><Nominee /></ProtectedRoute>} />
+        <Route path="ContactUs" element={<ProtectedRoute><ContactUs /></ProtectedRoute>} />
+        <Route path="about" element={<ProtectedRoute><AboutUs /></ProtectedRoute>} />
+        <Route path="emergency-services" element={<ProtectedRoute><EmergencyServices /></ProtectedRoute>} />
+        <Route path="create-emergency-kit" element={<ProtectedRoute><EmergencyKIT /></ProtectedRoute>} />
+        <Route path="volunteer-matching" element={<ProtectedRoute><VolunteerMatching /></ProtectedRoute>} /> 
+        <Route path="educational-resources" element={<ProtectedRoute><EducationalResources /></ProtectedRoute>} />
+        <Route path="your-emergency-preparedness-guide" element={<ProtectedRoute><YourEmergencyPreparednessGuide /></ProtectedRoute>} /> 
+        <Route path="emergency-preparedness-guide-for-people-with-disabilities" element={<ProtectedRoute><EmergencyPreparednessGuide /></ProtectedRoute>} /> 
+        <Route path="emergency-preparedness-for-children" element={<ProtectedRoute><EmergencyPreparednessForChildren /></ProtectedRoute>} /> 
       </Route>
     </Routes>
   );
