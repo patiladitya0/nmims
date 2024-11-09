@@ -25,18 +25,18 @@ import Alerts from './page/home/alerts';
 import Settings from './page/menu/setting';
 import Myactivity from './page/menu/myactivity';
 import EmergencyContact from './page/home/emergency';
-
+import ProtectedRoute from './ProtectedRoute';
 
 
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<GetStart />} />
+      {/* <Route path="/" element={<MainPage />} /> */}
       <Route path="/second" element={<Option />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/main" element={<MainPage />} >
+      <Route path="/" element={<MainPage />} >
         <Route path="real-time-alerts" element={<Alerts />} />
         <Route path="chat" element={<Chat />} />
         <Route path="myactivity" element={<Myactivity />} />
