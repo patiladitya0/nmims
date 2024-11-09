@@ -7,12 +7,13 @@ export default function VolunteerMatching() {
     title: '',
     description: '',
     date: '',
-    latitude: '',
-    longitude: '',
+    location: '', // Change from latitude and longitude to location
   });
   const [events, setEvents] = useState([]);
   const [userData, setUserData] = useState(null); // Store the user data
   const [showForm, setShowForm] = useState(false); // Control form visibility
+  const [locationResults, setLocationResults] = useState([]); // Store location search results
+  const [selectedLocation, setSelectedLocation] = useState(null); // Store the selected location
 
   useEffect(() => {
     fetchUserData();
@@ -50,13 +51,43 @@ export default function VolunteerMatching() {
     setEventData({ ...eventData, [name]: value });
   };
 
+  const handleLocationChange = async (e) => {
+    const query = e.target.value;
+    setEventData({ ...eventData, location: query });
+
+    if (query.length > 2) { // Start searching after 3 characters
+      try {
+        const response = await axios.get('https://nominatim.openstreetmap.org/search', {
+          params: {
+            q: query,
+            format: 'json',
+            countrycodes: 'IN',
+            addressdetails: 1,
+            limit: 5, // Limit results to 5
+          },
+        });
+        setLocationResults(response.data);
+      } catch (error) {
+        console.error('Error fetching location data:', error);
+      }
+    } else {
+      setLocationResults([]);
+    }
+  };
+
+  const handleLocationSelect = (location) => {
+    setSelectedLocation(location);
+    setEventData({ ...eventData, location: location.display_name });
+    setLocationResults([]); // Clear suggestions
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios.post('https://cap-server-nv40.onrender.com/create', eventData);
       alert('Event created successfully!');
-      setEventData({ title: '', description: '', date: '', latitude: '', longitude: '' }); // Reset form
-      fetchEvents(); // Refresh the list of events
+      setEventData({ title: '', description: '', date: '', location: '' }); // Reset form
+      fetchEvents();
     } catch (error) {
       console.error('Error creating event:', error);
     }
@@ -70,7 +101,7 @@ export default function VolunteerMatching() {
     try {
       await axios.post(`https://cap-server-nv40.onrender.com/${eventId}/volunteer`, { userId: userData._id });
       alert('You have volunteered successfully!');
-      fetchEvents(); // Refresh the event data
+      fetchEvents();
     } catch (error) {
       console.error('Error volunteering:', error);
     }
@@ -101,13 +132,17 @@ export default function VolunteerMatching() {
           </label>
 
           <label>
-            Latitude:
-            <input type="number" name="latitude" value={eventData.latitude} onChange={handleChange} step="any" />
-          </label>
-
-          <label>
-            Longitude:
-            <input type="number" name="longitude" value={eventData.longitude} onChange={handleChange} step="any" />
+            Location:
+            <input type="text" name="location" value={eventData.location} onChange={handleLocationChange} />
+            {locationResults.length > 0 && (
+              <ul className="location-suggestions">
+                {locationResults.map((location) => (
+                  <li key={location.place_id} onClick={() => handleLocationSelect(location)}>
+                    {location.display_name}
+                  </li>
+                ))}
+              </ul>
+            )}
           </label>
 
           <button type="submit">Create Event</button>
@@ -117,16 +152,13 @@ export default function VolunteerMatching() {
       <h2>Available Events</h2>
       {events.length > 0 ? (
         <div>
-          {userData && (
-            <p><strong>Logged in as:</strong> {userData.fullName} (ID: {userData._id})</p>
-          )}
-          <ul>
+          <ul style={{ listStyleType: 'none', padding: 0 }}>
             {events.map((event) => (
               <li key={event._id} style={{ border: '1px solid #ddd', padding: '1rem', margin: '1rem 0' }}>
                 <h3>{event.title}</h3>
                 <p>{event.description}</p>
                 <p><strong>Date:</strong> {new Date(event.date).toLocaleDateString()}</p>
-                <p><strong>Location:</strong> Lat: {event.latitude}, Lng: {event.longitude}</p>
+                <p><strong>Location:</strong> {event.location}</p>
                 <p><strong>Volunteers:</strong> {event.volunteers.length}</p>
                 <button onClick={() => handleVolunteer(event._id)}>Volunteer</button>
               </li>

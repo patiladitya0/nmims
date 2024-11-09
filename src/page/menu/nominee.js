@@ -141,7 +141,7 @@ const Nominee = () => {
                     <div className="emergency-contacts">
                         <h3>Emergency Contacts</h3>
                         {emergencyContacts.length > 0 ? (
-                            <ul>
+                            <ul style={{ listStyleType: 'none', padding: 0 }}>
                                 {emergencyContacts.map((contact) => (
                                     <li key={contact._id}>
                                         <strong>Name:</strong> {contact.fullName} <br />
