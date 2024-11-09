@@ -101,7 +101,6 @@ form.chat-form button[type="submit"]:hover {
 
     #chatBox {
         padding: 10px;
-        max-height: 500px;
     }
 
     form.chat-form input[type="text"] {
