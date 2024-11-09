@@ -22,6 +22,7 @@ import EmergencyPreparednessForChildren from './Module/children';
 import Nominee from './page/menu/nominee';
 import ContactUs from './page/menu/ContactUs';
 import Alerts from './page/home/alerts';
+import Settings from './page/menu/setting';
 import Myactivity from './page/menu/myactivity';
 import EmergencyContact from './page/home/emergency';
 
@@ -36,10 +37,11 @@ const App = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/main" element={<MainPage />} >
-      <Route path="real-time-alerts" element={<Alerts />} />
-      <Route path="chat" element={<Chat />} />
-      <Route path="myactivity" element={<Myactivity />} />
+        <Route path="real-time-alerts" element={<Alerts />} />
+        <Route path="chat" element={<Chat />} />
+        <Route path="myactivity" element={<Myactivity />} />
         <Route path="home" element={<Home />} />
+        <Route path="settings" element={<Settings />} />
         <Route path="search" element={<Search />} />
         <Route path="menu" element={<Menu />} /> 
         <Route path="maps" element={<Maps />} /> 
@@ -56,8 +58,6 @@ const App = () => {
         <Route path="your-emergency-preparedness-guide" element={<YourEmergencyPreparednessGuide />} /> 
         <Route path="emergency-preparedness-guide-for-people-with-disabilities" element={<EmergencyPreparednessGuide />} /> 
         <Route path="emergency-preparedness-for-children" element={<EmergencyPreparednessForChildren />} /> 
-
-
       </Route>
     </Routes>
   );

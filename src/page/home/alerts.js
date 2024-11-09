@@ -10,12 +10,7 @@ const Alerts = () => {
   const fetchNews = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('https://newsapi.org/v2/top-headlines', {
-        params: {
-          country: 'us',
-          apiKey: '1ee17a07805e4ab8b52f359a44e4e026',
-        },
-      });
+      const response = await axios.get('https://cap-server-nv40.onrender.com/news')
       setArticles(response.data.articles);
     } catch (err) {
       setError(err.message);
