@@ -8,6 +8,7 @@ export default function VolunteerMatching() {
     description: '',
     date: '',
     location: '', // Change from latitude and longitude to location
+    skillsRequired: '', // Add a field for required skills
   });
   const [events, setEvents] = useState([]);
   const [userData, setUserData] = useState(null); // Store the user data
@@ -55,7 +56,7 @@ export default function VolunteerMatching() {
     const query = e.target.value;
     setEventData({ ...eventData, location: query });
 
-    if (query.length > 2) { // Start searching after 3 characters
+    if (query.length > 2) {
       try {
         const response = await axios.get('https://nominatim.openstreetmap.org/search', {
           params: {
@@ -84,9 +85,15 @@ export default function VolunteerMatching() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://cap-server-1.onrender.com/create', eventData);
+      const token = localStorage.getItem('token'); // Assume token is stored in localStorage
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      await axios.post('https://cap-server-1.onrender.com/create', eventData, config);
       alert('Event created successfully!');
-      setEventData({ title: '', description: '', date: '', location: '' }); // Reset form
+      setEventData({ title: '', description: '', date: '', location: '', skillsRequired: '' }); // Reset form
       fetchEvents();
     } catch (error) {
       console.error('Error creating event:', error);
@@ -143,6 +150,11 @@ export default function VolunteerMatching() {
                 ))}
               </ul>
             )}
+          </label>
+
+          <label>
+            Skills Required:
+            <input type="text" name="skillsRequired" value={eventData.skillsRequired} onChange={handleChange} />
           </label>
 
           <button type="submit">Create Event</button>

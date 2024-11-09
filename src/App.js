@@ -26,7 +26,7 @@ import PersonalInfo from './page/menu/PersonalInfo';
 import Myactivity from './page/menu/myactivity';
 import EmergencyContact from './page/home/emergency';
 import ProtectedRoute from './ProtectedRoute';
-
+import ManageEvents from './page/home/ManageEvents';
 
 
 const App = () => {
@@ -38,6 +38,7 @@ const App = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/" element={<ProtectedRoute><MainPage /></ProtectedRoute>} >
         <Route path="real-time-alerts" element={<ProtectedRoute><Alerts /></ProtectedRoute>} />
+        <Route path="manage" element={<ProtectedRoute><ManageEvents /></ProtectedRoute>} />
         <Route path="chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
         <Route path="myactivity" element={<ProtectedRoute><Myactivity /></ProtectedRoute>} />
         <Route index element={<ProtectedRoute><Home /></ProtectedRoute>} />
