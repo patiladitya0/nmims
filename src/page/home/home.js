@@ -80,7 +80,7 @@ const Home = () => {
                 onTouchEnd={cancelHold}
                 className="home-page-hold-button no-select"
                 style={{
-                    background: `conic-gradient(#ffc107 ${holdProgress}%, #e0a800 ${holdProgress}% 100%)`
+                    background: `conic-gradient(    #ff0707 ${holdProgress}%, #e0a800 ${holdProgress}% 100%)`
                 }}
             >
                 SOS

@@ -64,6 +64,7 @@
 .home-page-confirmation p {
     margin-bottom: 15px;
     color: #333;
+    align-items: center;
 }
 
 .home-page-confirmation button {
@@ -102,7 +103,7 @@
 }
 
 .home-page-hold-button:hover {
-    background-color: #e0a800;
+    background-color: #f82500;
 }
 
 /* Account button styling */
