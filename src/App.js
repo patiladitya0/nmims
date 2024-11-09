@@ -35,12 +35,12 @@ const App = () => {
       <Route path="/second" element={<Option />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/settings" element={<Settings />} />
       <Route path="/main" element={<MainPage />} >
         <Route path="real-time-alerts" element={<Alerts />} />
         <Route path="chat" element={<Chat />} />
         <Route path="myactivity" element={<Myactivity />} />
         <Route path="home" element={<Home />} />
+        <Route path="settings" element={<Settings />} />
         <Route path="search" element={<Search />} />
         <Route path="menu" element={<Menu />} /> 
         <Route path="maps" element={<Maps />} /> 

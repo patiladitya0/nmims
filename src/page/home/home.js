@@ -20,7 +20,7 @@ const Home = () => {
     const handleConfirmation = (confirm) => {
         setShowConfirmation(false);
         if (confirm) {
-            navigate('/settings'); // Replace '/new-page' with the route you want to navigate to
+            navigate('/main/settings'); // Replace '/new-page' with the route you want to navigate to
         }
     };
 
