@@ -1,31 +1,65 @@
-.emergency-services-container {
-    padding: 10px; /* Container padding */
-    background-color: #f7f7f7;
+/* Reset body margins and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+/* Full-page container styling */
+.emergency-services-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    background-color: #f7f7f7;
+    min-height: 100vh; /* Minimum height to fill viewport */
+    width: 100%;
+    box-sizing: border-box;
+    gap: 4px;
+}
+
+/* Service section styling */
 .service-section {
     background-color: white;
-    margin-bottom: 8px; /* Reduced bottom margin */
+    width: 100%;
+    max-width: 600px; /* Optional max-width for readability on large screens */
+    margin-bottom: 12px;
     border-radius: 8px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Prevent overflow */
+    overflow: hidden;
+    transition: box-shadow 0.2s ease-in-out;
 }
 
+.service-section:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Header styling with burger icon */
 .service-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 10px; /* Reduced vertical padding (top and bottom) */
+    padding: 6px 6px;
     cursor: pointer;
+    background-color: #f3f3f3;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .service-header h2 {
     margin: 0;
-    font-size: 16px; /* Font size */
-    white-space: nowrap; /* Prevent multiline */
+    font-size: 18px;
+    color: #333;
+    flex-grow: 1;
+    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; /* Ellipsis for overflow */
+    text-overflow: ellipsis;
 }
+
+/* Remaining CSS as before... */
+
 
 /* The design is inspired by mockapi.io */
 .popup {

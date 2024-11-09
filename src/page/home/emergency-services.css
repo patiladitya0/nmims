@@ -27,19 +27,31 @@
 .service-info {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
 
+/* Service name styling */
 .service-name {
     font-weight: bold;
     color: #333;
+    font-size: 1.1em;
     flex: 1; /* Align to the left */
+    padding: 4%;
 }
 
+/* Distinct badge for service number */
 .service-number {
     font-weight: bold;
-    color: #333;
-    text-align: right;
+    color: #ffffff;
+    background-color: #4CAF50;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
 }
 
 /* Button styling with phone icon */
@@ -49,16 +61,16 @@
     padding: 8px 15px;
     font-size: 14px;
     color: #ffffff;
-    background-color: #4CAF50;
+    background-color: #ff0000;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    width: 40%;
+    width: 30%;
 }
 
 .dial-button:hover {
-    background-color: #45a049;
+    background-color: #0069d9;
     transform: scale(1.05);
 }
 

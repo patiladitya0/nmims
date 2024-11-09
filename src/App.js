@@ -23,6 +23,7 @@ import Nominee from './page/menu/nominee';
 import ContactUs from './page/menu/ContactUs';
 import Alerts from './page/home/alerts';
 import Myactivity from './page/menu/myactivity';
+import EmergencyContact from './page/home/emergency';
 
 
 
@@ -43,6 +44,8 @@ const App = () => {
         <Route path="menu" element={<Menu />} /> 
         <Route path="maps" element={<Maps />} /> 
         <Route path="my-account" element={<MyAccount />} />
+        <Route path="emergency-communication" element={<EmergencyContact />} />
+
         <Route path="nominee" element={<Nominee />} />
         <Route path="ContactUs" element={<ContactUs />} />
         <Route path="about" element={<AboutUs />} />
