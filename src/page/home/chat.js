@@ -29,7 +29,7 @@ export default function Chat() {
           Authorization: `Bearer ${token}`,
         },
       };
-      const response = await axios.get('https://cap-server-nv40.onrender.com/api/user/account', config);
+      const response = await axios.get('https://cap-server-1.onrender.com/api/user/account', config);
       setUserData(response.data);
     } catch (error) {
       console.error('Error fetching user data:', error);

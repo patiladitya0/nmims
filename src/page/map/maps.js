@@ -33,7 +33,7 @@ export default function Maps() {
       };
 
       // Make API call to fetch user data
-      const response = await axios.get('https://cap-server-nv40.onrender.com/api/user/account', config); // Replace with your actual API endpoint
+      const response = await axios.get('https://cap-server-1.onrender.com/api/user/account', config); // Replace with your actual API endpoint
       setUserData(response.data); // Set the fetched data to the state
     } catch (error) {
       console.error('Error fetching user data:', error);
@@ -43,7 +43,7 @@ export default function Maps() {
   // Fetch crises data
   const fetchCrises = async () => {
     try {
-      const response = await axios.get('https://cap-server-nv40.onrender.com/crises'); // Fetch crises from your backend
+      const response = await axios.get('https://cap-server-1.onrender.com/crises'); // Fetch crises from your backend
       setCrises(response.data); // Set crises data
     } catch (error) {
       console.error('Error fetching crises:', error);
@@ -91,7 +91,7 @@ export default function Maps() {
 
     try {
       // Make the POST request to send data to the server
-      const response = await axios.post('https://cap-server-nv40.onrender.com/crisis', {
+      const response = await axios.post('https://cap-server-1.onrender.com/crisis', {
         desc,
         fullName,
         time,

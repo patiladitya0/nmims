@@ -17,7 +17,7 @@ const Nominee = () => {
         try {
             const token = localStorage.getItem('token');
             const config = token ? { headers: { Authorization: `Bearer ${token}` } } : {};
-            const response = await axios.get('https://cap-server-nv40.onrender.com/api/user/account', config);
+            const response = await axios.get('https://cap-server-1.onrender.com/api/user/account', config);
             setUserData(response.data);
         } catch (error) {
             console.error('Error fetching user data:', error);
@@ -45,23 +45,33 @@ const Nominee = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         if (!userData) {
             console.error("User data not available. Cannot submit form.");
             return;
         }
-
+    
         const dataToSend = {
             ...formData,
             mobileNumber: userData.mobileNumber,
         };
-
+    
         try {
-            const response = await axios.post('https://cap-server-nv40.onrender.com/nominee', dataToSend, {
-                headers: { 'Content-Type': 'application/json' }
-            });
-
-            if (response.status === 200) {
+            const token = localStorage.getItem('token'); // Get token from localStorage
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`, // Include token in headers
+                },
+            };
+    
+            const response = await axios.post(
+                'https://cap-server-1.onrender.com/nominee',
+                dataToSend,
+                config
+            );
+    
+            if (response.status === 201) {
                 console.log("Form data sent successfully");
                 setFormData({ fullName: '', relation: '', contactNumber: '' });
             } else {
@@ -71,7 +81,9 @@ const Nominee = () => {
             console.error("Error sending form data:", error);
             setError("Error sending form data.");
         }
+        fetchUserData();
     };
+    
 
     const emergencyContacts = userData?.emergencyContacts || []; // Safe access with optional chaining
 

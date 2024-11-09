@@ -13,7 +13,7 @@ export default function MyActivity() {
           Authorization: `Bearer ${token}`, // Pass the JWT token in the Authorization header
         },
       };
-      const response = await axios.get('https://cap-server-nv40.onrender.com/api/user/account', config); // Adjust with your actual API endpoint
+      const response = await axios.get('https://cap-server-1.onrender.com/api/user/account', config); // Adjust with your actual API endpoint
       setUserData(response.data); // Set the fetched data to the state
     } catch (error) {
       console.error('Error fetching user data:', error);
@@ -22,7 +22,7 @@ export default function MyActivity() {
 
   const fetchHist = async (userId) => {
     try {
-      const res = await axios.get(`https://cap-server-nv40.onrender.com/gethist`, {
+      const res = await axios.get(`https://cap-server-1.onrender.com/gethist`, {
         params: { id: userId },
       });
       setHist(res.data);
