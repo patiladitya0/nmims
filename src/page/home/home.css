@@ -1,124 +1,106 @@
-.module-grid {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    padding-bottom: 20px;
-}
-
-.module {
-    min-width: 200px;
-    background-color: #fff; /* Fallback color */
-    border-radius: 20px;
-    padding: 20px;
-    height: 100px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-    color: #333;
+/* General page styling */
+.home-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Grid for module buttons */
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+/* Module button styling */
+.module-button {
+    display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid transparent;
-    background-size: cover; /* Cover the entire module */
-    background-position: center; /* Center the image */
+    width: 100px;
+    height: 100px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    color: white;
 }
 
-
-.module:hover {
+.module-button:hover {
     transform: scale(1.05);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    border-color: #28a745;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.module.dragging {
-    transform: rotate(5deg);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
-    border-color: #28a745;
+.module-icon {
+    font-size: 24px;
 }
 
-/* Additional styling for responsiveness */
-@media (max-width: 600px) {
-    .module {
-        min-width: 180px;
-        height: 110px;
-        padding: 8px;
-    }
-
-    .module-content i {
-        font-size: 24px;
-        
-    }
-
-    .module-content {
-        display: flex;
-        flex-direction: column; /* Stack icon and text vertically */
-        justify-content: center; /* Center vertically */
-        align-items: center; /* Center horizontally */
-        text-align: center; /* Center text */
-    }
-    
-    .module-content svg { /* Style the SVG icons */
-        font-size: 36px; /* Increase the size of the icons */
-        margin-bottom: 5px; /* Space between icon and text */
-    }
-    
-    .module-content span {
-        font-size: 14px; /* Adjust text size if needed */
-        font-weight: bold; /* Make text bold */
-    }
-    
-    .module-content span {
-        font-size: 14px;
-        font-weight: bold;
-    }
-
-    /* Line Divider Styling */
-    .account-section-divider {
-        margin: 20px 0;
-        border: 0;
-        border-top: 2px solid #ccc;
-    }
-
-    /* Button Styling for Account Section */
-    .account-section {
-        display: flex;
-        gap: 15px; /* Add gap between buttons */
-        max-width: 100%; /* Ensure the section takes full width */
-        padding-bottom: 10px; /* Add padding to bottom */
-    }
-
-    .account-section .account-button {
-        display: inline-block;
-        background-color: white;
-        color: black;
-        border-radius: 10em;
-        font-size: 13px;
-        font-weight: 600;
-        padding: 0.3em 0.7em;
-                height: auto; /* Allow height to adjust based on content */
-        line-height: normal; /* Reset line height for better vertical alignment */
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        border: 1px solid black;
-        box-shadow: 0 0 0 0 black;
-        text-align: center;
-        margin: 10px 0; /* Adjust margins for better spacing */
-        text-decoration: none;
-        vertical-align: middle; /* Align text vertically within the button */
-    }
-
-    .account-section .account-button:hover {
-        transform: translateY(-4px) translateX(-2px);
-        box-shadow: 2px 5px 0 0 black;
-    }
-
-    .account-section .account-button:active {
-        transform: translateY(2px) translateX(1px);
-        box-shadow: 0 0 0 0 black;
-    }
-
-
-    
+/* Confirmation pop-up styling */
+.confirmation {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+    animation: fadeInScale 0.3s ease forwards;
 }
 
+.confirmation p {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.confirmation button {
+    margin: 0 5px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.confirmation button:hover {
+    background-color: #0056b3;
+}
+
+/* Hold button styling - fixed at the bottom-right corner */
+.hold-button {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ff0707;
+    border: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.hold-button:hover {
+    background-color: #e0a800;
+}
