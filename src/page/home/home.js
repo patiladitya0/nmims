@@ -4,7 +4,7 @@ import modules from '../../data/modules.json';
 import * as Icons from 'react-icons/fa';
 import { AiOutlineUsergroupAdd } from 'react-icons/ai'; // Import the missing icon
 import { FaUser, FaHistory, FaInfoCircle, FaEnvelope } from 'react-icons/fa'; // Import missing icons
-import { MdPersonalInjury, MdEmergencyShare } from "react-icons/md";
+import { MdPersonalInjury, MdEmergencyShare,MdOutlineSos } from "react-icons/md";
 
 import './home.css';
 
@@ -83,7 +83,7 @@ const Home = () => {
                     background: `conic-gradient(    #ff0707 ${holdProgress}%, #e0a800 ${holdProgress}% 100%)`
                 }}
             >
-                SOS
+                <MdOutlineSos size={40} />
             </button>
 
             <hr className="account-section-divider" />

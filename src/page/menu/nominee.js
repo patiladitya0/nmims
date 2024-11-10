@@ -84,7 +84,6 @@ const Nominee = () => {
         fetchUserData();
     };
     
-
     const emergencyContacts = userData?.emergencyContacts || []; // Safe access with optional chaining
 
     return (
@@ -118,13 +117,14 @@ const Nominee = () => {
                                     onChange={handleChange}
                                 >
                                     <option value="" disabled>Select Relation</option>
-                                    <option value="mother">Mother</option>
-                                    <option value="father">Father</option>
-                                    <option value="brother">Brother</option>
-                                    <option value="sister">Sister</option>
-                                    <option value="son">Son</option>
-                                    <option value="daughter">Daughter</option>
-                                    <option value="guardian">Guardian</option>
+                                    <option value="Mother">Mother</option>
+                                    <option value="Father">Father</option>
+                                    <option value="Brother">Brother</option>
+                                    <option value="Sister">Sister</option>
+                                    <option value="Son">Son</option>
+                                    <option value="Daughter">Daughter</option>
+                                    <option value="Guardian">Guardian</option>
+                                    <option value="Doctor">Doctor</option>
                                     <option value="other">Other</option>
                                 </select>
                             </div>
@@ -155,10 +155,12 @@ const Nominee = () => {
                         {emergencyContacts.length > 0 ? (
                             <ul style={{ listStyleType: 'none', padding: 0 }}>
                                 {emergencyContacts.map((contact) => (
-                                    <li key={contact._id}>
-                                        <strong>Name:</strong> {contact.fullName} <br />
-                                        <strong>Relation:</strong> {contact.relation} <br />
-                                        <strong>Contact Number:</strong> {contact.contactNumber}
+                                    <li key={contact._id} className="emergency-contact-item">
+                                        <div className="contact-card">
+                                            <strong>Name:</strong> {contact.fullName} <br />
+                                            <strong>Relation:</strong> {contact.relation} <br />
+                                            <strong>Contact Number:</strong> {contact.contactNumber}
+                                        </div>
                                     </li>
                                 ))}
                             </ul>

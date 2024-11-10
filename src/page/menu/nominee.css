@@ -5,7 +5,6 @@
 }
 
 /* Button to toggle form visibility */
-/* Button to toggle form visibility */
 .cssbuttons-io-button {
     position: fixed; /* Fixed position for bottom-right placement */
     bottom: 76px; /* Bottom margin for spacing */
@@ -23,15 +22,12 @@
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-
 }
-
 
 .cssbuttons-io-button:hover {
     background-color: #45a049; /* Darker green on hover */
     transform: scale(1.1); /* Slight scaling effect */
 }
-
 
 /* Form styling */
 .form {
@@ -91,31 +87,70 @@
 
 /* Submit button */
 .fancy {
+    padding: 12px 24px;
     background-color: #4CAF50; /* Green background */
-    border: none; /* No border */
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
     border-radius: 5px; /* Rounded corners */
-    padding: 10px 20px; /* Padding for the button */
-    cursor: pointer; /* Pointer cursor */
-    color: #ffffff; /* White text */
-    font-size: 16px; /* Text size */
-    font-weight: bold; /* Bold text */
-    letter-spacing: 1px; /* Letter spacing */
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
 }
 
+/* Submit button hover effect */
 .fancy:hover {
-    background-color: #45a049; /* Darker green on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+    background-color: #45a049; /* Darker green */
+    transform: scale(1.05); /* Slight scale on hover */
 }
 
-/* Responsive adjustments */
+/* Error message styling */
+.error-message {
+    color: red;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+/* Emergency contacts section */
+.emergency-contacts {
+    margin-top: 20px;
+}
+
+/* Emergency contact item container styling */
+.emergency-contact-item {
+    margin: 10px 0;
+}
+
+/* Styling each individual contact card */
+.contact-card {
+    background-color: #ffffff; /* White background */
+    padding: 15px; /* Inner padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth shadow transition */
+}
+
+/* Hover effect for contact cards */
+.contact-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+/* Add spacing between name, relation, and contact number */
+.contact-card strong {
+    display: inline-block;
+    margin-bottom: 5px; /* Space between label and value */
+}
+
+/* Styling the contact information for clarity */
+.contact-card p {
+    font-size: 14px; /* Slightly smaller font size */
+    color: #333; /* Dark text color */
+}
+
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
-    .cssbuttons-io-button {
-        width: 50px; /* Smaller button on mobile */
-        height: 50px; /* Smaller button on mobile */
-    }
-    .form {
-        max-width: 90%; /* Full width on smaller screens */
+    .contact-card {
+        padding: 12px; /* Reduced padding on mobile */
     }
 }
-
