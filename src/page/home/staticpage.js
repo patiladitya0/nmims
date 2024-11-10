@@ -51,6 +51,7 @@ const StaticPage = () => {
         }
     };
 
+    // Handling the emergencyContacts array
     const emergencyContacts = nomineeInfo?.emergencyContacts || [];
 
     if (loading) return <div>Loading...</div>;
@@ -61,7 +62,7 @@ const StaticPage = () => {
     const handleConfirmation = (confirm) => {
         setShowConfirmation(false);
         if (confirm) {
-            navigate('/');
+            navigate('/');  // Navigate to home page on confirmation
         }
     };
 
@@ -70,7 +71,7 @@ const StaticPage = () => {
             <h1>Personal Information</h1>
             {personalInfo && (
                 <div className="personal-info">
-                    <p><strong>Name:</strong> {personalInfo.firstName}</p>
+                    <p><strong>Name:</strong> {personalInfo.firstName} {personalInfo.middleName} {personalInfo.lastName}</p>
                     <p><strong>Age:</strong> {personalInfo.age}</p>
                     <p><strong>Blood Group:</strong> {personalInfo.bloodGroup}</p>
                     <p><strong>Address:</strong> {personalInfo.flatNo}</p>
