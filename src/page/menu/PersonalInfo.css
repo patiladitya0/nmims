@@ -142,3 +142,128 @@
     border-bottom: 2px solid #3498db;
     padding-bottom: 5px;
 }
+
+/* ----- Container Styles ----- */
+.personal-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f5f7fa;
+    text-align: center;
+}
+
+/* ----- Open Form Button ----- */
+.open-form-button {
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.open-form-button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* ----- Form Container ----- */
+.personal-info-form, .personal-info-display {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* ----- Input Group Styles ----- */
+
+
+/* ----- Headings ----- */
+.personal-info-form h2, .personal-info-display h2 {
+    color: #007BFF;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.personal-info-form h3 {
+    color: #444;
+    font-size: 1.2em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-align: left;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+}
+
+/* ----- Personal Info Display Section ----- */
+.personal-info-display p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 8px 0;
+    padding: 5px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* ----- Button Styles ----- */
+button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: #fff;
+}
+
+.add-button {
+    background-color: #28a745;
+}
+
+.edit-button {
+    background-color: #007BFF;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.submit-button {
+    background-color: #28a745;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.cancel-button {
+    background-color: #6c757d;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* ----- Responsive Styles ----- */
+@media (max-width: 600px) {
+    .inputGroup input, .inputGroup select {
+        width: 100%;
+    }
+
+    .open-form-button, .submit-button, .cancel-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
