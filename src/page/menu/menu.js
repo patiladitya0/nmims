@@ -64,8 +64,6 @@ const Menu = () => {
                         Emergency Contact
                     </button>
                 </Link>
-            </div>
-            <div className="butn-container">
                 <Link to="/manage">
                     <button className="menu-button">
                         < MdEventAvailable size={20} />
@@ -84,7 +82,6 @@ const Menu = () => {
                         Contact Us
                     </button>
                 </Link>
-
             </div>
 
             {/* Logout Button at the Bottom */}
