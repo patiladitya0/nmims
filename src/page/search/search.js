@@ -8,7 +8,7 @@ import './search.css';
 import modulesData from '../../data/modules.json';
 
 const iconMap = {
-    GiArtificialIntelligence: require('react-icons/gi').GiArtificialIntelligence,
+    FaRobot: require('react-icons/fa').FaRobot,
     FaBell: require('react-icons/fa').FaBell,
     FaHandshake: require('react-icons/fa').FaHandshake,
     FaComments: require('react-icons/fa').FaComments,

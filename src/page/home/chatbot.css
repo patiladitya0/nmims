@@ -1,0 +1,110 @@
+/* Main Chatbot Container */
+.chatbot-main-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 550px;
+    background-color: #ffffff;
+}
+
+/* Chat Message Window */
+.chatbot-message-window {
+    background-color: #f9f9f9;
+    padding: 15px;
+    overflow-y: auto;
+    border-bottom: 1px solid #ddd;
+    flex-grow: 1;
+    scroll-behavior: smooth;
+    
+}
+
+/* Chat Bubbles */
+.chatbot-user-message, .chatbot-bot-message {
+    margin: 10px 0;
+    padding: 10px;
+    max-width: 70%;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.chatbot-user-message {
+    align-self: flex-end;
+    background-color: #bdbdbd;
+    text-align: right;
+    color: black;
+    max-width: max-content;
+}
+
+.chatbot-bot-message {
+    align-self: flex-start;
+    background-color: #c6ff98;
+    text-align: left;
+    max-width: max-content;
+    
+}
+
+/* Input and Button Container */
+.chatbot-input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #f7f7f7;
+    gap: 10px;
+    margin-bottom: 3%;
+}
+
+/* Input Field */
+.chatbot-input-field {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    background-color: #ffffff;
+    transition: border 0.3s;
+}
+
+.chatbot-input-field:focus {
+    border-color: #28a745;
+}
+
+/* Send Button */
+.chatbot-send-button {
+    width: 70px;
+    padding: 10px;
+    border: none;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 5px;
+}
+
+.chatbot-send-button:hover {
+    transform: scale(1.05);
+}
+
+/* Scrollbar for Chat Window */
+.chatbot-message-window::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chatbot-message-window::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+}
+
+.chatbot-message-window::-webkit-scrollbar-track {
+    background-color: #e6e6e6;
+}

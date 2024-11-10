@@ -20,6 +20,11 @@
         "icon": "FaComments"
     },
     {
+        "name": "AI Assistant",
+        "link": "/chatbot",
+        "icon": "FaRobot"
+    },
+    {
         "name": "Create an Emergency Kit",
         "link": "/create-emergency-kit",
         "icon": "FaBox"
@@ -38,15 +43,6 @@
         "name": "Emergency Services",
         "link": "/emergency-services",
         "icon": "FaAmbulance"
-    },
-    {
-        "name": "Medical Assistance",
-        "link": "/medical-assistance",
-        "icon": "FaBriefcaseMedical"
-    },
-    {
-        "name": "AI Assistant",
-        "link": "/chatbot",
-        "icon": "GiArtificialIntelligence"
     }
+
 ]

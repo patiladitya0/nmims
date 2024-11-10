@@ -1,5 +1,8 @@
+// chatbot.js
+
 import React, { useState } from 'react';
 import axios from 'axios';
+import "./chatbot.css"
 
 const Chatbot = () => {
   const [userInput, setUserInput] = useState('');
@@ -12,44 +15,41 @@ const Chatbot = () => {
   const handleSendMessage = async () => {
     if (userInput.trim() === '') return;
 
-    // Display the user's message in the chat window
-    setChatHistory((prev) => [...prev, { sender: 'user', message: userInput }]);
+    setChatHistory((prev) => [...prev, { sender: 'chatbot-user-message', message: userInput }]);
 
     try {
-      // Send message to backend (Node.js server)
-      const response = await axios.post('http://localhost:5001/chatbot', { message: userInput });
-
-      // Get the chatbot's reply
+      const response = await axios.post('https://cap-server-2.onrender.com/chatbot', { message: userInput });
       const botReply = response.data.reply;
 
-      // Display the bot's response
-      setChatHistory((prev) => [...prev, { sender: 'bot', message: botReply }]);
+      setChatHistory((prev) => [...prev, { sender: 'chatbot-bot-message', message: botReply }]);
     } catch (error) {
       console.error('Error:', error);
     }
 
-    // Clear the input field
     setUserInput('');
   };
 
   return (
-    <div className="chatbot-container">
-      <div className="chat-window">
+    <div className="chatbot-main-container">
+      <div className="chatbot-message-window">
         {chatHistory.map((chat, index) => (
           <div key={index} className={chat.sender}>
             <p>{chat.message}</p>
           </div>
         ))}
       </div>
-      <input
-        type="text"
-        value={userInput}
-        onChange={handleUserInputChange}
-        placeholder="Ask about Safety and Security..."
-      />
-      <button onClick={handleSendMessage}>Send</button>
+      <div className="chatbot-input-container">
+        <input
+          type="text"
+          value={userInput}
+          onChange={handleUserInputChange}
+          placeholder="Ask about Safety and Security..."
+          className="chatbot-input-field"
+        />
+        <button onClick={handleSendMessage} className="chatbot-send-button">Send</button>
+      </div>
     </div>
   );
-};
+}
 
 export default Chatbot;
