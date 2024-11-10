@@ -74,7 +74,7 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 1500;
 }
 
 /* Help form styling */
@@ -102,6 +102,31 @@ body, html {
   font-size: 16px;
 }
 
+/* Overlay for the help form */
+.help-form-overlay {
+  position: fixed; /* Stay in place */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  right: 0; /* Align to the right */
+  bottom: 0; /* Cover the whole screen */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex; /* Use flexbox to center the form */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 1000; /* Ensure it is on top of other elements */
+}
+
+/* Styles for the help form */
+.help-form {
+  background-color: white; /* White background for the form */
+  padding: 20px; /* Padding inside the form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  width: 300px; /* Fixed width for the form */
+  text-align: center; /* Center text */
+}
+
+
 .help-form input:focus {
   border-color: #4CAF50;
   outline: none;
@@ -120,7 +145,6 @@ body, html {
   cursor: pointer; /* Pointer on hover */
   transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition effects */
   align-items: end;
-
 }
 
 .help-form button[type="submit"]:hover {
@@ -143,6 +167,27 @@ body, html {
   background-color: #da190b;
 }
 
+/* Centered button styling (small and in the middle of the page) */
+.centered-button {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the button */
+  padding: 10px 15px;
+  font-size: 14px; /* Smaller font size */
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 2000; /* Ensure it's above other elements but below navigation bar */
+  transition: background-color 0.3s ease;
+}
+
+.centered-button:hover {
+  background-color: #45a049;
+}
+
 /* Responsive design */
 @media screen and (max-width: 768px) {
   .help-form {
@@ -152,6 +197,11 @@ body, html {
   
   .fancy {
       font-size: 0.9rem;
+  }
+
+  .centered-button {
+    font-size: 12px;
+    padding: 8px 12px;
   }
 }
 
