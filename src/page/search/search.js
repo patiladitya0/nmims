@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
-import { FaUser, FaHistory , FaPhoneAlt} from 'react-icons/fa';
+import { FaUser, FaHistory, FaPhoneAlt } from 'react-icons/fa';
+import axios from 'axios';
 import './search.css';
 import modulesData from '../../data/modules.json';
 
@@ -18,14 +19,34 @@ const iconMap = {
     FaAmbulance: require('react-icons/fa').FaAmbulance,
     FaBriefcaseMedical: require('react-icons/fa').FaBriefcaseMedical,
     FaChalkboardTeacher: require('react-icons/fa').FaChalkboardTeacher,
-    FaPhoneAlt: require('react-icons/fa').FaPhoneAlt // Add FaPhoneAlt here
+    FaPhoneAlt: require('react-icons/fa').FaPhoneAlt
 };
-
 
 const Search = () => {
     const [modules, setModules] = useState(modulesData);
     const [searchTerm, setSearchTerm] = useState('');
+    const [articles, setArticles] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
+    // Fetch news articles
+    const fetchNews = async () => {
+        setLoading(true);
+        try {
+            const response = await axios.get('https://cap-server-1.onrender.com/news');
+            setArticles(response.data.articles);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchNews();
+    }, []);
+
+    // Drag-and-drop for modules
     const onDragEnd = (result) => {
         const { source, destination } = result;
         if (!destination) return;
@@ -45,11 +66,11 @@ const Search = () => {
         module.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    if (loading) return <p className="loading">Loading news...</p>;
+    if (error) return <p className="error">Error fetching news: {error}</p>;
+
     return (
         <div className="home-container">
-          
-            
-            
             <div className="title-section">
                 <h1>This is Our Modules</h1>
             </div>
@@ -99,6 +120,23 @@ const Search = () => {
                         )}
                     </Droppable>
                 </DragDropContext>
+            </div>
+
+            <hr className="account-section-divider" />
+
+            {/* News Section */}
+            <div className="news-section">
+                <h2>Latest News</h2>
+                <div className="news-grid">
+                    {articles.map((article, index) => (
+                        <div key={index} className="news-item">
+                            {article.urlToImage && (
+                                <img src={article.urlToImage} alt={article.title} className="news-image" />
+                            )}
+                            <h3 className="news-title">{article.title}</h3>
+                        </div>
+                    ))}
+                </div>
             </div>
 
             <hr className="account-section-divider" />

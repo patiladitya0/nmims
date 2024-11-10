@@ -73,7 +73,7 @@ export default function Maps() {
       console.error('Error fetching crises:', error);
       setError('Failed to fetch crises');
     }
-  };
+  }; 
 
   useEffect(() => {
     fetchUserData();
