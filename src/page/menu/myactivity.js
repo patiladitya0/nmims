@@ -20,11 +20,14 @@ export default function MyActivity() {
     }
   };
 
-  const fetchHist = async (userId) => {
+  const fetchHist = async () => {
     try {
-      const res = await axios.get(`https://cap-server-1.onrender.com/gethist`, {
-        params: { id: userId },
-      });
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`, // Pass the JWT token in the Authorization header
+        },
+      };
+      const res = await axios.get(`https://cap-server-1.onrender.com/userevents`, config);
       setHist(res.data);
     } catch (error) {
       console.error('Error fetching history:', error);
@@ -44,5 +47,5 @@ export default function MyActivity() {
     }
   }, [userData]);
 
-  return <div>myactivity</div>;
+  return <div>{hist}</div>;
 }
