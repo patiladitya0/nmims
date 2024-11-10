@@ -34,7 +34,7 @@ body, html {
   bottom: 70px; /* Raise the button to ensure it's visible above other elements */
   left: 50%;
   transform: translateX(-50%); /* Center it horizontally */
-  width: 70%; /* Make it more flexible in width */
+  width: 50%; /* Make it more flexible in width */
   display: flex;
   justify-content: center;
   align-items: center;
