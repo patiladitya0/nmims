@@ -1,0 +1,129 @@
+.manage-events-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.manage-events-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.manage-events-tabs {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.manage-events-tab {
+    padding: 10px 20px;
+    border: none;
+    background: #f0f0f0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.manage-events-tab.active {
+    background: #007bff;
+    color: white;
+}
+
+.event-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.event-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-header {
+    padding: 15px;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.event-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.event-info {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.expanded-content {
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    background-color: #fafafa;
+}
+
+.description {
+    margin-bottom: 20px;
+}
+
+.volunteers-list {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.volunteer {
+    padding: 8px;
+    background-color: white;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Loading and no events message */
+.loading,
+.no-events {
+    text-align: center;
+    color: #666;
+    margin: 20px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .event-info {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .manage-events-container {
+        padding: 10px;
+    }
+}

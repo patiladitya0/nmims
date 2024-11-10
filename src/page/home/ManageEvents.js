@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './ManageEvents.css';
 
 const ManageEvents = () => {
   const [hostedEvents, setHostedEvents] = useState([]);
@@ -43,119 +44,19 @@ const ManageEvents = () => {
     setExpandedEvent(expandedEvent === eventId ? null : eventId);
   };
 
-  const styles = {
-    container: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-      padding: '20px',
-    },
-    header: {
-      fontSize: '24px',
-      fontWeight: 'bold',
-      marginBottom: '20px',
-    },
-    tabs: {
-      display: 'flex',
-      gap: '10px',
-      marginBottom: '20px',
-    },
-    tab: {
-      padding: '10px 20px',
-      border: 'none',
-      background: '#f0f0f0',
-      cursor: 'pointer',
-      borderRadius: '4px',
-    },
-    activeTab: {
-      background: '#007bff',
-      color: 'white',
-    },
-    eventCard: {
-      border: '1px solid #ddd',
-      borderRadius: '8px',
-      marginBottom: '15px',
-      overflow: 'hidden',
-    },
-    eventHeader: {
-      padding: '15px',
-      cursor: 'pointer',
-      backgroundColor: '#f8f9fa',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    eventTitle: {
-      margin: '0',
-      fontSize: '18px',
-      fontWeight: 'bold',
-    },
-    eventInfo: {
-      display: 'flex',
-      gap: '20px',
-      fontSize: '14px',
-      color: '#666',
-      marginTop: '5px',
-    },
-    expandedContent: {
-      padding: '15px',
-      borderTop: '1px solid #ddd',
-    },
-    description: {
-      marginBottom: '20px',
-    },
-    volunteersList: {
-      backgroundColor: '#f8f9fa',
-      padding: '15px',
-      borderRadius: '4px',
-    },
-    volunteer: {
-      padding: '8px',
-      backgroundColor: 'white',
-      marginBottom: '8px',
-      borderRadius: '4px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    deleteButton: {
-      backgroundColor: '#dc3545',
-      color: 'white',
-      border: 'none',
-      padding: '8px 16px',
-      borderRadius: '4px',
-      cursor: 'pointer',
-      marginTop: '10px',
-    },
-    '@media (max-width: 768px)': {
-      eventInfo: {
-        flexDirection: 'column',
-        gap: '5px',
-      },
-      container: {
-        padding: '10px',
-      },
-    }
-  };
-
   return (
-    <div style={styles.container}>
-      <h1 style={styles.header}>Manage Your Events</h1>
+    <div className="manage-events-container">
+      <h1 className="manage-events-header">Manage Your Events</h1>
       
-      <div style={styles.tabs}>
+      <div className="manage-events-tabs">
         <button 
-          style={{
-            ...styles.tab,
-            ...(activeTab === 'active' ? styles.activeTab : {})
-          }}
+          className={`manage-events-tab ${activeTab === 'active' ? 'active' : ''}`}
           onClick={() => setActiveTab('active')}
         >
           Active Events
         </button>
         <button 
-          style={{
-            ...styles.tab,
-            ...(activeTab === 'past' ? styles.activeTab : {})
-          }}
+          className={`manage-events-tab ${activeTab === 'past' ? 'active' : ''}`}
           onClick={() => setActiveTab('past')}
         >
           Past Events
@@ -163,9 +64,9 @@ const ManageEvents = () => {
       </div>
 
       {loading ? (
-        <div>Loading events...</div>
+        <div className="loading">Loading events...</div>
       ) : hostedEvents.length === 0 ? (
-        <div>No events found</div>
+        <div className="no-events">No events found</div>
       ) : (
         hostedEvents
           .filter(event => {
@@ -173,14 +74,14 @@ const ManageEvents = () => {
             return activeTab === 'past' ? isPast : !isPast;
           })
           .map(event => (
-            <div key={event._id} style={styles.eventCard}>
+            <div key={event._id} className="event-card">
               <div 
-                style={styles.eventHeader}
+                className="event-header"
                 onClick={() => toggleEventDetails(event._id)}
               >
                 <div>
-                  <h3 style={styles.eventTitle}>{event.title}</h3>
-                  <div style={styles.eventInfo}>
+                  <h3 className="event-title">{event.title}</h3>
+                  <div className="event-info">
                     <span>📅 {new Date(event.date).toLocaleDateString()}</span>
                     <span>👥 {event.volunteers.length} volunteers</span>
                     <span>📍 {event.location}</span>
@@ -190,17 +91,17 @@ const ManageEvents = () => {
               </div>
 
               {expandedEvent === event._id && (
-                <div style={styles.expandedContent}>
-                  <div style={styles.description}>
+                <div className="expanded-content">
+                  <div className="description">
                     <h4>Description</h4>
                     <p>{event.description}</p>
                   </div>
 
-                  <div style={styles.volunteersList}>
+                  <div className="volunteers-list">
                     <h4>Volunteers</h4>
                     {event.volunteers.length > 0 ? (
                       event.volunteers.map(volunteer => (
-                        <div key={volunteer._id} style={styles.volunteer}>
+                        <div key={volunteer._id} className="volunteer">
                           <span>{volunteer.name}</span>
                           <span>{volunteer.email}</span>
                         </div>
@@ -211,7 +112,7 @@ const ManageEvents = () => {
                   </div>
 
                   <button
-                    style={styles.deleteButton}
+                    className="delete-button"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleDeleteEvent(event._id);

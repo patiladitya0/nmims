@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUser, FaUserFriends, FaInfoCircle, FaSignOutAlt, FaEnvelope } from 'react-icons/fa';
-import { MdPersonalInjury } from "react-icons/md";
+import { MdPersonalInjury, MdEventAvailable } from "react-icons/md";
 
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import Login from '../../Components/auth/login';
@@ -32,11 +32,11 @@ const Menu = () => {
     const handleLogout = () => {
         // Remove the authentication token from local storage
         localStorage.removeItem('token');
-    
+
         // Redirect to the login page
         window.location.href = "/login";
     };
-    
+
 
     useEffect(() => {
         fetchUserData();
@@ -66,6 +66,12 @@ const Menu = () => {
                 </Link>
             </div>
             <div className="butn-container">
+                <Link to="/manage">
+                    <button className="menu-button">
+                        < MdEventAvailable size={20} />
+                        Manage Event
+                    </button>
+                </Link>
                 <Link to="/about">
                     <button className="menu-button">
                         <FaInfoCircle size={20} />
@@ -83,13 +89,13 @@ const Menu = () => {
 
             {/* Logout Button at the Bottom */}
             <div className="logout-container">
-        <button className="Btn" onClick={handleLogout}>
-            <div className="sign">
-                <FaSignOutAlt size={20} />
+                <button className="Btn" onClick={handleLogout}>
+                    <div className="sign">
+                        <FaSignOutAlt size={20} />
+                    </div>
+                    <div className="text">Logout</div>
+                </button>
             </div>
-            <div className="text">Logout</div>
-        </button>
-    </div>
         </div>
     );
 };
