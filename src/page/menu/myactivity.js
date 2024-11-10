@@ -32,7 +32,7 @@ export default function MyActivity() {
 
   const fetchHist = async () => {
     try {
-      const response = await axios.post('http://localhost:5001/userevents', {
+      const response = await axios.post('https://cap-server-2.onrender.com/userevents', {
         userId: userData._id
       });
       setHist(response.data);
