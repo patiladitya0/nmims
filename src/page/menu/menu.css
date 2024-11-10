@@ -53,8 +53,9 @@
 }
 
 .logout-container {
-    margin-top: auto;
-    padding-bottom: 30px; /* Increased bottom padding */
+    margin-top: 2%;
+    /* padding-bottom: 30px;  */
+    padding-top: 5%;
 }
 
 .Btn {
