@@ -113,7 +113,47 @@ export default function Maps() {
     });
   };
 
-  // Rest of your existing handlers (handleHelpMeClick, handleSubmit, etc.)
+  const handleHelpMeClick = () => {
+    setShowHelpForm(!showHelpForm); // Toggle the help form visibility
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Fetch current date and time
+    const currentDate = new Date();
+    const fullName = userData.fullName;
+    const time = currentDate.toTimeString().split(' ')[0]; // Get time in HH:MM:SS format
+    const date = currentDate.toISOString().split('T')[0]; // Get date in YYYY-MM-DD format
+
+    alert(`Help Message: ${desc} - ${userData.fullName}`);
+
+    try {
+      // Make the POST request to send data to the server
+      const response = await axios.post('https://cap-server-1.onrender.com/crisis', {
+        desc,
+        fullName,
+        time,
+        date,
+        cords: position, // Assuming position contains coordinates in [lat, long] format
+      });
+
+      console.log(response.data.message); // Handle success message if needed
+      setHelpMessage(''); // Clear help message input
+      setShowHelpForm(false); // Close the form after successful submission
+    } catch (error) {
+      console.error(
+        'Error submitting crisis form:',
+        error.response ? error.response.data.message : error.message
+      );
+      alert('There was an issue submitting your request. Please try again.');
+    }
+  };
+
+  const handleVolunteerWorkClick = () => {
+    alert("You clicked 'Volunteer Work'");
+  };
+
 
   return (
     <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
@@ -198,7 +238,31 @@ export default function Maps() {
         </MapContainer>
       </div>
 
-      {/* Rest of your existing UI components */}
+      <div className="button-container">
+        <button className="fancy" onClick={handleHelpMeClick}>
+          Help Me!
+        </button>
+      </div>
+
+      {/* Help form that appears on "Help Me!" click */}
+      {showHelpForm && (
+        <div className="help-form-overlay">
+          <div className="help-form">
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Enter your help message"
+                value={desc}
+                onChange={(e) => setHelpMessage(e.target.value)}
+                required
+              />
+              <button type="submit">Submit</button>
+            </form>
+            <button className="close-button" onClick={handleHelpMeClick}>Close</button>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
