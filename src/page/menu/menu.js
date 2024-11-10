@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUser, FaUserFriends, FaInfoCircle, FaSignOutAlt, FaEnvelope } from 'react-icons/fa';
 import { MdPersonalInjury, MdEventAvailable } from "react-icons/md";
-
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import Login from '../../Components/auth/login';
 import './menu.css';
@@ -12,6 +11,7 @@ import axios from "axios";
 const Menu = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);
     const [userData, setUserData] = useState({ fullName: "yourname" }); // Default structure for userData
+    const [isLoggingOut, setIsLoggingOut] = useState(false); // Track if the button is clicked
 
     const fetchUserData = async () => {
         try {
@@ -29,6 +29,17 @@ const Menu = () => {
             console.error('Error fetching user data:', error);
         }
     };
+
+    const handleLogoutClick = () => {
+        if (!isLoggingOut) {
+            // First click: trigger transition effect
+            setIsLoggingOut(true);
+        } else {
+            // Second click: perform the logout
+            handleLogout();
+        }
+    };
+
     const handleLogout = () => {
         // Remove the authentication token from local storage
         localStorage.removeItem('token');
@@ -36,7 +47,6 @@ const Menu = () => {
         // Redirect to the login page
         window.location.href = "/login";
     };
-
 
     useEffect(() => {
         fetchUserData();
@@ -86,9 +96,11 @@ const Menu = () => {
 
             {/* Logout Button at the Bottom */}
             <div className="logout-container">
-                <button className="Btn" onClick={handleLogout}>
+                <button 
+                    className={`Btn ${isLoggingOut ? 'clicked' : ''}`} 
+                    onClick={handleLogoutClick}>
                     <div className="sign">
-                        <FaSignOutAlt size={20} />
+                        <FaSignOutAlt size={40} />
                     </div>
                     <div className="text">Logout</div>
                 </button>

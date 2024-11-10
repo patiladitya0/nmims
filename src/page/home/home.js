@@ -37,7 +37,7 @@ const Home = () => {
     const handleConfirmation = (confirm) => {
         setShowConfirmation(false);
         if (confirm) {
-            navigate('/settings'); // Adjust this route as needed
+            navigate('/StaticPage'); // Adjust this route as needed
         }
     };
 

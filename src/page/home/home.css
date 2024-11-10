@@ -64,38 +64,63 @@
 }
 
 /* Confirmation pop-up styling */
+/* Confirmation pop-up styling */
 .home-page-confirmation {
     position: fixed;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    background-color: #ffffff;
     border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     animation: fadeInScale 0.3s ease forwards;
+    width: 300px; /* Set a specific width for better control */
+    text-align: center;
 }
 
 .home-page-confirmation p {
-    margin-bottom: 15px;
+    font-size: 18px;
     color: #333;
-    align-items: center;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
 .home-page-confirmation button {
-    margin: 0 5px;
-    padding: 8px 16px;
-    background-color: #007bff;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #28a745;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 50px;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+    width: 120px;
 }
 
 .home-page-confirmation button:hover {
-    background-color: #0056b3;
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-3px);
 }
+
+.home-page-confirmation button:focus {
+    outline: none;
+}
+
+/* Fading in and scaling effect */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
 
 /* Hold button styling - fixed at the bottom-right corner */
 .home-page-hold-button {
@@ -173,3 +198,5 @@
     border-top: 1px solid #ddd;
     margin: 20px 0;
 }
+
+

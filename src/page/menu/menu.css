@@ -118,3 +118,71 @@
     transform: translate(2px, 2px);
 }
 
+/* Other CSS stays the same */
+
+/* Apply transition effects when the button is clicked */
+.Btn.clicked {
+    width: 130px; /* Increased width on first click */
+    border-radius: 40px; /* Rounded corners on first click */
+    background-color: rgb(255, 65, 65); /* Button color on click */
+}
+
+.Btn.clicked .sign {
+    width: 30%;
+    padding-left: 25px; /* Adjust padding */
+}
+
+.Btn.clicked .text {
+    opacity: 1;
+    width: 70%;
+    padding-right: 10px;
+}
+
+.Btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+    background-color: rgb(255, 65, 65);
+}
+
+.sign {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.sign svg {
+    width: 20px;
+    color: white;
+}
+
+.text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.Btn:active {
+    transform: translate(2px, 2px);
+}
+
+.Btn:hover {
+    width: 130px;
+    border-radius: 40px;
+}
