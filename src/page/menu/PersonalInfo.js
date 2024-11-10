@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PersonalInfo.css';
+import axios from 'axios';
 
 const PersonalInfo = () => {
     const [isFormVisible, setIsFormVisible] = useState(false);
+    const [personal, setPersonal] = useState(null);
     const [formData, setFormData] = useState({
         firstName: '',
         middleName: '',
@@ -36,8 +38,45 @@ const PersonalInfo = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const fetchpersonalinfo = async () => {
+        const token = localStorage.getItem('token'); // Assuming you store the token
+        console.log('Token retrieved:', token); // Log the token for debugging
+    
+        if (!token) {
+            console.error('No token found, unauthorized request');
+            return; // Prevent further execution if no token is found
+        }
+    
+        try {
+            const response = await axios.get('https://cap-server-nv40.onrender.com/personal-info', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            setPersonal(response.data.personalInfo);
+            console.log('Personal Info:', response.data.personalInfo);
+        } catch (error) {
+            console.error('Error fetching personal info:', error.response?.data || error.message);
+        }
+    };
+
+    useEffect(() => {
+                fetchpersonalinfo();
+        }, []); 
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        try {
+            const token = localStorage.getItem('token'); // Assuming you store the token
+            const response = await axios.post('https://cap-server-nv40.onrender.com/personal-info', formData, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+        }
+        catch (error) {
+            console.error("Error Submitting personal information");
+        }
         console.log("Form Data Submitted:", formData);
         setFormData({
             firstName: '',
