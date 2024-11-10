@@ -43,5 +43,10 @@
         "name": "Medical Assistance",
         "link": "/medical-assistance",
         "icon": "FaBriefcaseMedical"
+    },
+    {
+        "name": "AI Assistant",
+        "link": "/chatbot",
+        "icon": "FaBriefcaseMedical"
     }
 ]

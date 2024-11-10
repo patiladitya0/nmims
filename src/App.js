@@ -28,6 +28,7 @@ import EmergencyContact from './page/home/emergency';
 import ProtectedRoute from './ProtectedRoute';
 import ManageEvents from './page/home/ManageEvents';
 import StaticPage from './page/home/staticpage';
+import Chatbot from './page/home/chatbot';
 
 
 const App = () => {
@@ -43,8 +44,7 @@ const App = () => {
         <Route path="manage" element={<ProtectedRoute><ManageEvents /></ProtectedRoute>} />
         <Route path="chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
         <Route path="myactivity" element={<ProtectedRoute><Myactivity /></ProtectedRoute>} />
-        
-        
+        <Route path="chatbot" element={<ProtectedRoute><Chatbot /></ProtectedRoute>} />
         <Route index element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="personalinfo" element={<ProtectedRoute><PersonalInfo /></ProtectedRoute>} />
