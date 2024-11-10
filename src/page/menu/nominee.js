@@ -143,6 +143,15 @@ const Nominee = () => {
                             <button className="fancy" type="submit">
                                 Submit
                             </button>
+
+                            {/* Close button */}
+                            <button
+                                type="button"
+                                className="close-button"
+                                onClick={toggleFormVisibility}
+                            >
+                                Close
+                            </button>
                         </form>
                     )}
 
@@ -151,7 +160,7 @@ const Nominee = () => {
 
                     {/* Display emergency contacts */}
                     <div className="emergency-contacts">
-                        <h3>Emergency Contacts</h3>
+                        <h1>Emergency Contacts</h1>
                         {emergencyContacts.length > 0 ? (
                             <ul style={{ listStyleType: 'none', padding: 0 }}>
                                 {emergencyContacts.map((contact) => (

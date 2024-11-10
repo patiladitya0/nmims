@@ -134,6 +134,7 @@ margin-top: 2%;
     display: flex; /* Changes to flex for better alignment */
     align-items: center;
     margin-bottom: 20px;
+    /* margin-top: 40px; */
 }
 
 .search input[type="text"] {
@@ -202,4 +203,23 @@ margin-top: 2%;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
+}
+
+
+.close-button {
+    background-color: #f44336; /* Red background */
+    color: white;
+    padding: 8px 8px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    width: 32%;
+    
+}
+
+.close-button:hover {
+    background-color: #e53935; /* Darker red on hover */
 }

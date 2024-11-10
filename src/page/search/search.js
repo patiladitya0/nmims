@@ -72,7 +72,7 @@ const Search = () => {
     return (
         <div className="search-container">
             <div className="title-section">
-                <h1 class="module-heading">This is Our Modules</h1>
+                <h1 class="module-heading">Browse...</h1>
             </div>
 
             <div className="search">

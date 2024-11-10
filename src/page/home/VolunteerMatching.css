@@ -3,14 +3,14 @@
     margin: 0 auto;
     padding: 20px;
     background-color: #f8f8f8;
-    border-radius: 12px;
+    border-radius: 50px;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
 .volunteer-matching-container h2 {
     font-size: 24px;
-    color: #3a8f5b;
+    color: #28a745;
     margin-bottom: 20px;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .volunteer-matching-form button {
-    background-color: #28a745;
+    background-color: #28a745; /* Button color */
     color: white;
     padding: 12px 20px;
     font-size: 16px;
@@ -56,7 +56,7 @@
 }
 
 .volunteer-matching-form button:hover {
-    background-color: #208c37;
+    background-color: #208c37; /* Darker shade on hover */
     transform: scale(1.05);
 }
 
