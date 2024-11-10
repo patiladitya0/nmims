@@ -44,7 +44,7 @@ const StaticPage = () => {
                 headers: { 'Authorization': `Bearer ${token}` },
             });
             console.log('Nominee Data:', data); // Log to check structure
-            setNomineeInfo(data.nominee);
+            setNomineeInfo(data);
         } catch (error) {
             setError('Error fetching nominee info');
             console.error('Error fetching nominee info:', error);
