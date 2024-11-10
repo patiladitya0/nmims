@@ -18,6 +18,7 @@ export default function MyActivity() {
         }
       };
       const response = await axios.get('https://cap-server-2.onrender.com/api/user/account', config);
+      console.log(response.data)
       setUserData(response.data); // Set the fetched data to the state
     } catch (error) {
       console.error('Error fetching user data:', error);
@@ -28,12 +29,13 @@ export default function MyActivity() {
     if (userData) {
       fetchHist();
     }
-  }, [userData]); // Dependency on userData
+  }, []);
 
   const fetchHist = async () => {
     try {
+      let id = userData._id;
       const response = await axios.post('https://cap-server-2.onrender.com/userevents', {
-        userId: userData._id
+        userId: id
       });
       setHist(response.data);
     } catch (error) {
