@@ -8,7 +8,7 @@ export default function MyActivity() {
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.get('https://cap-server-1.onrender.com/api/user/account', {
+      const response = await axios.get('https://cap-server-2.onrender.com/api/user/account', {
         headers: {
           Authorization: `Bearer ${token}`, // Pass the JWT token in the Authorization header
         },
@@ -28,7 +28,7 @@ export default function MyActivity() {
         const id = userData._id;
         console.log(id);
         const token = localStorage.getItem('token'); // Ensure you have the token
-        const response = await axios.get('https://cap-server-1.onrender.com/userevents', {
+        const response = await axios.get('https://cap-server-2.onrender.com/userevents', {
             headers: {
                 Authorization: `Bearer ${token}` // Include the token in the request headers
             }

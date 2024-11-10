@@ -15,7 +15,7 @@ const ManageEvents = () => {
   const fetchHostedEvents = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('https://cap-server-1.onrender.com/hosted-events', {
+      const response = await axios.get('https://cap-server-2.onrender.com/hosted-events', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setHostedEvents(response.data);
@@ -30,7 +30,7 @@ const ManageEvents = () => {
     if (window.confirm('Are you sure you want to delete this event?')) {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`https://cap-server-1.onrender.com/events/${eventId}`, {
+        await axios.delete(`https://cap-server-2.onrender.com/events/${eventId}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         fetchHostedEvents();

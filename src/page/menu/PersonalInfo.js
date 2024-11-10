@@ -48,7 +48,7 @@ const PersonalInfo = () => {
         }
     
         try {
-            const response = await axios.get('https://cap-server-1.onrender.com/personal-info', {
+            const response = await axios.get('https://cap-server-2.onrender.com/personal-info', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -68,7 +68,7 @@ const PersonalInfo = () => {
         e.preventDefault();
         try {
             const token = localStorage.getItem('token'); // Assuming you store the token
-            const response = await axios.post('https://cap-server-1.onrender.com/personal-info', formData, {
+            const response = await axios.post('https://cap-server-2.onrender.com/personal-info', formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }

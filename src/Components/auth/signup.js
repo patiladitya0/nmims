@@ -29,7 +29,7 @@ const Signup = () => {
     };
   
     try {
-      const response = await fetch('https://cap-server-1.onrender.com/signup', {
+      const response = await fetch('https://cap-server-2.onrender.com/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
