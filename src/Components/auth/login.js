@@ -98,7 +98,7 @@ const Login = () => {
                             />
                         </div>
                         <div className="input-group">
-                            <label htmlFor="otp">OTP</label>
+                            <label htmlFor="otp">6-Digit Security Pin</label>
                             <input
                                 type="password"
                                 id="otp"

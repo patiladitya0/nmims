@@ -161,7 +161,7 @@ const Signup = () => {
 
         {/* Email Address */}
         <div className="input-group">
-          <label htmlFor="email">Email Address (optional)</label>
+          <label htmlFor="email">Email Address</label>
           <input
             type="email"
             id="email"

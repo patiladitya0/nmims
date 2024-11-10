@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import './ststicpage.css';
 import axios from 'axios';
 
 const StaticPage = () => {
-    const [personalInfo, setPersonalInfo] = useState(null);  
-    const [loading, setLoading] = useState(true);  
-    const [error, setError] = useState(null);  
-    const [nomineeInfo, setNomineeInfo] = useState(null);  
-    const [showConfirmation, setShowConfirmation] = useState(false); 
+    const [personalInfo, setPersonalInfo] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [nomineeInfo, setNomineeInfo] = useState(null);
+    const [showConfirmation, setShowConfirmation] = useState(false);
 
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchPersonalInfo();
-        fetchNomineeInfo();  
+        fetchNomineeInfo();
     }, []);
 
     const fetchPersonalInfo = async () => {
@@ -22,15 +22,15 @@ const StaticPage = () => {
         if (!token) return console.error('No token found');
 
         try {
-            setLoading(true); 
+            setLoading(true);
             const { data } = await axios.get('https://cap-server-2.onrender.com/personal-info', {
                 headers: { 'Authorization': `Bearer ${token}` },
             });
             setPersonalInfo(data.personalInfo);
-            setLoading(false); 
+            setLoading(false);
         } catch (error) {
             setError('Error fetching personal info');
-            setLoading(false); 
+            setLoading(false);
             console.error('Error fetching personal info:', error);
         }
     };
@@ -43,13 +43,15 @@ const StaticPage = () => {
             const { data } = await axios.get('https://cap-server-2.onrender.com/api/user/account', {
                 headers: { 'Authorization': `Bearer ${token}` },
             });
+            console.log('Nominee Data:', data); // Log to check structure
             setNomineeInfo(data.nominee);
         } catch (error) {
+            setError('Error fetching nominee info');
             console.error('Error fetching nominee info:', error);
         }
     };
 
-    const emergencyContacts = nomineeInfo?.emergencyContacts || []; // Access emergencyContacts safely
+    const emergencyContacts = nomineeInfo?.emergencyContacts || [];
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
