@@ -1,8 +1,15 @@
+.module-heading{
+margin-top: 2%;
+}
+
+
+
 .module-grid {
     display: flex;
     gap: 15px;
     overflow-x: auto;
     padding-bottom: 20px;
+    
 }
 
 .module {
@@ -22,6 +29,7 @@
     border: 2px solid transparent;
     background-size: cover; /* Cover the entire module */
     background-position: center; /* Center the image */
+
 }
 
 

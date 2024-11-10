@@ -70,9 +70,9 @@ const Search = () => {
     if (error) return <p className="error">Error fetching news: {error}</p>;
 
     return (
-        <div className="home-container">
+        <div className="search-container">
             <div className="title-section">
-                <h1>This is Our Modules</h1>
+                <h1 class="module-heading">This is Our Modules</h1>
             </div>
 
             <div className="search">

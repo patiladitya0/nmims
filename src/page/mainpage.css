@@ -1,20 +1,46 @@
+/* General Styles for the main page container */
 .main-page-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
     position: relative;
+    background: #28a745; /* Set the background color */
+    overflow: hidden; /* Prevent overflow */
 }
 
+/* Gradient background effect */
+.main-page-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(farthest-side at -33.33% 50%, #0000 52%, #170409 54% 57%, #0000 59%) 0 calc(140px / 2),
+                radial-gradient(farthest-side at 50% 133.33%, #0000 52%, #170409 54% 57%, #0000 59%) calc(140px / 2) 0,
+                radial-gradient(farthest-side at 133.33% 50%, #0000 52%, #170409 54% 57%, #0000 59%),
+                radial-gradient(farthest-side at 50% -33.33%, #0000 52%, #170409 54% 57%, #0000 59%),
+                #67917a; /* second color */
+    background-size: calc(140px / 4.667) 140px, 140px calc(140px / 4.667);
+    z-index: -1; /* Set behind the content */
+}
+
+/* Page content styling */
 .page-content {
     flex: 1;
-    padding: 15px;
-    background-color: #f7f7f7;
+    margin-bottom: 12%;
+   
+  
+    background-color: #f7f7f7; /* Light background for content */
     overflow-y: auto;
-    padding-bottom: 90px;
-    padding-top: 50px;
+    
+    border-radius: 12px; /* Round the edges for a softer design */
+    border-top-left-radius: 85px;
+    border-top-right-radius: 85px;
 }
 
+/* Bottom Navigation Bar */
 .bottom-nav {
     display: flex;
     justify-content: space-around;
@@ -27,8 +53,11 @@
     box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
     height: 60px;
     z-index: 1000;
+    border-top-left-radius: 12px; /* Rounded corners for bottom */
+    border-top-right-radius: 12px;
 }
 
+/* Navigation item styling */
 .nav-item {
     color: white;
     transition: background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -40,6 +69,7 @@
     align-items: center;
 }
 
+/* Active state for navigation item */
 .nav-item.active {
     background-color: white;
     color: #28a745;
@@ -47,6 +77,7 @@
     transform: scale(1.1);
 }
 
+/* Hover effect for navigation item */
 .nav-item:hover {
     background-color: white;
     color: #28a745;
@@ -54,6 +85,7 @@
     transform: scale(1.05);
 }
 
+/* SVG Icon styling */
 .nav-item svg {
     font-size: 24px;
 }
@@ -64,4 +96,21 @@
 
 .nav-item svg:hover {
     color: #28a745;
+}
+
+/* Responsive Design for small screens */
+@media (max-width: 600px) {
+    .bottom-nav {
+        flex-direction: row;
+        padding: 10px 0;
+    }
+
+    .nav-item {
+        width: auto;
+        padding: 10px;
+    }
+
+    .page-content {
+        padding: 10px;
+    }
 }
