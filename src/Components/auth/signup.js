@@ -17,7 +17,6 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle signup logic here
     console.log({ fullName, dob, gender, mobileNumber, email, pin });
     const userData = {
       fullName,
@@ -40,6 +39,7 @@ const Signup = () => {
       const data = await response.json();
       if (response.status === 201) {
         console.log('Signup successful:', data);
+        alert("Signed up successfully, Please Login");
         // Optionally store the JWT token
       } else {
         console.error('Signup failed:', data.message);
