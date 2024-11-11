@@ -5,7 +5,7 @@ import * as Icons from 'react-icons/fa';
 import { AiOutlineUsergroupAdd } from 'react-icons/ai'; // Import the missing icon
 import { FaUser, FaHistory, FaInfoCircle, FaEnvelope } from 'react-icons/fa'; // Import missing icons
 import { MdPersonalInjury, MdEmergencyShare,MdOutlineSos } from "react-icons/md";
-import { GiArtificialIntelligence } from "react-icons/gi";
+// import { GiArtificialIntelligence } from "react-icons/gi";
 
 import './home.css';
 
