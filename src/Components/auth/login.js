@@ -101,12 +101,12 @@ const Login = () => {
                             <label htmlFor="otp">6-Digit Security Pin</label>
                             <input
                                 type="password"
-                                id="otp"
-                                value={otp}
-                                onChange={(e) => setOtp(e.target.value)}
+                                id="pin"
+                                value={pin}
+                                onChange={(e) => setPin(e.target.value)}
                                 pattern="[0-9]{6}"
                                 required
-                                placeholder="Enter OTP"
+                                placeholder="Enter 6-digit PIN"
                             />
                         </div>
                     </>
