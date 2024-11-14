@@ -140,10 +140,12 @@ margin-top: 2%;
 .search input[type="text"] {
     flex: 1; /* Takes up remaining space */
     padding: 10px;
+    font-size: 16px;
     border: none;
     border-radius: 20px 0 0 20px; /* Rounded only on the left side */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 
 .search button[type="submit"] {
     width: 25%; /* Fixed width of 25% */
