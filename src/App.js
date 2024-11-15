@@ -29,6 +29,9 @@ import ProtectedRoute from './ProtectedRoute';
 import ManageEvents from './page/home/ManageEvents';
 import StaticPage from './page/home/staticpage';
 import Chatbot from './page/home/chatbot';
+import BeforeEmerg from './Module/BeforeEmerg';
+import DuringEmerg from './Module/DuringEmerg';
+import AfterEmerg from './Module/AfterEmerg';
 
 
 const App = () => {
@@ -57,6 +60,9 @@ const App = () => {
         <Route path="ContactUs" element={<ProtectedRoute><ContactUs /></ProtectedRoute>} />
         <Route path="about" element={<ProtectedRoute><AboutUs /></ProtectedRoute>} />
         <Route path="emergency-services" element={<ProtectedRoute><EmergencyServices /></ProtectedRoute>} />
+        <Route path="before-an-emergency" element={<ProtectedRoute><BeforeEmerg /></ProtectedRoute>} />
+        <Route path="during-an-emergency" element={<ProtectedRoute><DuringEmerg /></ProtectedRoute>} />
+        <Route path="after-an-emergency" element={<ProtectedRoute><AfterEmerg /></ProtectedRoute>} />
         <Route path="create-emergency-kit" element={<ProtectedRoute><EmergencyKIT /></ProtectedRoute>} />
         <Route path="volunteer-matching" element={<ProtectedRoute><VolunteerMatching /></ProtectedRoute>} /> 
         <Route path="educational-resources" element={<ProtectedRoute><EducationalResources /></ProtectedRoute>} />
