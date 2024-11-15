@@ -7,41 +7,39 @@ export default function VolunteerMatching() {
     title: '',
     description: '',
     date: '',
-    location: '', // Change from latitude and longitude to location
-    skillsRequired: '', // Add a field for required skills
+    location: '',
+    skillsRequired: '',
   });
   const [events, setEvents] = useState([]);
-  const [userData, setUserData] = useState(null); // Store the user data
-  const [showForm, setShowForm] = useState(false); // Control form visibility
-  const [locationResults, setLocationResults] = useState([]); // Store location search results
-  const [selectedLocation, setSelectedLocation] = useState(null); // Store the selected location
+  const [userData, setUserData] = useState(null);
+  const [showForm, setShowForm] = useState(false);
+  const [locationResults, setLocationResults] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState(null);
 
   useEffect(() => {
     fetchUserData();
     fetchEvents();
   }, []);
 
-  // Fetch all events from the backend
   const fetchEvents = async () => {
     try {
-      const response = await axios.get('/events');
+      const response = await axios.get('https://cap-server-2.onrender.com/events');
       setEvents(response.data);
     } catch (error) {
       console.error('Error fetching events:', error);
     }
   };
 
-  // Fetch user data from the backend
   const fetchUserData = async () => {
     try {
-      const token = localStorage.getItem('token'); // Assume token is stored in localStorage
+      const token = localStorage.getItem('token');
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       };
-      const response = await axios.get('/api/user/account', config);
-      setUserData(response.data); // Save user data to state
+      const response = await axios.get('https://cap-server-2.onrender.com/api/user/account', config);
+      setUserData(response.data);
     } catch (error) {
       console.error('Error fetching user data:', error);
     }
@@ -59,13 +57,7 @@ export default function VolunteerMatching() {
     if (query.length > 2) {
       try {
         const response = await axios.get('https://nominatim.openstreetmap.org/search', {
-          params: {
-            q: query,
-            format: 'json',
-            countrycodes: 'IN',
-            addressdetails: 1,
-            limit: 5, // Limit results to 5
-          },
+          params: { q: query, format: 'json', countrycodes: 'IN', addressdetails: 1, limit: 5 },
         });
         setLocationResults(response.data);
       } catch (error) {
@@ -79,21 +71,17 @@ export default function VolunteerMatching() {
   const handleLocationSelect = (location) => {
     setSelectedLocation(location);
     setEventData({ ...eventData, location: location.display_name });
-    setLocationResults([]); // Clear suggestions
+    setLocationResults([]);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem('token'); // Assume token is stored in localStorage
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-      await axios.post('/create', eventData, config);
+      const token = localStorage.getItem('token');
+      const config = { headers: { Authorization: `Bearer ${token}` } };
+      await axios.post('https://cap-server-2.onrender.com/create', eventData, config);
       alert('Event created successfully!');
-      setEventData({ title: '', description: '', date: '', location: '', skillsRequired: '' }); // Reset form
+      setEventData({ title: '', description: '', date: '', location: '', skillsRequired: '' });
       fetchEvents();
     } catch (error) {
       console.error('Error creating event:', error);
@@ -106,7 +94,7 @@ export default function VolunteerMatching() {
       return;
     }
     try {
-      await axios.post(`/${eventId}/volunteer`, { userId: userData._id });
+      await axios.post(`https://cap-server-2.onrender.com/${eventId}/volunteer`, { userId: userData._id });
       alert('You have volunteered successfully!');
       fetchEvents();
     } catch (error) {
@@ -115,14 +103,14 @@ export default function VolunteerMatching() {
   };
 
   return (
-    <div className="volunteer-matching-container">
+    <div className="volunteer-matching-container-unique">
       <h2>NGO Events</h2>
       <button onClick={() => setShowForm(!showForm)}>
         {showForm ? 'Hide Form' : 'Create Event'}
       </button>
 
       {showForm && (
-        <form onSubmit={handleSubmit} className="volunteer-matching-form">
+        <form onSubmit={handleSubmit} className="volunteer-matching-form-unique">
           <label>
             Event Title:
             <input type="text" name="title" value={eventData.title} onChange={handleChange} />
@@ -142,7 +130,7 @@ export default function VolunteerMatching() {
             Location:
             <input type="text" name="location" value={eventData.location} onChange={handleLocationChange} />
             {locationResults.length > 0 && (
-              <ul className="location-suggestions">
+              <ul className="location-suggestions-unique">
                 {locationResults.map((location) => (
                   <li key={location.place_id} onClick={() => handleLocationSelect(location)}>
                     {location.display_name}
@@ -157,7 +145,7 @@ export default function VolunteerMatching() {
             <input type="text" name="skillsRequired" value={eventData.skillsRequired} onChange={handleChange} />
           </label>
 
-          <button type="submit">Create Event</button>
+          <button type="submit" className="volunteer-matching-button-unique">Create Event</button>
         </form>
       )}
 

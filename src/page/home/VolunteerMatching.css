@@ -1,4 +1,5 @@
-.volunteer-matching-container {
+/* Container for Volunteer Matching */
+.volunteer-matching-container-unique {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
@@ -8,13 +9,14 @@
     text-align: center;
 }
 
-.volunteer-matching-container h2 {
+.volunteer-matching-container-unique h2 {
     font-size: 24px;
     color: #28a745;
     margin-bottom: 20px;
 }
 
-.volunteer-matching-form label {
+/* Form Styling */
+.volunteer-matching-form-unique label {
     display: block;
     font-size: 16px;
     color: #555;
@@ -22,8 +24,8 @@
     text-align: left;
 }
 
-.volunteer-matching-form input,
-.volunteer-matching-form textarea {
+.volunteer-matching-form-unique input,
+.volunteer-matching-form-unique textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -33,18 +35,19 @@
     box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.volunteer-matching-form input:focus,
-.volunteer-matching-form textarea:focus {
+.volunteer-matching-form-unique input:focus,
+.volunteer-matching-form-unique textarea:focus {
     border-color: #34b556;
     outline: none;
 }
 
-.volunteer-matching-form textarea {
+.volunteer-matching-form-unique textarea {
     resize: vertical;
     min-height: 80px;
 }
 
-.volunteer-matching-form button {
+/* Button Styling */
+.volunteer-matching-button-unique {
     background-color: #28a745; /* Button color */
     color: white;
     padding: 12px 20px;
@@ -55,23 +58,45 @@
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.volunteer-matching-form button:hover {
+.volunteer-matching-button-unique:hover {
     background-color: #208c37; /* Darker shade on hover */
     transform: scale(1.05);
 }
 
-/* Responsive design for mobile screens */
+/* Location Suggestions Dropdown */
+.location-suggestions-unique {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 5px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-height: 150px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.location-suggestions-unique li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.location-suggestions-unique li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Responsive Design for Mobile */
 @media (max-width: 600px) {
-    .volunteer-matching-container {
+    .volunteer-matching-container-unique {
         padding: 15px;
         width: 90%;
     }
 
-    .volunteer-matching-form label {
+    .volunteer-matching-form-unique label {
         font-size: 14px;
     }
 
-    .volunteer-matching-form button {
+    .volunteer-matching-button-unique {
         width: 100%;
         font-size: 15px;
     }
