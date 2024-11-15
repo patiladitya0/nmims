@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import axios from 'axios';
 import './chat.css';
 
-const socket = io("");
+const socket = io("https://cap-server-2.onrender.com");
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
