@@ -22,15 +22,15 @@
        
             {
                 "heading": "Before an Emergency",
-                "link": "before-an-emergency.html"
+                "link": "/before-an-emergency"
             },
             {
                 "heading": "During an emergency",
-                "link": "during-an-emergency.html"
+                "link": "/during-an-emergency"
             },
             {
                 "heading": "After an emergency",
-                "link": "after-an-emergency.html"
+                "link": "/after-an-emergency"
             }
         ]
     }
