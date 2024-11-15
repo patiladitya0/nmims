@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import './login.css';
 import axios from 'axios';  // Assuming axios is used for API requests
 import { Link } from 'react-router-dom';
-import { CiTextAlignCenter } from 'react-icons/ci';
 
 const Login = () => {
     const [loginMethod, setLoginMethod] = useState('phone');
     const [email, setEmail] = useState('');
     const [pin, setPin] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [otp, setOtp] = useState('');
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();

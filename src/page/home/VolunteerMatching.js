@@ -14,7 +14,6 @@ export default function VolunteerMatching() {
   const [userData, setUserData] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [locationResults, setLocationResults] = useState([]);
-  const [selectedLocation, setSelectedLocation] = useState(null);
 
   useEffect(() => {
     fetchUserData();
@@ -69,7 +68,6 @@ export default function VolunteerMatching() {
   };
 
   const handleLocationSelect = (location) => {
-    setSelectedLocation(location);
     setEventData({ ...eventData, location: location.display_name });
     setLocationResults([]);
   };
