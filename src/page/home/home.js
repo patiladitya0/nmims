@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom'; // Import Link here
 import modules from '../../data/modules.json';
-import * as Icons from 'react-icons/fa';
+import * as Icons from 'react-icons/fa' ;
+
 import { AiOutlineUsergroupAdd } from 'react-icons/ai'; // Import the missing icon
 import { FaUser, FaHistory, FaInfoCircle, FaEnvelope } from 'react-icons/fa'; // Import missing icons
 import { MdPersonalInjury, MdEmergencyShare,MdOutlineSos } from "react-icons/md";
@@ -102,9 +103,7 @@ const Home = () => {
                 <Link to="/my-account" className="account-buttonn">
                     <FaUser size={20} /> My Account
                 </Link>
-                <Link to="/myactivity" className="account-buttonn">
-                    <FaHistory size={20} /> My Activity
-                </Link>
+                
                 <Link to="/personalinfo">
                     <button className="account-buttonn">
                         <MdPersonalInjury size={20} />

@@ -34,7 +34,11 @@
         "link": "/educational-resources",
         "icon": "FaBook"
     },
-    
+    {
+        "name": "Manage Event",
+        "link": "/manage",
+        "icon": "FaPeopleCarry"
+    },
     {
         "name": "Emergency Services",
         "link": "/emergency-services",

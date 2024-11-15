@@ -146,13 +146,11 @@ const Search = () => {
             <div className="account-heading">Go to My Account</div>
             <div className="account-section">
                 <Link to="/my-account" className="account-button">
-                    <FaUser /> My Account
+                    <FaUser size={20} /> My Account
                 </Link>
-                <Link to="/myactivity" className="account-button">
-                    <FaHistory /> My Activity
-                </Link>
+                
                 <Link to="/nominee" className="account-button">
-                    <AiOutlineUsergroupAdd /> Emergency Contact
+                    <AiOutlineUsergroupAdd size={20} /> Emergency Contact
                 </Link>
             </div>
         </div>
