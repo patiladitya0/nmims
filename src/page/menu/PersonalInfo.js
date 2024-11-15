@@ -42,8 +42,8 @@ const PersonalInfo = () => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         const endpoint = isEditMode
-            ? '/personal-info/update'
-            : '/personal-info';
+            ? 'https://cap-server-2.onrender.com/personal-info/update'
+            : 'https://cap-server-2.onrender.com/personal-info';
 
         try {
             await axios.post(endpoint, formData, {
