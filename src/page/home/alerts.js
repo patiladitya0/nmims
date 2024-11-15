@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Alerts.css'; // Importing the CSS file
+import Loading from '../../loading'
 
 const Alerts = () => {
   const [articles, setArticles] = useState([]);
@@ -23,7 +24,7 @@ const Alerts = () => {
     fetchNews();
   }, []);
 
-  if (loading) return <p className="loading">Loading news...</p>;
+  if (loading) return <Loading />;
   if (error) return <p className="error">Error fetching news: {error}</p>;
 
   return (
