@@ -34,11 +34,7 @@
         "link": "/educational-resources",
         "icon": "FaBook"
     },
-    {
-        "name": "Disaster Prevention",
-        "link": "/disaster-prevention",
-        "icon": "FaShieldAlt"
-    },
+    
     {
         "name": "Emergency Services",
         "link": "/emergency-services",
