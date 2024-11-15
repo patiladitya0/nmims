@@ -23,7 +23,7 @@ const StaticPage = () => {
 
         try {
             setLoading(true);
-            const { data } = await axios.get('/personal-info', {
+            const { data } = await axios.get('https://cap-server-2.onrender.com/personal-info', {
                 headers: { 'Authorization': `Bearer ${token}` },
             });
             setPersonalInfo(data.personalInfo);
@@ -40,7 +40,7 @@ const StaticPage = () => {
         if (!token) return console.error('No token found');
 
         try {
-            const { data } = await axios.get('/api/user/account', {
+            const { data } = await axios.get('https://cap-server-2.onrender.com/api/user/account', {
                 headers: { 'Authorization': `Bearer ${token}` },
             });
             console.log('Nominee Data:', data); // Log to check structure

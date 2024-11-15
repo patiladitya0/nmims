@@ -18,7 +18,7 @@ const Chatbot = () => {
     setChatHistory((prev) => [...prev, { sender: 'chatbot-user-message', message: userInput }]);
 
     try {
-      const response = await axios.post('/chatbot', { message: userInput });
+      const response = await axios.post('https://cap-server-2.onrender.com/chatbot', { message: userInput });
       const botReply = response.data.reply;
 
       setChatHistory((prev) => [...prev, { sender: 'chatbot-bot-message', message: botReply }]);
