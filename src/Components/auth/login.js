@@ -26,6 +26,7 @@ const Login = () => {
                 window.location.href = '/home';
             }
         } catch (error) {
+            alert("Login Error");
             console.error('Login failed:', error.response ? error.response.data.message : error.message);
         }
     };
@@ -79,6 +80,7 @@ const Login = () => {
                                 pattern="[0-9]{6}"
                                 required
                                 placeholder="Enter 6-digit PIN"
+                                maxLength="6"
                             />
                         </div>
                     </>
@@ -94,6 +96,7 @@ const Login = () => {
                                 pattern="[0-9]{10}"
                                 required
                                 placeholder="Enter 10-digit number"
+                                maxLength="10"
                             />
                         </div>
                         <div className="input-group">
@@ -106,6 +109,7 @@ const Login = () => {
                                 pattern="[0-9]{6}"
                                 required
                                 placeholder="Enter 6-digit PIN"
+                                maxLength="6"
                             />
                         </div>
                     </>
