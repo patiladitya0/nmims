@@ -24,7 +24,7 @@ export default function VolunteerMatching() {
   // Fetch all events from the backend
   const fetchEvents = async () => {
     try {
-      const response = await axios.get('https://cap-server-2.onrender.com/events');
+      const response = await axios.get('/events');
       setEvents(response.data);
     } catch (error) {
       console.error('Error fetching events:', error);
@@ -40,7 +40,7 @@ export default function VolunteerMatching() {
           Authorization: `Bearer ${token}`,
         },
       };
-      const response = await axios.get('https://cap-server-2.onrender.com/api/user/account', config);
+      const response = await axios.get('/api/user/account', config);
       setUserData(response.data); // Save user data to state
     } catch (error) {
       console.error('Error fetching user data:', error);
@@ -91,7 +91,7 @@ export default function VolunteerMatching() {
           Authorization: `Bearer ${token}`,
         },
       };
-      await axios.post('https://cap-server-2.onrender.com/create', eventData, config);
+      await axios.post('/create', eventData, config);
       alert('Event created successfully!');
       setEventData({ title: '', description: '', date: '', location: '', skillsRequired: '' }); // Reset form
       fetchEvents();
@@ -106,7 +106,7 @@ export default function VolunteerMatching() {
       return;
     }
     try {
-      await axios.post(`https://cap-server-2.onrender.com/${eventId}/volunteer`, { userId: userData._id });
+      await axios.post(`/${eventId}/volunteer`, { userId: userData._id });
       alert('You have volunteered successfully!');
       fetchEvents();
     } catch (error) {

@@ -34,7 +34,7 @@ const Search = () => {
     const fetchNews = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('https://cap-server-2.onrender.com/news');
+            const response = await axios.get('/news');
             setArticles(response.data.articles);
         } catch (err) {
             setError(err.message);

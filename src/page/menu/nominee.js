@@ -17,7 +17,7 @@ const Nominee = () => {
         try {
             const token = localStorage.getItem('token');
             const config = token ? { headers: { Authorization: `Bearer ${token}` } } : {};
-            const response = await axios.get('https://cap-server-2.onrender.com/api/user/account', config);
+            const response = await axios.get('/api/user/account', config);
             setUserData(response.data);
         } catch (error) {
             console.error('Error fetching user data:', error);
@@ -66,7 +66,7 @@ const Nominee = () => {
             };
     
             const response = await axios.post(
-                'https://cap-server-2.onrender.com/nominee',
+                '/nominee',
                 dataToSend,
                 config
             );

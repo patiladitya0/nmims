@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import axios from 'axios';
 import './chat.css';
 
-const socket = io("https://cap-server-2.onrender.com");
+const socket = io("");
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
@@ -29,7 +29,7 @@ export default function Chat() {
           Authorization: `Bearer ${token}`,
         },
       };
-      const response = await axios.get('https://cap-server-2.onrender.com/api/user/account', config);
+      const response = await axios.get('/api/user/account', config);
       setUserData(response.data);
     } catch (error) {
       console.error('Error fetching user data:', error);
