@@ -126,7 +126,7 @@ export default function Maps() {
     const time = currentDate.toTimeString().split(' ')[0]; // Get time in HH:MM:SS format
     const date = currentDate.toISOString().split('T')[0]; // Get date in YYYY-MM-DD format
 
-    alert(`Help Message: ${desc} - ${userData.fullName}`);
+    
 
     try {
       // Make the POST request to send data to the server
@@ -139,6 +139,7 @@ export default function Maps() {
       });
 
       console.log(response.data.message); // Handle success message if needed
+      fetchCrises();
       setHelpMessage(''); // Clear help message input
       setShowHelpForm(false); // Close the form after successful submission
     } catch (error) {
