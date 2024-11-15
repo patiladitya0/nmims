@@ -23,7 +23,7 @@ const Menu = () => {
             };
 
             // Make API call to fetch user data
-            const response = await axios.get('/api/user/account', config);
+            const response = await axios.get('https://cap-server-2.onrender.comapi/user/account', config);
             setUserData(response.data); // Set the fetched data to the state
         } catch (error) {
             console.error('Error fetching user data:', error);

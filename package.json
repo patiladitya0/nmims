@@ -46,6 +46,5 @@
   "devDependencies": {
     "eslint-config-react-app": "^7.0.1",
     "webpack-dev-server": "^5.1.0"
-  },
-  "proxy" : "https://cap-server-2.onrender.com"
+  }
 }

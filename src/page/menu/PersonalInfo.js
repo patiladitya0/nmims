@@ -23,7 +23,7 @@ const PersonalInfo = () => {
         if (!token) return console.error('No token found');
         
         try {
-            const { data } = await axios.get('/personal-info', {
+            const { data } = await axios.get('https://cap-server-2.onrender.com/personal-info', {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             setPersonal(data.personalInfo);
@@ -61,7 +61,7 @@ const PersonalInfo = () => {
     const handleDelete = async () => {
         const token = localStorage.getItem('token');
         try {
-            await axios.delete('/personal-info/delete', {
+            await axios.delete('https://cap-server-2.onrender.com/personal-info/delete', {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             setPersonal(null);
