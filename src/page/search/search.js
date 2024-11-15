@@ -6,6 +6,7 @@ import { FaUser, FaHistory, FaPhoneAlt } from 'react-icons/fa';
 import axios from 'axios';
 import './search.css';
 import modulesData from '../../data/modules.json';
+import Loading from '../../loading';
 
 const iconMap = {
     FaRobot: require('react-icons/fa').FaRobot,
@@ -67,7 +68,7 @@ const Search = () => {
         module.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    if (loading) return <p className="loading">Loading news...</p>;
+    if (loading) return <Loading />;
     if (error) return <p className="error">Error fetching news: {error}</p>;
 
     return (
