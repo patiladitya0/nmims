@@ -45,7 +45,7 @@ const MyAccount = () => {
                 }
             };
             // Make API call to update the password
-            const response = await axios.put('/api/user/update-password', { currentPassword, newPassword }, config); // Replace with your actual endpoint
+            await axios.put('/api/user/update-password', { currentPassword, newPassword }, config); // Replace with your actual endpoint
             setSuccessMessage('Password updated successfully');
             setError(''); // Clear any errors
         } catch (error) {

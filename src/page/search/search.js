@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
-import { FaUser, FaHistory, FaPhoneAlt } from 'react-icons/fa';
+import { FaUser, FaHistory } from 'react-icons/fa';
 import axios from 'axios';
 import './search.css';
 import modulesData from '../../data/modules.json';
