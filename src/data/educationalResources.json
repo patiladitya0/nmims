@@ -19,18 +19,7 @@
     {
         "title": "Hazards and Emergencies",
         "items": [
-            {
-                "heading": "Hazards",
-                "link": "/hazards"
-            },
-            {
-                "heading": "Other emergencies",
-                "link": "other-emergencies.html"
-            },
-            {
-                "heading": "Regional information",
-                "link": "regional-information.html"
-            },
+       
             {
                 "heading": "Before an Emergency",
                 "link": "before-an-emergency.html"
