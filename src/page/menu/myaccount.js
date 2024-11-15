@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaEdit } from 'react-icons/fa'; // Import edit icon
 import './myaccount.css'; // Ensure to create this CSS file for styling
 import axios from 'axios';
+import Loading from '../../loading';
 
 const MyAccount = () => {
     const [userData, setUserData] = useState(null); // State to hold user data
@@ -60,7 +61,7 @@ const MyAccount = () => {
 
     // Handle loading and errors
     if (loading) {
-        return <p>Loading...</p>; // Display loading message while data is being fetched
+        return <Loading />; // Display loading message while data is being fetched
     }
 
     if (error) {
