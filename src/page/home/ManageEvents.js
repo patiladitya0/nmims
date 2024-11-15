@@ -47,15 +47,15 @@ const ManageEvents = () => {
   return (
     <div className="manage-events-container">
       <h1 className="manage-events-header">Manage Your Events</h1>
-      
+
       <div className="manage-events-tabs">
-        <button 
+        <button
           className={`manage-events-tab ${activeTab === 'active' ? 'active' : ''}`}
           onClick={() => setActiveTab('active')}
         >
           Active Events
         </button>
-        <button 
+        <button
           className={`manage-events-tab ${activeTab === 'past' ? 'active' : ''}`}
           onClick={() => setActiveTab('past')}
         >
@@ -75,7 +75,7 @@ const ManageEvents = () => {
           })
           .map(event => (
             <div key={event._id} className="event-card">
-              <div 
+              <div
                 className="event-header"
                 onClick={() => toggleEventDetails(event._id)}
               >
@@ -99,16 +99,20 @@ const ManageEvents = () => {
 
                   <div className="volunteers-list">
                     <h4>Volunteers</h4>
-                    {event.volunteers.length > 0 ? (
-                      event.volunteers.map(volunteer => (
-                        <div key={volunteer._id} className="volunteer">
-                          <span>{volunteer.name}</span>
-                          <span>{volunteer.email}</span>
-                        </div>
-                      ))
+                    {event.volunteers?.length > 0 ? (
+                      event.volunteers
+                        .filter(volunteer => volunteer !== null) // Exclude null entries
+                        .map(volunteer => (
+                          <div key={volunteer?._id || Math.random()} className="volunteer">
+                            <span>{volunteer?.name || "Unknown Name"}</span>
+                            <span>{volunteer?.email || "Unknown Email"}</span>
+                          </div>
+                        ))
                     ) : (
                       <p>No volunteers yet</p>
                     )}
+
+
                   </div>
 
                   <button
