@@ -103,7 +103,7 @@ export default function VolunteerMatching() {
   return (
     <div className="volunteer-matching-container-unique">
       <h2>NGO Events</h2>
-      <button onClick={() => setShowForm(!showForm)}>
+      <button style={{backgroundColor : "#28a745"}} onClick={() => setShowForm(!showForm)}>
         {showForm ? 'Hide Form' : 'Create Event'}
       </button>
 
@@ -158,7 +158,7 @@ export default function VolunteerMatching() {
                 <p><strong>Date:</strong> {new Date(event.date).toLocaleDateString()}</p>
                 <p><strong>Location:</strong> {event.location}</p>
                 <p><strong>Volunteers:</strong> {event.volunteers.length}</p>
-                <button onClick={() => handleVolunteer(event._id)}>Volunteer</button>
+                <button style={{backgroundColor : "#28a745"}} onClick={() => handleVolunteer(event._id)}>Volunteer</button>
               </li>
             ))}
           </ul>
