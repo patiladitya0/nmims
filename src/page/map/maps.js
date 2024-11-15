@@ -57,7 +57,7 @@ export default function Maps() {
           Authorization: `Bearer ${token}`
         }
       };
-      const response = await axios.get('https://cap-server-2.onrender.com/api/user/account', config);
+      const response = await axios.get('/api/user/account', config);
       setUserData(response.data);
     } catch (error) {
       console.error('Error fetching user data:', error);
@@ -67,7 +67,7 @@ export default function Maps() {
   // Fetch crises data
   const fetchCrises = async () => {
     try {
-      const response = await axios.get('https://cap-server-2.onrender.com/crises');
+      const response = await axios.get('/crises');
       setCrises(response.data);
     } catch (error) {
       console.error('Error fetching crises:', error);
@@ -130,7 +130,7 @@ export default function Maps() {
 
     try {
       // Make the POST request to send data to the server
-      const response = await axios.post('https://cap-server-2.onrender.com/crisis', {
+      const response = await axios.post('/crisis', {
         desc,
         fullName,
         time,
